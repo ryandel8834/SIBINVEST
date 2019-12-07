@@ -1,7 +1,7 @@
 <template>
   <b-navbar class="navbar" toggleable="lg" type="dark" variant>
     <!-- Right aligned nav items -->
-    <b-container>
+    <b-container class="pl-0">
       <b-navbar-brand href="#">LOGO</b-navbar-brand>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">

@@ -2,7 +2,7 @@
   <div>
     <div class="home-section">
       <app-header></app-header>
-      <app-home-section class="w-75 float-right"></app-home-section>
+      <app-home-section class="w-80 float-right"></app-home-section>
     </div>
     <app-footer></app-footer>
   </div>
@@ -31,5 +31,8 @@ export default {
   background: url("./assets/homesection.jpg") no-repeat;
   height: 1050px;
   background-size: cover;
+}
+.w-80 {
+  width: 80%;
 }
 </style>
