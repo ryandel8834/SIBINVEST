@@ -30,8 +30,8 @@ export default {
 
 <style scoped>
 .home-section {
-  background: url("./assets/homesection.jpg");
-  height: 1427px;
-  background-size: contain;
+  background: url("./assets/homesection.jpg") no-repeat;
+  height: 1050px;
+  background-size: cover;
 }
 </style>

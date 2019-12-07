@@ -3,7 +3,7 @@ import App from "./App.vue";
 import Header from "./components/header/header.vue";
 
 import "./plugins/bootstrap-vue";
-import "./styles/index.scss";
+import "./styles/index.css";
 
 Vue.component("app-header", Header);
 
