@@ -2,9 +2,7 @@
   <div>
     <div class="home-section">
       <app-header></app-header>
-      <b-container>
-        <app-home-section></app-home-section>
-      </b-container>
+      <app-home-section class="w-75 float-right"></app-home-section>
     </div>
     <app-footer></app-footer>
   </div>
