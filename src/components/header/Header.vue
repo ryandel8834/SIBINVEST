@@ -34,4 +34,7 @@ export default {};
   width: 300px;
   background: rgb(87, 88, 90);
 }
+.sticky-top {
+  top: 20px;
+}
 </style>
