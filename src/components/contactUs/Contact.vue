@@ -1,7 +1,7 @@
 <template>
   <b-container class="pt-5 pl-0 pr-0">
     <b-row>
-      <b-col class="contact-information" cols="6">
+      <b-col class="contact-information" lg="6" sm="12">
         <div>
           <h2 style="color: black; font-weight: bold;">KONTAKTIRAJTE NAS</h2>
           <p>
@@ -20,13 +20,13 @@
           <p>sibinvestdoo@gmail.com</p>
         </div>
       </b-col>
-      <b-col class="contact-information" cols="6">
+      <b-col class="contact-information" lg="6" sm="12">
         <b-form>
           <b-form-group>
-            <b-form-input id="name" type="name" placeholder="Ime" required></b-form-input>
+            <b-form-input id="name" placeholder="Ime" required></b-form-input>
           </b-form-group>
           <b-form-group>
-            <b-form-input id="email" type="email" placeholder="Email" required></b-form-input>
+            <b-form-input id="email" placeholder="Email" required></b-form-input>
           </b-form-group>
           <b-form-group>
             <b-textarea
@@ -60,5 +60,13 @@ export default {};
 }
 div p {
   margin-bottom: 0px;
+}
+@media (max-width: 991px) {
+  .row {
+    padding: 5%;
+  }
+  .contact-information {
+    padding-bottom: 10%;
+  }
 }
 </style>

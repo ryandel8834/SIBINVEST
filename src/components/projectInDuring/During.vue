@@ -1,28 +1,14 @@
 <template>
-  <b-container class="pt-4" style="height: 370px;">
+  <b-container class="pt-4 durring-section">
     <h2 style="color: black; font-weight: bold;">PROJEKTI U TOKU</h2>
     <b-row class="justify-content-center">
-      <b-col cols="4">
+      <b-col lg="4" sm="12">
         <img src="../../assets/during1.jpg" />
       </b-col>
-      <b-col cols="4">
-        <a
-          data-target="#modalIMG"
-          data-toggle="modal"
-          href="#"
-          class="color-gray-darker td-hover-none"
-        >
-          <div class>
-            <img
-              alt="Card image cap"
-              class="card-img-top"
-              src="../../assets/during2.jpg"
-              style="width:333px;"
-            />
-          </div>
-        </a>
+      <b-col lg="4" sm="12">
+        <img alt="Card image cap" class="card-img-top" src="../../assets/during2.jpg" />
       </b-col>
-      <b-col cols="4">
+      <b-col lg="4" sm="12">
         <img src="../../assets/during3.jpg" />
       </b-col>
     </b-row>
@@ -35,6 +21,27 @@ export default {};
 
 <style scoped>
 img {
-  height: 250px;
+  width: 100%;
+  height: auto;
+  padding: 1%;
+}
+.durring-section {
+  height: auto;
+}
+/* Media query */
+@media (max-width: 991px) {
+  .durring-section {
+    height: auto;
+  }
+  .row {
+    text-align: center;
+  }
+  .container h2 {
+    text-align: center;
+  }
+  img {
+    padding: 2%;
+    width: 75%;
+  }
 }
 </style>

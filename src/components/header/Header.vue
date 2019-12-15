@@ -3,7 +3,7 @@
     <!-- Right aligned nav items -->
     <b-container class="pl-0 pr-0">
       <div class="header-gray-track"></div>
-      <b-navbar-nav class="ml-auto sticky-top">
+      <b-navbar-nav class="ml-auto sticky-top" hidden-xs>
         <b-nav-item text="Lang" right>POCETNA</b-nav-item>
         <b-nav-item text="Lang" right>O NAMA</b-nav-item>
         <b-nav-item text="Lang" right>REFERENCE</b-nav-item>
@@ -16,7 +16,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isNav: false
+    };
+  }
+};
 </script>
 
 <style scoped>
@@ -36,5 +42,12 @@ export default {};
 }
 .sticky-top {
   top: 20px;
+}
+/* Media query */
+@media (max-width: 991px) {
+  .navbar-nav,
+  .header-gray-track {
+    display: none;
+  }
 }
 </style>

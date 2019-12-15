@@ -2,7 +2,7 @@
   <div class="about-us">
     <h1 style="color:white">O NAMA</h1>
     <div class="about-us-card">
-      <p>
+      <p class="mb-0">
         Naša kompanija je specijalizovana za izvođenje najrazličitijih radova u oblasti građevinarstva. Sa sedištem u Nišu, beležimo postojanje od 2008. godine,
         dok je prvi objekat- stambena zgrada u ulici Stojana Novakovića u Nišu, izveden 2009. godine.
         Ono čime se ponosimo su efkasnost, kvalitet gradnje, iskustvo i poslovan uspeh na čitavoj teritoriji južne i jugoistočne Srbije.
@@ -22,7 +22,7 @@ export default {};
   top: 64%;
 }
 .about-us-card {
-  height: 100px;
+  height: auto;
   background: rgb(109, 110, 111);
   opacity: 0.6;
   padding: 1%;
@@ -30,5 +30,10 @@ export default {};
 .about-us-card p {
   color: white;
   font-weight: bold;
+}
+@media (max-width: 991px) {
+  .about-us {
+    top: 50%;
+  }
 }
 </style>
