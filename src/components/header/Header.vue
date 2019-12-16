@@ -9,7 +9,7 @@
         <b-nav-item text="Lang" right>REFERENCE</b-nav-item>
         <b-nav-item text="Lang" right>PROJEKTI U TOKU</b-nav-item>
         <b-nav-item text="Lang" right>KONTAKT</b-nav-item>
-        <b-nav-item text="Lang" right>SEARCH</b-nav-item>
+        <b-nav-item text="Lang" right>search</b-nav-item>
       </b-navbar-nav>
     </b-container>
   </b-navbar>
