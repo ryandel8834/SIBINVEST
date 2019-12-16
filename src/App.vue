@@ -1,22 +1,12 @@
 <template>
   <div>
-    <div class="home-section">
-      <app-header></app-header>
-      <app-home-section class="w-80 float-right"></app-home-section>
-    </div>
-    <app-reference-section></app-reference-section>
-    <app-project-during></app-project-during>
-    <app-contact-us></app-contact-us>
-    <app-footer></app-footer>
+    <app-home></app-home>
   </div>
 </template>
 
 <script>
-import Footer from "./components/footer/Footer.vue";
-import Home from "./components/homesection/Home";
-import Reference from "./components/reference/Reference";
-import ProjectDuring from "./components/projectInDuring/During";
-import Contact from "./components/contactUs/Contact";
+import homeView from "./views/Home";
+import specificView from "./views/ReferenceSpecific";
 
 export default {
   name: "app",
@@ -26,11 +16,8 @@ export default {
     };
   },
   components: {
-    "app-footer": Footer,
-    "app-home-section": Home,
-    "app-reference-section": Reference,
-    "app-project-during": ProjectDuring,
-    "app-contact-us": Contact
+    "app-home": homeView,
+    "app-reference": specificView
   }
 };
 </script>
