@@ -1,5 +1,5 @@
 <template>
-  <div class="about-us">
+  <div class="about-us" id="about-us">
     <h1 style="color:white">O NAMA</h1>
     <div class="about-us-card">
       <p class="mb-0">
@@ -19,7 +19,7 @@ export default {};
 <style scoped>
 .about-us {
   position: relative;
-  top: 64%;
+  top: 47%;
 }
 .about-us-card {
   height: auto;

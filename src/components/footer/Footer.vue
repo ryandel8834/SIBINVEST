@@ -1,6 +1,6 @@
 <template>
   <footer class="page-footer font-small blue pt-4">
-    <p class="txt-footer">  This is footer </p>
+    <p class="txt-footer">  all rights reserved </p>
   </footer>
 </template>
 

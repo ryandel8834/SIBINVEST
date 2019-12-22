@@ -1,5 +1,5 @@
 <template>
-  <b-container class="pt-5 pl-0 pr-0">
+  <b-container class="pt-5 pl-0 pr-0" id="contact-us">
     <b-row>
       <b-col class="contact-information" lg="6" sm="12">
         <div>

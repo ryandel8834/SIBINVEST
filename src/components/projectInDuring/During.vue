@@ -1,5 +1,5 @@
 <template>
-  <b-container class="pt-4 durring-section">
+  <b-container class="pt-4 durring-section" id="projects-in-progress">
     <h2 style="color: black; font-weight: bold;">PROJEKTI U TOKU</h2>
     <b-row class="justify-content-center">
       <b-col lg="4" sm="12">

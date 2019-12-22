@@ -1,6 +1,9 @@
 /* @import "../../node_modules/bootstrap/scss/bootstrap.scss"; */
 /* @import "../../node_modules/bootstrap-vue/src/index.scss"; */
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap&subset=latin-ext');
+
 
 body {
   overflow-x: hidden;
+  font-family: 'Bebas Neue', cursive;
 }

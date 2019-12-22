@@ -1,5 +1,5 @@
 <template>
-  <div class="reference">
+  <div class="reference" id="references">
     <b-container class="pl-0 pr-0 pt-4">
       <h2 style="color:white">REFERENCE</h2>
       <b-row>

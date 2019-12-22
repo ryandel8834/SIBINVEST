@@ -4,9 +4,7 @@
       <app-header></app-header>
       <app-home-section class="w-80 float-right"></app-home-section>
     </div>
-    <app-reference-section></app-reference-section>
-    <app-project-during></app-project-during>
-    <app-contact-us></app-contact-us>
+    <router-view/>
     <app-footer></app-footer>
   </div>
 </template>
@@ -14,9 +12,7 @@
 <script>
 import Footer from "./components/footer/Footer.vue";
 import Home from "./components/homesection/Home";
-import Reference from "./components/reference/Reference";
-import ProjectDuring from "./components/projectInDuring/During";
-import Contact from "./components/contactUs/Contact";
+
 
 export default {
   name: "app",
@@ -28,9 +24,6 @@ export default {
   components: {
     "app-footer": Footer,
     "app-home-section": Home,
-    "app-reference-section": Reference,
-    "app-project-during": ProjectDuring,
-    "app-contact-us": Contact
   }
 };
 </script>
@@ -38,7 +31,7 @@ export default {
 <style scoped>
 .home-section {
   background: url("./assets/homesection.jpg") no-repeat;
-  height: 1050px;
+  height: 100vh;
   background-size: cover;
 }
 .w-80 {
