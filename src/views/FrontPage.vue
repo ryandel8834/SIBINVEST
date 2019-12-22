@@ -1,15 +1,19 @@
 <template>
   <div>
+    <div class="home-section">
+      <app-about-us></app-about-us>
+    </div>
     <app-reference-section></app-reference-section>
     <app-project-during></app-project-during>
     <app-contact-us></app-contact-us>
-  </div>
+  </div> 
 </template>
 
 <script>
 import Reference from "../components/reference/Reference";
 import ProjectDuring from "../components/projectInDuring/During";
 import Contact from "../components/contactUs/Contact";
+import About from "../components/aboutUs/About";
 
 export default {
   name: "app",
@@ -21,11 +25,21 @@ export default {
   components: {
     "app-reference-section": Reference,
     "app-project-during": ProjectDuring,
-    "app-contact-us": Contact
+    "app-contact-us": Contact,
+    "app-about-us": About
   }
 };
 </script>
 
 <style scoped>
-
+  .home-section {
+    background: url("../assets/homesection.jpg") no-repeat;
+    height: 100vh;
+    background-size: cover;
+    background-position: 0 -98px;
+    margin-top: -100px;
+  }
+  .w-80 {
+    width: 80%;
+  }
 </style>

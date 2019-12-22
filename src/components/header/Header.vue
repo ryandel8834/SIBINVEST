@@ -1,8 +1,8 @@
 <template>
- <b-container>
-  <b-navbar class="navbar" toggleable="lg" type="dark" variant>
+ <b-container class="p-0">
+  <b-navbar class="navbar p-0" toggleable="lg" type="dark" variant>
     <!-- Right aligned nav items -->
-  <div class="ribbon">
+  <div class="ribbon d-flex align-items-end">
     <img src="../../assets/logo.png" alt="">
   </div>
     <b-navbar-nav class="ml-auto sticky-top" hidden-xs>
@@ -43,17 +43,15 @@ export default {
   top: 20px;
 }
 .ribbon {
-  position: absolute;
+  position: relative;
   top: 0;
-  left: 9%;
-  height: 56vh;
+  height: 90vh;
   width: 300px;
   background: rgb(87, 88, 90);
 }
 .ribbon img {
   width: 100%;
-  margin-top: 22vh;
-  padding: 6vh;
+  padding: 25px 40px;
 }
 /* Media query */
 @media (max-width: 991px) {
