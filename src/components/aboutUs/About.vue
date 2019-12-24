@@ -34,7 +34,6 @@
 }
 .about-us-card p {
   color: white;
-  font-weight: bold;
   line-height: 1.2;
   letter-spacing: 1px;
 }
