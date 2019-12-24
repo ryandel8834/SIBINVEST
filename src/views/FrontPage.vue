@@ -1,5 +1,10 @@
 <template>
   <div>
+    <b-container class="px-0">
+      <div class="ribbon d-flex align-items-end">
+        <img src="../assets/logo.png" alt="">
+      </div>
+    </b-container>
     <div class="home-section">
       <app-about-us></app-about-us>
     </div>
@@ -40,5 +45,16 @@ export default {
   }
   .w-80 {
     width: 80%;
+  }
+  .ribbon {
+    position: absolute;
+    top: 0;
+    height: 60vh;
+    width: 300px;
+    background: rgb(87, 88, 90);
+  }
+  .ribbon img {
+    width: 100%;
+    padding: 25px 40px 20px 40px;
   }
 </style>
