@@ -3,12 +3,14 @@
     <div class="about-us" id="about-us">
       <h1 style="color:white">O NAMA</h1>
       <div class="about-us-card">
-        <p class="mb-0">
-          Naša kompanija je specijalizovana za izvođenje najrazličitijih radova u oblasti građevinarstva. Sa sedištem u Nišu, beležimo postojanje od 2008. godine,
-          dok je prvi objekat- stambena zgrada u ulici Stojana Novakovića u Nišu, izveden 2009. godine.
-          Ono čime se ponosimo su efkasnost, kvalitet gradnje, iskustvo i poslovan uspeh na čitavoj teritoriji južne i jugoistočne Srbije.
-          Takođe nas odlikuje posvećenost i istrajnost, kao i dobri odnosi sa klijentima i saradnicima
-        </p>
+        <b-container class="pl-0 pr-3 ml-0">
+          <p class="mb-0">
+            Naša kompanija je specijalizovana za izvođenje najrazličitijih radova u oblasti građevinarstva. Sa sedištem u Nišu, beležimo postojanje od 2008. godine,
+            dok je prvi objekat- stambena zgrada u ulici Stojana Novakovića u Nišu, izveden 2009. godine.
+            Ono čime se ponosimo su efkasnost, kvalitet gradnje, iskustvo i poslovan uspeh na čitavoj teritoriji južne i jugoistočne Srbije.
+            Takođe nas odlikuje posvećenost i istrajnost, kao i dobri odnosi sa klijentima i saradnicima
+          </p>
+        </b-container>
       </div>
     </div>
   </div>
@@ -21,13 +23,14 @@
 <style scoped>
 .about-us {
   position: absolute;
-  bottom: 40px;
+  bottom: 60px;
 }
 .about-us-card {
   height: auto;
   background: rgb(109, 110, 111);
   opacity: 0.6;
   padding: 1%;
+  width: 200%;
 }
 .about-us-card p {
   color: white;

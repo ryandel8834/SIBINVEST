@@ -37,7 +37,6 @@ export default {
     height: 100vh;
     background-size: cover;
     background-position: 0 -98px;
-    margin-top: -100px;
   }
   .w-80 {
     width: 80%;

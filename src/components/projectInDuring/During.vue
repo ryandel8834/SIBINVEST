@@ -1,7 +1,7 @@
 <template>
-  <b-container class="pt-4 durring-section" id="projects-in-progress">
+  <b-container class="pt-4 durring-section px-0" id="projects-in-progress">
     <h2 style="color: black; font-weight: bold;">PROJEKTI U TOKU</h2>
-    <b-row class="justify-content-center">
+    <b-row class="justify-content-center px-0">
       <b-col lg="4" sm="12">
         <img src="../../assets/during1.jpg" />
       </b-col>
@@ -23,7 +23,6 @@ export default {};
 img {
   width: 100%;
   height: auto;
-  padding: 1%;
 }
 .durring-section {
   height: auto;
