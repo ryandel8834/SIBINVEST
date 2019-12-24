@@ -4,9 +4,7 @@
       <b-col class="contact-information" lg="6" sm="12">
         <div>
           <h2 style="color: black; font-weight: bold;">KONTAKTIRAJTE NAS</h2>
-          <p>
-            <b>SIB INVEST DOO</b> , Niš
-          </p>
+          <p><b>SIB INVEST DOO</b> , Niš</p>
           <p>Privredno društvo za građevinske radove</p>
         </div>
         <div class="mt-3 mb-3">
@@ -21,12 +19,22 @@
         </div>
       </b-col>
       <b-col class="contact-information" lg="6" sm="12">
-        <b-form>
+        <b-form @submit.prevent="sendEmail">
           <b-form-group>
-            <b-form-input id="name" placeholder="Ime" required></b-form-input>
+            <b-form-input
+              id="name"
+              placeholder="Ime"
+              required
+              name="user_name"
+            ></b-form-input>
           </b-form-group>
           <b-form-group>
-            <b-form-input id="email" placeholder="Email" required></b-form-input>
+            <b-form-input
+              id="email"
+              placeholder="Email"
+              required
+              name="user_email"
+            ></b-form-input>
           </b-form-group>
           <b-form-group>
             <b-textarea
@@ -34,8 +42,13 @@
               id="contact-us-txt-area"
               class="form-control"
               placeholder="Vasa poruka"
+              name="user_message"
             ></b-textarea>
-            <b-button class="btn mt-3 float-right send-form pl-4 pr-4">Posalji</b-button>
+            <b-button
+              type="submit"
+              class="btn mt-3 float-right send-form pl-4 pr-4"
+              >Posalji</b-button
+            >
           </b-form-group>
         </b-form>
       </b-col>
@@ -44,7 +57,29 @@
 </template>
 
 <script>
-export default {};
+import emailjs from "emailjs-com";
+
+export default {
+  methods: {
+    sendEmail: e => {
+      emailjs
+        .sendForm(
+          "gmail_services",
+          "gmail_services",
+          e.target,
+          "user_lEfbVDh5YUYMSXTjIhP7n"
+        )
+        .then(
+          result => {
+            console.log("SUCCESS!");
+          },
+          error => {
+            console.log("FAILED...", error);
+          }
+        );
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -57,6 +92,14 @@ export default {};
 .send-form {
   border-radius: 15px;
   background: rgb(4, 5, 4);
+}
+.warning {
+  border-color: red;
+  border: 1px solid;
+}
+.success {
+  border-color: green;
+  border: 1px solid;
 }
 div p {
   margin-bottom: 0px;
