@@ -17,11 +17,11 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto" hidden-xs>
-        <b-nav-item text="Lang" right> <router-link to="/"> pocetna</router-link> </b-nav-item>
+        <b-nav-item text="Lang" right> <router-link to="/"> početna</router-link> </b-nav-item>
         <b-nav-item text="Lang" right href="#about-us">o nama</b-nav-item>
         <b-nav-item text="Lang" right href="#references" v-on:click="toggleNavbar"> reference </b-nav-item>
         <b-nav-item text="Lang" right href="#projects-in-progress">projekti u toku</b-nav-item>
-        <b-nav-item text="Lang" right href="#contact-us"> konkakt </b-nav-item>
+        <b-nav-item text="Lang" right href="#contact-us"> kontakt </b-nav-item>
         <b-nav-item text="Lang" right>search</b-nav-item>
       </b-navbar-nav>
     </b-container>
@@ -102,7 +102,7 @@ export default {
 .navbar-dark .navbar-nav .nav-link a {
   color: white;
   font-size: 20px;
-  letter-spacing: 1px;
+  font-weight: 500;
 }
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link a:hover {
