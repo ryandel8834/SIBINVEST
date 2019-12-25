@@ -1,7 +1,7 @@
 <template>
   <div class="reference" id="references">
     <b-container class="pl-0 pr-0 pt-4">
-      <h2 style="color:white">REFERENCE</h2>
+      <h1 style="color:white">REFERENCE</h1>
       <b-row>
         <b-col lg="6" md="12" sm="12" @mouseover="hover = true" @mouseleave="hover = false">
           <router-link to="/reference">
@@ -43,6 +43,10 @@ export default {
 </script>
 
 <style scoped>
+  h1 {
+    font-weight: normal;
+    letter-spacing: 2px;
+  }
   img {
     height: 420px;
     width: 100%;
@@ -66,6 +70,7 @@ export default {
       transform: translate(-57%, -100%);
       margin-bottom: 100px;
       font-size: 26px;
+      font-family: 'Bebas Neue', cursive;
   }
   .rotated {
     transform: rotate(270deg);

@@ -1,6 +1,6 @@
 <template>
   <b-container class="pt-4 durring-section px-0" id="projects-in-progress">
-    <h2 style="color: black; font-weight: bold;">PROJEKTI U TOKU</h2>
+    <h1 style="color: black;">PROJEKTI U TOKU</h1>
     <b-row class="justify-content-center px-0">
       <b-col lg="4" sm="12">
         <img src="../../assets/during1.jpg" />
@@ -27,6 +27,9 @@ img {
 .durring-section {
   height: auto;
 }
+h1 {
+  letter-spacing: 1px;
+}
 /* Media query */
 @media (max-width: 991px) {
   .durring-section {
@@ -35,7 +38,7 @@ img {
   .row {
     text-align: center;
   }
-  .container h2 {
+  .container h1 {
     text-align: center;
   }
   img {

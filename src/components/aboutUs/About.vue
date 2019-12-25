@@ -21,6 +21,10 @@
 </script>
 
 <style scoped>
+h1 {
+  letter-spacing: 1px;
+  font-weight: normal;
+}
 .about-us {
   position: absolute;
   bottom: 60px;
