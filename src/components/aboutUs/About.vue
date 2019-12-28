@@ -28,11 +28,11 @@ h1 {
 .about-us {
   position: absolute;
   bottom: 60px;
+  padding-top: 80px;
 }
 .about-us-card {
   height: auto;
-  background: rgb(109, 110, 111);
-  opacity: 0.6;
+  background: rgb(109, 110, 111, .6);
   padding: 1%;
   width: 200%;
 }
