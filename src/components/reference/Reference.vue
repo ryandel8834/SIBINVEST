@@ -53,8 +53,11 @@ export default {
   }
   .reference {
     background: rgb(87, 88, 90);
-    height: 520px;
+    height: 580px;
     width: 100%;
+  }
+  #references {
+    padding-top: 45px;
   }
   .reference-wrapper {
     position: relative;
