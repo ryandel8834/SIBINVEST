@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header></app-header>
-      <router-view/>
+    <router-view />
     <app-footer></app-footer>
   </div>
 </template>
@@ -17,11 +17,9 @@ export default {
     };
   },
   components: {
-    "app-footer": Footer,
+    "app-footer": Footer
   }
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

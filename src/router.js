@@ -15,8 +15,8 @@ export default new Router({
     {
       path: "/",
       name: "FrontPage",
-      component: FrontPage,
-    },
+      component: FrontPage
+    }
   ],
   mode: "history"
 });

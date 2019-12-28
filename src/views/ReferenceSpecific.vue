@@ -2,65 +2,117 @@
   <b-container class="px-0" id="reference-specific">
     <b-row class="ref-info-row mb-3">
       <b-col cols="5" class="px-0 mt-5 pl-4">
-        <h1 class="mb-3 mt-4">{{referenceData[0].category}}</h1>
+        <h1 class="mb-3 mt-4">{{ referenceData[0].category }}</h1>
         <div>
           <p class="ref-desc">
-            {{referenceData[0].desc}}
+            {{ referenceData[0].desc }}
           </p>
         </div>
         <div>
-          <p class="ref-desc mb-0">Završetak gradnje: {{referenceData[0].endDate}}</p>
-          <p class="ref-desc mb-0">Investitor: {{referenceData[0].investor}}</p>
-          <p class="ref-desc">Neto površina: {{referenceData[0].area}}</p>
+          <p class="ref-desc mb-0">
+            Završetak gradnje: {{ referenceData[0].endDate }}
+          </p>
+          <p class="ref-desc mb-0">
+            Investitor: {{ referenceData[0].investor }}
+          </p>
+          <p class="ref-desc">Neto površina: {{ referenceData[0].area }}</p>
         </div>
       </b-col>
       <b-col cols="7">
-        <app-banner :pageTitle=referenceData[0].name></app-banner>
+        <app-banner :pageTitle="referenceData[0].name"></app-banner>
       </b-col>
     </b-row>
     <b-row class="p-0 m-0">
       <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="one"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
-        <div class="ref-img" id="two"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
+        <div class="ref-img" id="one">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="two">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
       </b-col>
       <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="three"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
-        <div class="ref-img" id="four"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
+        <div class="ref-img" id="three">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="four">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
       </b-col>
       <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="five"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
-        <div class="ref-img" id="six"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
+        <div class="ref-img" id="five">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="six">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
       </b-col>
     </b-row>
     <b-row class="p-0 m-0">
       <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="seven"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
-        <div class="ref-img" id="eight"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
+        <div class="ref-img" id="seven">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="eight">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
       </b-col>
       <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="nine"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
-        <div class="ref-img" id="ten"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
+        <div class="ref-img" id="nine">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="ten">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
       </b-col>
       <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="eleven"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
-        <div class="ref-img" id="twelve"><div class="magnifier-wrapper"><img src="../assets/magnifier.png" class="magnifier" alt=""></div></div>
+        <div class="ref-img" id="eleven">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="twelve">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
       </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
-import Referencer from '../services/referencer';
-import Banner from '../components/Banner';
+import Referencer from "../services/referencer";
+import Banner from "../components/Banner";
 
 export default {
   data() {
     return {
       referenceData: []
-    }
+    };
   },
   components: {
-    'app-banner': Banner
+    "app-banner": Banner
   },
   methods: {
     getReferences() {
@@ -77,7 +129,7 @@ export default {
                 investor: reference.projectInvestor,
                 area: reference.netoArea,
                 picSet: reference.projectPicSet,
-                picColorSet: reference.projectPicColorSet,
+                picColorSet: reference.projectPicColorSet
               }
             );
           });
@@ -87,7 +139,7 @@ export default {
   },
   created() {
     this.getReferences();
-  },
+  }
 };
 </script>
 
@@ -119,7 +171,7 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: .3s;
+  transition: 0.3s;
 }
 .ref-img {
   width: 100%;
@@ -127,7 +179,7 @@ h1 {
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
   position: relative;
 }
@@ -176,13 +228,18 @@ h1 {
 #reference-specific {
   height: 90vh;
 }
-#one:hover, #three:hover, #five:hover, #seven:hover, #nine:hover, #eleven:hover {
+#one:hover,
+#three:hover,
+#five:hover,
+#seven:hover,
+#nine:hover,
+#eleven:hover {
   width: 150% !important;
 }
 .ref-img:hover .magnifier-wrapper {
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
-.ref-img:hover .magnifier{
+.ref-img:hover .magnifier {
   display: block;
 }
 </style>

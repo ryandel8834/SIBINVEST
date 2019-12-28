@@ -4,9 +4,7 @@
       <b-col class="contact-information" lg="6" sm="12">
         <div>
           <h1 style="color: black;">KONTAKTIRAJTE NAS</h1>
-          <p>
-            <b class="bebas">SIB INVEST DOO</b>, Niš
-          </p>
+          <p><b class="bebas">SIB INVEST DOO</b>, Niš</p>
           <p>Privredno društvo za građevinske radove</p>
         </div>
         <div class="mt-2 mb-2">
@@ -21,12 +19,22 @@
         </div>
       </b-col>
       <b-col class="contact-information" lg="6" sm="12">
-        <b-form>
+        <b-form @submit.prevent="sendEmail">
           <b-form-group>
-            <b-form-input id="name" placeholder="Ime" style="color: black;" required></b-form-input>
+            <b-form-input
+              id="name"
+              placeholder="Ime"
+              style="color: black;"
+              required
+            ></b-form-input>
           </b-form-group>
           <b-form-group>
-            <b-form-input id="email" placeholder="Email" style="color: black;" required></b-form-input>
+            <b-form-input
+              id="email"
+              placeholder="Email"
+              style="color: black;"
+              required
+            ></b-form-input>
           </b-form-group>
           <b-form-group>
             <b-textarea
@@ -35,8 +43,11 @@
               id="contact-us-txt-area"
               class="form-control"
               placeholder="Vasa poruka"
+              name="user_message"
             ></b-textarea>
-            <b-button class="btn mt-3 float-right send-form pl-4 pr-4">pošalji</b-button>
+            <b-button class="btn mt-3 float-right send-form pl-4 pr-4"
+              >pošalji</b-button
+            >
           </b-form-group>
         </b-form>
       </b-col>
@@ -45,12 +56,34 @@
 </template>
 
 <script>
-export default {};
+import emailjs from "emailjs-com";
+
+export default {
+  methods: {
+    sendEmail: e => {
+      emailjs
+        .sendForm(
+          "gmail_services",
+          "gmail_services",
+          e.target,
+          "user_lEfbVDh5YUYMSXTjIhP7n"
+        )
+        .then(
+          result => {
+            console.log("SUCCESS!");
+          },
+          error => {
+            console.log("FAILED...", error);
+          }
+        );
+    }
+  }
+};
 </script>
 
 <style scoped>
 h1 {
-    letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 .form-control {
   border: 2px solid black;
@@ -63,11 +96,19 @@ h1 {
   border-radius: 15px;
   padding: 3px 0;
 }
+.warning {
+  border-color: red;
+  border: 1px solid;
+}
+.success {
+  border-color: green;
+  border: 1px solid;
+}
 div p {
   margin-bottom: 0px;
 }
 .bebas {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   letter-spacing: 1px;
   font-size: 20px;
 }
