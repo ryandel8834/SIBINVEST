@@ -1,5 +1,5 @@
 <template>
-  <b-container class="pt-4 durring-section px-0" id="projects-in-progress">
+  <b-container class="durring-section px-0" id="projects-in-progress">
     <h1 style="color: black;">PROJEKTI U TOKU</h1>
     <b-row class="justify-content-center px-0">
       <b-col lg="4" sm="12">
@@ -29,6 +29,9 @@ img {
 }
 h1 {
   letter-spacing: 1px;
+}
+#projects-in-progress {
+  padding-top: 80px;
 }
 /* Media query */
 @media (max-width: 991px) {
