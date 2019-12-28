@@ -19,14 +19,12 @@ export default {
 
 <style scoped>
     .banner {
-        margin-bottom: 200px;
         background: #000;
+        margin-left: 46%;
         position: relative;
         color: #fff;
         height: 100px;
         width: 200%;
-        margin-left: auto;
-        margin-top: 200px;
         font-family: 'Bebas Neue', cursive;
     }
     h2 {
@@ -34,5 +32,6 @@ export default {
         bottom: -19px;
         font-size: 35px;
         left: 7px;
+        letter-spacing: 1px;
     }
 </style>
