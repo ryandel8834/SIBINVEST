@@ -23,13 +23,14 @@
       <b-col class="contact-information" lg="6" sm="12">
         <b-form>
           <b-form-group>
-            <b-form-input id="name" placeholder="Ime" required></b-form-input>
+            <b-form-input id="name" placeholder="Ime" style="color: black;" required></b-form-input>
           </b-form-group>
           <b-form-group>
-            <b-form-input id="email" placeholder="Email" required></b-form-input>
+            <b-form-input id="email" placeholder="Email" style="color: black;" required></b-form-input>
           </b-form-group>
           <b-form-group>
             <b-textarea
+              style="color: black;"
               rows="6"
               id="contact-us-txt-area"
               class="form-control"
@@ -74,6 +75,13 @@ div p {
 .contact-information textarea {
   border-radius: 0;
 }
+#email {
+  margin-top: 30px;
+  margin-bottom: 30px !important;
+}
+#contact-us-txt-area {
+  height: 120px;
+}
 @media (max-width: 991px) {
   .row {
     padding: 5%;
@@ -81,5 +89,9 @@ div p {
   .contact-information {
     padding-bottom: 10%;
   }
+}
+#contact-us {
+  margin-bottom: 150px;
+  margin-top: 80px;
 }
 </style>
