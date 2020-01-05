@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       isNav: false,
-      logoName: ""
+      logoName: "",
     };
   },
   computed: {
@@ -49,10 +49,13 @@ export default {
     handleScroll(event) {
       if (this.$route.path !== "/reference") {
         let header = document.querySelector(".navbar");
-        if(window.scrollY > 480) {
+        let scrollHeight = Number;
+        scrollHeight = (window.innerHeight * 60) / 100;
+
+        if(window.scrollY > scrollHeight) {
           header.classList.add("sticky-header");
           this.logoName = "logo1.jpg";
-        } else if (window.scrollY < 480) {
+        } else if (window.scrollY < scrollHeight) {
           header.classList.remove("sticky-header");
           this.logoName = "";
         }
