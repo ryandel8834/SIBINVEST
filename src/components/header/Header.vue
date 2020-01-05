@@ -50,8 +50,7 @@ export default {
       if (this.$route.path !== "/reference") {
         let header = document.querySelector(".navbar");
         let scrollHeight = Number;
-        scrollHeight = (window.innerHeight * 60) / 100;
-
+        scrollHeight = ((window.innerHeight * 60) / 100) - 70;
         if(window.scrollY > scrollHeight) {
           header.classList.add("sticky-header");
           this.logoName = "logo1.jpg";
