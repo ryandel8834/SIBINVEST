@@ -25,6 +25,7 @@
               id="name"
               placeholder="Ime"
               style="color: black;"
+              name="user_name"
               required
             ></b-form-input>
           </b-form-group>
@@ -33,6 +34,7 @@
               id="email"
               placeholder="Email"
               style="color: black;"
+              name="user_email"
               required
             ></b-form-input>
           </b-form-group>
@@ -45,7 +47,7 @@
               placeholder="Vasa poruka"
               name="user_message"
             ></b-textarea>
-            <b-button class="btn mt-3 float-right send-form pl-4 pr-4"
+            <b-button type="submit" class="btn mt-3 float-right send-form pl-4 pr-4"
               >pošalji</b-button
             >
           </b-form-group>
