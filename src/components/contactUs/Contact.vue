@@ -132,7 +132,6 @@ div p {
   }
 }
 #contact-us {
-  margin-bottom: 150px;
   margin-top: 80px;
 }
 </style>

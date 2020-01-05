@@ -12,6 +12,7 @@ export default {};
 .page-footer {
   background: black;
   height: 70px;
+  margin-top: 150px;
 }
 .txt-footer {
   color: white;

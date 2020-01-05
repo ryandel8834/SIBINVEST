@@ -225,9 +225,6 @@ h1 {
 #twelve {
   background: url("../assets/reference-slike/min/vranje10_color-min.jpg");
 }
-#reference-specific {
-  height: 90vh;
-}
 #one:hover,
 #three:hover,
 #five:hover,

@@ -60,16 +60,6 @@ export default {
         }
       }
     },
-    toggleNavbar() {
-      if (this.$route.path === "/reference") {
-        let header = document.querySelector(".navbar");
-        header.classList.add("sticky-header");
-        this.logoName = "logo1.jpg";
-      } else {
-        header.classList.remove("sticky-header");
-        this.logoName = "";
-      }
-    }
   },
 
   beforeMount() {
@@ -88,7 +78,7 @@ export default {
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
     toggleNavbar();
-  }
+  },
 };
 </script>
 
