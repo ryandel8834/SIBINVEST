@@ -28,6 +28,7 @@
               name="user_name"
               required
             ></b-form-input>
+            <span id="name-missing" class="warning-msg">Obavezno polje. Molimo unesite Vaše ime.</span>
           </b-form-group>
           <b-form-group>
             <b-form-input
@@ -37,6 +38,8 @@
               name="user_email"
               required
             ></b-form-input>
+            <span id="email-missing" class="warning-msg">Obavezno polje. Molimo unesite svoju email adresu.</span>
+            <span id="email-incorrect" class="warning-msg">Nepostojeca email adresa. Molimo proverite Vaš unos.</span>
           </b-form-group>
           <b-form-group>
             <b-textarea
@@ -50,6 +53,7 @@
             <b-button type="submit" class="btn mt-3 float-right send-form pl-4 pr-4"
               >pošalji</b-button
             >
+            <span id="message-missing" class="warning-msg">Obavezno polje. Molimo unesite Vašu poruku.</span>
           </b-form-group>
         </b-form>
       </b-col>
@@ -135,5 +139,24 @@ div p {
 }
 #contact-us {
   margin-top: 80px;
+}
+.form-group {
+  position: relative;
+}
+.warning-msg {
+  position: absolute;
+  color: red;
+}
+#name-missing {
+  top: -25px;
+}
+#email-missing {
+  top: 5px;
+}
+#email-incorrect {
+  top: 5px;
+}
+#message-missing {
+  top: -23px;
 }
 </style>
