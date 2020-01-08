@@ -184,46 +184,46 @@ h1 {
   position: relative;
 }
 #one {
-  background: url("../assets/reference-slike/min/vranje1_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje1_color-min.jpg");
   width: 50%;
 }
 #two {
-  background: url("../assets/reference-slike/min/vranje2_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje2_color-min.jpg");
 }
 #three {
-  background: url("../assets/reference-slike/min/vranje3_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje3_color-min.jpg");
   width: 50%;
 }
 #four {
-  background: url("../assets/reference-slike/min/vranje4_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje4_color-min.jpg");
 }
 #five {
-  background: url("../assets/reference-slike/min/vranje5_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje5_color-min.jpg");
   width: 50%;
 }
 #six {
-  background: url("../assets/reference-slike/min/vranje6_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje6_color-min.jpg");
 }
 #seven {
-  background: url("../assets/reference-slike/min/vranje7_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje7_color-min.jpg");
   width: 50%;
 }
 #eight {
-  background: url("../assets/reference-slike/min/vranje8_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje8_color-min.jpg");
 }
 #nine {
-  background: url("../assets/reference-slike/min/vranje9_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje9_color-min.jpg");
   width: 50%;
 }
 #ten {
-  background: url("../assets/reference-slike/min/vranje10_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje10_color-min.jpg");
 }
 #eleven {
-  background: url("../assets/reference-slike/min/vranje10_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje10_color-min.jpg");
   width: 50%;
 }
 #twelve {
-  background: url("../assets/reference-slike/min/vranje10_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/vranje10_color-min.jpg");
 }
 #one:hover,
 #three:hover,
