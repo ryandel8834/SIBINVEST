@@ -2,102 +2,156 @@
   <b-container class="px-0" id="reference-specific">
     <b-row class="ref-info-row mb-3">
       <b-col cols="5" class="px-0 mt-5 pl-4">
-        <h1 class="mb-3 mt-4">{{ referenceData[0].category }}</h1>
+        <h1 class="mb-3 mt-4">{{ referenceData[1].category }}</h1>
         <div>
           <p class="ref-desc">
-            {{ referenceData[0].desc }}
+            {{ referenceData[1].desc }}
           </p>
         </div>
         <div>
           <p class="ref-desc mb-0">
-            Završetak gradnje: {{ referenceData[0].endDate }}
+            Završetak gradnje: {{ referenceData[1].endDate }}
           </p>
           <p class="ref-desc mb-0">
-            Investitor: {{ referenceData[0].investor }}
+            Investitor: {{ referenceData[1].investor }}
           </p>
-          <p class="ref-desc">Neto površina: {{ referenceData[0].area }}</p>
+          <p class="ref-desc">Neto površina: {{ referenceData[1].area }}</p>
         </div>
       </b-col>
       <b-col cols="7">
-        <app-banner :pageTitle="referenceData[0].name"></app-banner>
+        <app-banner :pageTitle="referenceData[1].name"></app-banner>
       </b-col>
     </b-row>
-    <b-row class="p-0 m-0">
-      <b-col cols="4" class="p-0 d-flex">
+    <!-- <b-row class="p-0 m-0">
+      <b-col cols="1"></b-col>
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="one">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
+      </b-col>
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="two">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
       </b-col>
-      <b-col cols="4" class="p-0 d-flex">
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="three">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
+      </b-col>
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="four">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
       </b-col>
-      <b-col cols="4" class="p-0 d-flex">
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="five">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
+      </b-col>
+      <b-col cols="1"></b-col>
+    </b-row> -->
+    <!-- <b-row class="p-0 m-0">
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="six">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
       </b-col>
-    </b-row>
-    <b-row class="p-0 m-0">
-      <b-col cols="4" class="p-0 d-flex">
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="seven">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
+      </b-col>
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="eight">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
       </b-col>
-      <b-col cols="4" class="p-0 d-flex">
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="nine">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
+      </b-col>
+      <b-col cols="2" class="p-0 d-flex">
         <div class="ref-img" id="ten">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
         </div>
       </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="eleven">
+    </b-row> -->
+    <div class="d-flex">
+      <div class="ref-img" id="one">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
-        </div>
-        <div class="ref-img" id="twelve">
+      </div>
+      <div class="ref-img" id="two">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
-        </div>
-      </b-col>
-    </b-row>
+      </div>
+      <div class="ref-img" id="three">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="four">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="five">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="ref-img" id="six">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="seven">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="eight">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="nine">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="ten">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+    </div>
   </b-container>
 </template>
 
@@ -174,92 +228,73 @@ h1 {
   transition: 0.3s;
 }
 .ref-img {
-  width: 100%;
+  width: 20%;
   height: 180px;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  transition: 0.3s;
   cursor: pointer;
   position: relative;
 }
 #one {
-  background: url("../assets/reference-slike/min/vranje/vranje1-min.jpg");
-  width:50%;
+  background: url("../assets/reference-slike/min/banja/banja1-min.jpg");
 }
 #one:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje1_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja1_color-min.jpg");
 }
 #two {
-  background: url("../assets/reference-slike/min/vranje/vranje2-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja2-min.jpg");
 }
 #two:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje2_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja2_color-min.jpg");
 }
 #three {
-  background: url("../assets/reference-slike/min/vranje/vranje3-min.jpg");
-  width:50%;
+  background: url("../assets/reference-slike/min/banja/banja3-min.jpg");
 }
 #three:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje3_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja3_color-min.jpg");
 }
 #four {
-  background: url("../assets/reference-slike/min/vranje/vranje4-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja4-min.jpg");
 }
 #four:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje4_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja4_color-min.jpg");
 }
 #five {
-  background: url("../assets/reference-slike/min/vranje/vranje5-min.jpg");
-  width:50%;
+  background: url("../assets/reference-slike/min/banja/banja5-min.jpg");
 }
 #five:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje5_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja5_color-min.jpg");
 }
 #six {
-  background: url("../assets/reference-slike/min/vranje/vranje6-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja6-min.jpg");
 }
 #six:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje6_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja6_color-min.jpg");
 }
 #seven {
-  background: url("../assets/reference-slike/min/vranje/vranje7-min.jpg");
-  width: 50%;
+  background: url("../assets/reference-slike/min/banja/banja7-min.jpg");
 }
 #seven:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje7_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja7_color-min.jpg");
 }
 #eight {
-  background: url("../assets/reference-slike/min/vranje/vranje8-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja8-min.jpg");
 }
 #eight:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje8_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja8_color-min.jpg");
 }
 #nine {
-  background: url("../assets/reference-slike/min/vranje/vranje9-min.jpg");
-  width: 50%;
+  background: url("../assets/reference-slike/min/banja/banja9-min.jpg");
 }
 #nine:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje9_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja9_color-min.jpg");
 }
 #ten {
-  background: url("../assets/reference-slike/min/vranje/vranje10-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja10-min.jpg");
 }
 #ten:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje10_color-min.jpg");
-}
-#eleven {
-  background: url("../assets/reference-slike/min/vranje/vranje10-min.jpg");
-  width: 50%;
-}
-#eleven:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje10_color-min.jpg");
-}
-#twelve {
-  background: url("../assets/reference-slike/min/vranje/vranje10-min.jpg");
-}
-#twelve:hover {
-  background: url("../assets/reference-slike/min/vranje/vranje10_color-min.jpg");
+  background: url("../assets/reference-slike/min/banja/banja10_color-min.jpg");
 }
 .ref-img:hover .magnifier {
   display: block;

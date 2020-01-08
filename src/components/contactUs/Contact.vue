@@ -65,10 +65,10 @@ export default {
     sendEmail: e => {
       emailjs
         .sendForm(
-          "gmail_services",
-          "gmail_services",
+          "gmail",
+          "sibinvestdoo",
           e.target,
-          "user_lEfbVDh5YUYMSXTjIhP7n"
+          "user_3UfiOi0iiKLucStEtqT7h"
         )
         .then(
           result => {

@@ -3,27 +3,21 @@
     <b-container class="pl-0 pr-0 pt-4">
       <h1 style="color:white">REFERENCE</h1>
       <b-row>
-        <b-col lg="6" md="12" sm="12" @mouseover="hover = true" @mouseleave="hover = false">
-          <router-link to="/reference">
-            <div v-if="hover" class="reference-wrapper">
-             <img src="../../assets/reference1_color.jpg" style="height: 420px; cursor: pointer;"/>
+        <b-col lg="6" md="12" sm="12">
+          <router-link to="/reference-vranje">
+            <div id="first" class="reference-wrapper">
              <span class="centered">NARODNO POZORIŠTE U VRANJU</span>
-            </div>
-            <div v-else class="reference-wrapper">
-              <img src="../../assets/reference1.jpg" />
-              <span class="rotated">oktobar 2019</span>
+             <span class="rotated">Oktobar 2019</span>
             </div>
           </router-link>
         </b-col>
-        <b-col lg="6" md="12" sm="12" @mouseover="hover1 = true" @mouseleave="hover1 = false">
-          <div v-if="hover1" class="reference-wrapper">
-            <img src="../../assets/reference3_color.jpg" style="height: 420px; cursor: pointer;"/>
-            <span class="centered">NESTO DRUGO</span>
-          </div>
-          <div v-else class="reference-wrapper">
-            <img src="../../assets/reference3.jpg" />
-            <span class="rotated">maj 2019</span>
-          </div>
+        <b-col lg="6" md="12" sm="12">
+          <router-link to="/reference-banja">
+            <div id="second" class="reference-wrapper">
+              <span class="centered">Ribarska Banja</span>
+              <span class="rotated">Maj 2019</span>
+            </div>
+          </router-link>
         </b-col>
       </b-row>
     </b-container>
@@ -34,8 +28,6 @@
 export default {
   data() {
     return {
-      hover: false,
-      hover1: false
     };
   },
   methods: {}
@@ -80,6 +72,24 @@ export default {
     bottom: 45px;
     left: -20px;
     font-size: 18px;
+  }
+  #first {
+    background: url(../../assets/reference1.jpg);
+    height: 420px;
+    background-size: cover;
+  }
+  #first:hover {
+    background: url(../../assets/reference1_color.jpg);
+    background-size: cover;
+  }
+  #second {
+    background: url(../../assets/reference-slike/min/banja/banja1-min.jpg);
+    height: 420px;
+    background-size: cover;
+  }
+  #second:hover {
+    background: url(../../assets/reference-slike/min/banja/banja1_color-min.jpg);
+    background-size: cover;
   }
   @media (max-width: 991px) {
     .reference {

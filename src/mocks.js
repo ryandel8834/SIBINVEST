@@ -20,11 +20,11 @@ exports = module.exports = {
         },
         {
             projectCategory: "Reference",
-            projectName: "Ribarska Banja",
-            projectDescription: "loremipsumloremipusmloremipsumloremipusmloremipsumloremipusmloremipsumloremipusm",
+            projectName: "Sportsko Rekreativni Centar Ribarska Banja",
+            projectDescription: "Izgradnja kupališnog kompleksa u Žitorađi",
             completionDate: "2019",
-            projectInvestor: "Banja Ribarska Banja",
-            netoArea: "xxx m2",
+            projectInvestor: "Specijalna bolnica za rehabilitaciju ”Ribarska Banja” u Ribarskoj Banji",
+            netoArea: "2051, 59 m2",
             projectPicSet: {
                 one: "vranje1-min.jpg", two: "vranje2-min.jpg", three: "vranje3-min.jpg", four: "vranje4-min.jpg", five: "vranje5-min.jpg", 
                 six: "vranje6-min.jpg", seven: "vranje7-min.jpg", eight: "vranje8-min.jpg", nine: "vranje9-min.jpg", ten: "vranje10-min.jpg",
