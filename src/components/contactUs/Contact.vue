@@ -20,41 +20,88 @@
       </b-col>
       <b-col class="contact-information" lg="6" sm="12">
         <b-form @submit.prevent="sendEmail">
-          <b-form-group>
-            <b-form-input
-              id="name"
-              placeholder="Ime"
-              style="color: black;"
-              name="user_name"
-              required
-            ></b-form-input>
-            <span id="name-missing" class="warning-msg">Obavezno polje. Molimo unesite Vaše ime.</span>
-          </b-form-group>
-          <b-form-group>
-            <b-form-input
-              id="email"
-              placeholder="Email"
-              style="color: black;"
-              name="user_email"
-              required
-            ></b-form-input>
-            <span id="email-missing" class="warning-msg">Obavezno polje. Molimo unesite svoju email adresu.</span>
-            <span id="email-incorrect" class="warning-msg">Nepostojeca email adresa. Molimo proverite Vaš unos.</span>
-          </b-form-group>
-          <b-form-group>
-            <b-textarea
-              style="color: black;"
-              rows="6"
-              id="contact-us-txt-area"
-              class="form-control"
-              placeholder="Vasa poruka"
-              name="user_message"
-            ></b-textarea>
-            <b-button type="submit" class="btn mt-3 float-right send-form pl-4 pr-4"
-              >pošalji</b-button
-            >
-            <span id="message-missing" class="warning-msg">Obavezno polje. Molimo unesite Vašu poruku.</span>
-          </b-form-group>
+          <div v-if="!submitted">
+            <b-form-group>
+              <b-form-input
+                @blur="submitName"
+                id="name"
+                placeholder="Ime"
+                style="color: black;"
+                name="user_name"
+                v-model="name"
+                v-bind:class="{
+                  'form-control': true,
+                  'is-invalid': !validName(name) && nameBlured
+                }"
+              ></b-form-input>
+              <div
+                class="invalid-feedback pt-2 pl-1"
+                style="max-height:0px; color:red;"
+                v-show="elementVisible"
+              >
+                Molimo Vas unesite Vase ime
+              </div>
+            </b-form-group>
+            <b-form-group>
+              <b-form-input
+                @blur="submitEmail"
+                id="email"
+                placeholder="Email"
+                style="color: black;"
+                name="user_email"
+                v-model="email"
+                v-bind:class="{
+                  'form-control': true,
+                  'is-invalid': !validEmail(email) && emailBlured
+                }"
+                v-on:blur="emailBlured = true"
+              >
+              </b-form-input>
+              <div
+                class="invalid-feedback pt-2 pl-1"
+                style="max-height:0px; color:red;"
+                v-show="elementVisible"
+              >
+                Molimo Vas unesite ispravnu email adresu
+              </div>
+            </b-form-group>
+            <b-form-group>
+              <b-textarea
+                @blur="submitMessage"
+                v-model="text"
+                style="color: black;"
+                rows="6"
+                id="contact-us-txt-area"
+                class="form-control"
+                placeholder="Vasa poruka"
+                name="user_message"
+                v-bind:class="{
+                  'form-control': true,
+                  'is-invalid': !validMessage(text) && textBlured
+                }"
+                v-on:blur="textBlured = true"
+              ></b-textarea>
+              <div
+                class="invalid-feedback pt-2 pl-1"
+                style="max-height:0px; color:red;"
+                v-show="elementVisible"
+              >
+                Molimo Vas unesite poruku
+              </div>
+            </b-form-group>
+            <b-form-group>
+              <b-button
+                @click="checkIsValid"
+                type="submit"
+                class="btn mt-3 float-right send-form pl-4 pr-4"
+                >pošalji</b-button
+              >
+            </b-form-group>
+          </div>
+          <div v-else class="alert alert-success" role="alert">
+            <h5>Hvala vam</h5>
+            <p>Vasa poruka je poslata, ubrzo ce Vas neko kontaktirati</p>
+          </div>
         </b-form>
       </b-col>
     </b-row>
@@ -65,7 +112,87 @@
 import emailjs from "emailjs-com";
 
 export default {
+  data: function() {
+    return {
+      name: "",
+      nameBlured: "",
+      text: "",
+      textBlured: false,
+      email: "",
+      emailBlured: false,
+      valid: false,
+      submitted: false,
+      elementVisible: true,
+      isValidName: false,
+      isValidText: false,
+      isValidEmail: false
+    };
+  },
   methods: {
+    validateName: function() {
+      this.nameBlured = true;
+      if (this.validName(this.name)) {
+        this.isValidName = true;
+      }
+    },
+    validateEmail: function() {
+      this.emailBlured = true;
+      if (this.validEmail(this.email)) {
+        this.isValidEmail = true;
+      }
+    },
+    validateText: function() {
+      this.textBlured = true;
+      if (this.validMessage(this.text)) {
+        this.isValidText = true;
+      }
+    },
+    validEmail: function(email) {
+      var re = /(.+)@(.+){2,}\.(.+){2,}/;
+      return re.test(email.toLowerCase());
+    },
+    validMessage: function(message) {
+      if (message === "") {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    validName: function(name) {
+      if (name === "") {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    submitName: function() {
+      this.validateName();
+      // if (this.valid) {
+      //   //THIS IS WHERE YOU SUBMIT DATA TO SERVER
+      //   this.submitted = true;
+      //   this.sendEmail();
+      //   setTimeout(() => {
+      //     this.submitted = false;
+      //   }, 4000);
+      // }
+    },
+    submitEmail: function() {
+      this.validateEmail();
+    },
+    submitMessage: function() {
+      this.validateText();
+    },
+    checkIsValid: function() {
+      console.log(this.isValidEmail);
+      if (this.isValidName && this.isValidEmail && this.isValidText) {
+        console.log(this.isValidName);
+        //THIS IS WHERE YOU SUBMIT DATA TO SERVER
+        this.submitted = true;
+        setTimeout(() => {
+          this.submitted = false;
+        }, 4000);
+      }
+    },
     sendEmail: e => {
       emailjs
         .sendForm(
@@ -97,6 +224,9 @@ h1 {
 .form-control:focus {
   box-shadow: none;
 }
+.form-group {
+  margin-bottom: 2rem;
+}
 .send-form {
   background: rgb(4, 5, 4);
   border-radius: 15px;
@@ -122,10 +252,6 @@ div p {
 .contact-information textarea {
   border-radius: 0;
 }
-#email {
-  margin-top: 30px;
-  margin-bottom: 30px !important;
-}
 #contact-us-txt-area {
   height: 120px;
 }
@@ -140,7 +266,13 @@ div p {
 #contact-us {
   margin-top: 80px;
 }
-.form-group {
+.alert {
+  padding-top: 1.5rem;
+}
+.alert h5 {
+  margin-bottom: 0rem;
+}
+/* .form-group {
   position: relative;
 }
 .warning-msg {
@@ -158,5 +290,5 @@ div p {
 }
 #message-missing {
   top: -23px;
-}
+} */
 </style>
