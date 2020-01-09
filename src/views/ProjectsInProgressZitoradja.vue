@@ -378,8 +378,8 @@ h1 {
   left: 50%;
   z-index: 99999;
   background-size: contain!important;
-  width: 97%;
-  height: 90%;
+  width: 97% !important;
+  height: 90% !important;
   transform: translate(-50%, -50%);
 }
 </style>
