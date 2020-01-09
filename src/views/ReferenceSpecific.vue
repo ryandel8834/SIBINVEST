@@ -60,7 +60,7 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="p-0 m-0">
+    <b-row class="p-0 m-0 mb-5">
       <b-col cols="4" class="p-0 d-flex">
         <div class="ref-img" id="seven">
           <div class="magnifier-wrapper">
@@ -92,6 +92,83 @@
           </div>
         </div>
         <div class="ref-img" id="twelve">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+      </b-col>
+    </b-row>
+    <h1 class="mb-3 mt-25">FAZA IZGRADNJE</h1>
+    <b-row class="p-0 m-0">
+      <b-col cols="4" class="p-0 d-flex">
+        <div class="ref-img" id="thirteen">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="fourteen">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+      </b-col>
+      <b-col cols="4" class="p-0 d-flex">
+        <div class="ref-img" id="fifteen">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="sixteen">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+      </b-col>
+      <b-col cols="4" class="p-0 d-flex">
+        <div class="ref-img" id="seventeen">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="eighteen">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+      </b-col>
+    </b-row>
+    <b-row class="p-0 m-0">
+      <b-col cols="4" class="p-0 d-flex">
+        <div class="ref-img" id="nineteen">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="twenty">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+      </b-col>
+      <b-col cols="4" class="p-0 d-flex">
+        <div class="ref-img" id="twentyone">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="twentytwo">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+      </b-col>
+      <b-col cols="4" class="p-0 d-flex">
+        <div class="ref-img" id="twentythree">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+        </div>
+        <div class="ref-img" id="twentyfour">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt="" />
           </div>
@@ -261,7 +338,88 @@ h1 {
 #twelve:hover {
   background: url("../assets/reference-slike/min/vranje/vranje10_color-min.jpg");
 }
+#thirteen {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje1-min.jpg");
+  width:50%;
+}
+#thirteen:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje1_color-min.jpg");
+}
+#fourteen {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje2-min.jpg");
+}
+#fourteen:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje2_color-min.jpg");
+}
+#fifteen {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje3-min.jpg");
+}
+#fifteen:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje3_color-min.jpg");
+}
+#sixteen {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje4-min.jpg");
+  width:50%;
+}
+#sixteen:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje4_color-min.jpg");
+}
+#seventeen {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje5-min.jpg");
+  width:50%;
+}
+#seventeen:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje5_color-min.jpg");
+}
+#eighteen {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje6-min.jpg");
+}
+#eighteen:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje6_color-min.jpg");
+}
+#nineteen {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje7-min.jpg");
+  width: 50%;
+}
+#nineteen:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje7_color-min.jpg");
+}
+#twenty {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje8-min.jpg");
+}
+#twenty:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje8_color-min.jpg");
+}
+#twentyone {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje9-min.jpg");
+}
+#twentyone:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje9_color-min.jpg");
+}
+#twentytwo {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje10-min.jpg");
+  width: 50%;
+}
+#twentytwo:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje10_color-min.jpg");
+}
+#twentythree {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje11-min.jpg");
+  width: 50%;
+}
+#twentythree:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje11_color-min.jpg");
+}
+#twentyfour {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje12-min.jpg");
+}
+#twentyfour:hover {
+  background: url("../assets/reference-slike/min/vranje/u-toku/vranje12_color-min.jpg");
+}
 .ref-img:hover .magnifier {
   display: block;
+}
+.mt-25 {
+  margin-top: 70px;
 }
 </style>
