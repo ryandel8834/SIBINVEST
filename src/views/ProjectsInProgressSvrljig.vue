@@ -1,0 +1,286 @@
+<template>
+  <b-container class="px-0" id="reference-specific">
+    <b-row class="ref-info-row mb-3">
+      <b-col cols="5" class="px-0 mt-5 pl-4">
+        <h1 class="mb-3 mt-4">{{ referenceData[3].category }}</h1>
+        <div>
+          <p class="ref-desc">
+            {{ referenceData[3].desc }}
+          </p>
+        </div>
+        <div>
+          <p class="ref-desc mb-0">
+            Završetak gradnje: {{ referenceData[3].endDate }}
+          </p>
+          <p class="ref-desc mb-0">
+            Investitor: {{ referenceData[3].investor }}
+          </p>
+          <p class="ref-desc">Bruto površina izgrađenih objekata na parceli: {{ referenceData[3].area }}</p>
+        </div>
+      </b-col>
+      <b-col cols="7">
+        <app-banner :pageTitle="referenceData[3].name"></app-banner>
+      </b-col>
+    </b-row>
+    <div class="d-flex">
+      <div class="ref-img" id="one">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="two">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="three">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+      <div class="ref-img" id="four">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          </div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="d-flex flex-column w-50">
+        <div class="d-flex">
+          <div class="ref-img" id="five">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt="" />
+            </div>
+          </div>
+          <div class="ref-img" id="six">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt="" />
+              </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="ref-img" id="eight">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column w-50">
+        <div class="d-flex">
+          <div class="ref-img" id="seven">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="ref-img" id="nine">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt="" />
+            </div>
+          </div>
+          <div class="ref-img" id="ten">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt="" />
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <carousel :items="1" loop="false">
+      <template slot="prev"><span class="prev"><i class="arrow-left"><font-awesome-icon :icon="['fas', 'chevron-left']"/></i></span></template>
+      <img src="../assets/reference-slike/min/banja/banja1_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja2_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja3_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja4_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja5_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja6_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja7_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja8_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja9_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja10_color-min.jpg" alt="">
+      <template slot="next"><span class="next"><i class="arrow-right"><font-awesome-icon :icon="['fas', 'chevron-right']"/></i></span></template>
+    </carousel> -->
+    <div class="backdrop"></div>
+  </b-container>
+</template>
+
+<script>
+import Referencer from "../services/referencer";
+import Banner from "../components/Banner";
+
+export default {
+  data() {
+    return {
+      referenceData: []
+    };
+  },
+  components: {
+    "app-banner": Banner
+  },
+  methods: {
+    getReferences() {
+      Referencer.getReferencesData()
+        .then(data => {
+          this.referenceData = data.map(reference => {
+            return Object.assign(
+              {},
+              {
+                category: reference.projectCategory,
+                name: reference.projectName,
+                desc: reference.projectDescription,
+                endDate: reference.completionDate,
+                investor: reference.projectInvestor,
+                area: reference.netoArea,
+                picSet: reference.projectPicSet,
+                picColorSet: reference.projectPicColorSet
+              }
+            );
+          });
+        })
+        .catch(e => console.log(e));
+    }
+  },
+  created() {
+    this.getReferences();
+  }
+};
+</script>
+
+<style scoped>
+body {
+  height: 100% !important;
+
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  letter-spacing: 1px;
+}
+.ref-info-row {
+  margin-top: 200px;
+}
+.ref-desc {
+  font-size: 15px;
+  color: #000;
+  max-width: 315px;
+}
+.magnifier-wrapper {
+  height: 100%;
+  width: 100%;
+}
+.magnifier {
+  display: none;
+  height: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+.ref-img {
+  width: 25%;
+  height: 210px;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  cursor: pointer;
+  position: relative;
+}
+.arrow-left {
+  color: black;
+  font-size: 30px;
+}
+#one {
+  background: url("../assets/reference-slike/min/svrljig/svrljig1-min.jpg");
+}
+#one:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig1_color-min.jpg");
+}
+#two {
+  background: url("../assets/reference-slike/min/svrljig/svrljig2-min.jpg");
+}
+#two:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig2_color-min.jpg");
+}
+#three {
+  background: url("../assets/reference-slike/min/svrljig/svrljig3-min.jpg");
+}
+#three:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig3_color-min.jpg");
+}
+#four {
+  background: url("../assets/reference-slike/min/svrljig/svrljig4-min.jpg");
+}
+#four:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig4_color-min.jpg");
+}
+#five {
+  background: url("../assets/reference-slike/min/svrljig/svrljig5-min.jpg");
+  width: 100%;
+}
+#five:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig5_color-min.jpg");
+}
+#six {
+  background: url("../assets/reference-slike/min/svrljig/svrljig6-min.jpg");
+  width: 100%;
+}
+#six:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig6_color-min.jpg");
+}
+#seven {
+  background: url("../assets/reference-slike/min/svrljig/svrljig7-min.jpg");
+  height: 420px;
+  width: 100%;
+}
+#seven:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig7_color-min.jpg");
+}
+#eight {
+  background: url("../assets/reference-slike/min/svrljig/svrljig8-min.jpg");
+  height: 420px;
+  width: 100%;
+}
+#eight:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig8_color-min.jpg");
+}
+#nine {
+  background: url("../assets/reference-slike/min/svrljig/svrljig9-min.jpg");
+  width: 100%;
+}
+#nine:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig9_color-min.jpg");
+}
+#ten {
+  background: url("../assets/reference-slike/min/svrljig/svrljig10-min.jpg");
+  width: 100%;
+}
+#ten:hover {
+  background: url("../assets/reference-slike/min/svrljig/svrljig10_color-min.jpg");
+}
+.ref-img:hover .magnifier {
+  display: block;
+}
+.owl-prev {
+  display: none;
+}
+.owl-next {
+  display: none;
+}
+.backdrop {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 9999;
+}
+.left-div {
+  height: 420px;
+  width: 50%;
+}
+</style>

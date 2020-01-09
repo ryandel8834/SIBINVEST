@@ -2,12 +2,19 @@ import Vue from "vue";
 import Router from "vue-router";
 import Reference from "./views/ReferenceSpecific.vue";
 import ReferenceBanja from "./views/ReferenceSpecificBanja.vue";
+import ProgressZitoradja from "./views/ProjectsInProgressZitoradja.vue";
+import ProgressSvrljig from "./views/ProjectsInProgressSvrljig.vue";
 import FrontPage from "./views/FrontPage.vue";
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
+    {
+      path: "/",
+      name: "FrontPage",
+      component: FrontPage
+    },
     {
       path: "/reference-vranje",
       name: "reference",
@@ -19,10 +26,15 @@ export default new Router({
       component: ReferenceBanja
     },
     {
-      path: "/",
-      name: "FrontPage",
-      component: FrontPage
-    }
+      path: "/progress-zitoradja",
+      name: "progress-zitoradja",
+      component: ProgressZitoradja
+    },
+    {
+      path: "/progress-svrljig",
+      name: "progress-svrljig",
+      component: ProgressSvrljig
+    },
   ],
   mode: "history"
 });

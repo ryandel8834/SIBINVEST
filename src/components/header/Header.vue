@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     handleScroll(event) {
-      if (this.$route.path !== "/reference-vranje" && this.$route.path !== "/reference-banja") {
+      if (this.$route.path !== "/reference-vranje" && this.$route.path !== "/reference-banja" && this.$route.path !=="/progress-zitoradja" && this.$route.path !=="/progress-svrljig") {
         let header = document.querySelector(".navbar");
         let scrollHeight = Number;
         scrollHeight = ((window.innerHeight * 60) / 100) - 70;
@@ -66,7 +66,7 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
-    if (this.$route.path === "/reference-vranje" || this.$route.path === "/reference-banja") {
+    if (this.$route.path === "/reference-vranje" || this.$route.path === "/reference-banja" || this.$route.path ==="/progress-zitoradja" || this.$route.path ==="/progress-svrljig") {
       let header = document.querySelector(".navbar");
       header.classList.add("sticky-header");
       this.logoName = "logo1.jpg";

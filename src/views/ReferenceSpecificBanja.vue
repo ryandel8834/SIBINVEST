@@ -22,82 +22,6 @@
         <app-banner :pageTitle="referenceData[1].name"></app-banner>
       </b-col>
     </b-row>
-    <!-- <b-row class="p-0 m-0">
-      <b-col cols="1"></b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="one">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="two">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="three">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="four">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="five">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="1"></b-col>
-    </b-row> -->
-    <!-- <b-row class="p-0 m-0">
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="six">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="seven">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="eight">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="nine">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="2" class="p-0 d-flex">
-        <div class="ref-img" id="ten">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-        </div>
-      </b-col>
-    </b-row> -->
     <div class="d-flex">
       <div class="ref-img" id="one">
           <div class="magnifier-wrapper">
@@ -152,6 +76,21 @@
           </div>
       </div>
     </div>
+    <!-- <carousel :items="1" loop="false">
+      <template slot="prev"><span class="prev"><i class="arrow-left"><font-awesome-icon :icon="['fas', 'chevron-left']"/></i></span></template>
+      <img src="../assets/reference-slike/min/banja/banja1_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja2_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja3_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja4_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja5_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja6_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja7_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja8_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja9_color-min.jpg" alt="">
+      <img src="../assets/reference-slike/min/banja/banja10_color-min.jpg" alt="">
+      <template slot="next"><span class="next"><i class="arrow-right"><font-awesome-icon :icon="['fas', 'chevron-right']"/></i></span></template>
+    </carousel> -->
+    <div class="backdrop"></div>
   </b-container>
 </template>
 
@@ -236,6 +175,10 @@ h1 {
   cursor: pointer;
   position: relative;
 }
+.arrow-left {
+  color: black;
+  font-size: 30px;
+}
 #one {
   background: url("../assets/reference-slike/min/banja/banja1-min.jpg");
 }
@@ -298,5 +241,21 @@ h1 {
 }
 .ref-img:hover .magnifier {
   display: block;
+}
+.owl-prev {
+  display: none;
+}
+.owl-next {
+  display: none;
+}
+.backdrop {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 9999;
 }
 </style>

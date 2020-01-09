@@ -3,13 +3,19 @@
     <h1 style="color: black;">PROJEKTI U TOKU</h1>
     <b-row class="justify-content-center px-0">
       <b-col lg="4" sm="12">
-        <img src="../../assets/during1.jpg" />
+        <router-link to="/progress-svrljig">
+          <div id="one"></div>
+        </router-link>
       </b-col>
       <b-col lg="4" sm="12">
-        <img alt="Card image cap" class="card-img-top" src="../../assets/during2.jpg" />
+        <router-link to="/progress-zitoradja">
+          <div id="two"></div>
+        </router-link>
       </b-col>
       <b-col lg="4" sm="12">
-        <img src="../../assets/during3.jpg" />
+        <router-link to="/reference-vranje">
+          <div id="three"></div>
+        </router-link>
       </b-col>
     </b-row>
   </b-container>
@@ -33,6 +39,36 @@ h1 {
 #projects-in-progress {
   padding-top: 80px;
 }
+#one {
+  background: url("../../assets/reference-slike/min/svrljig/svrljig8-min.jpg");
+  background-size: cover;
+  height: 300px;
+}
+#one:hover {
+  background: url("../../assets/reference-slike/min/svrljig/svrljig8_color-min.jpg");
+  background-size: cover;
+  cursor: pointer;
+}
+#two {
+  background: url("../../assets/reference-slike/min/zitoradja/zitoradja8-min.jpg");
+  background-size: cover;
+  height: 300px;
+}
+#two:hover {
+  background: url("../../assets/reference-slike/min/zitoradja/zitoradja8_color-min.jpg");
+  background-size: cover;
+  cursor: pointer;
+}
+#three {
+  background: url("../../assets/reference-slike/min/vranje/vranje8-min.jpg");
+  background-size: cover;
+  height: 300px;
+}
+#three:hover {
+  background: url("../../assets/reference-slike/min/vranje/vranje8_color-min.jpg");
+  background-size: cover;
+  cursor: pointer;
+}
 /* Media query */
 @media (max-width: 991px) {
   .durring-section {
@@ -43,10 +79,6 @@ h1 {
   }
   .container h1 {
     text-align: center;
-  }
-  img {
-    padding: 2%;
-    width: 75%;
   }
 }
 </style>

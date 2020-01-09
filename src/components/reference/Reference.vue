@@ -7,7 +7,7 @@
           <router-link to="/reference-vranje">
             <div id="first" class="reference-wrapper">
              <span class="centered">NARODNO POZORIŠTE U VRANJU</span>
-             <span class="rotated">Oktobar 2019</span>
+             <span class="rotated october">Oktobar 2019</span>
             </div>
           </router-link>
         </b-col>
@@ -60,18 +60,24 @@ export default {
     color: white;
   }
   .centered {
-      top: 50%;
-      left: 50%;
-      transform: translate(-57%, -100%);
-      margin-bottom: 100px;
-      font-size: 26px;
-      font-family: 'Bebas Neue', cursive;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-57%, -100%);
+    text-shadow: 0 0 4px rgba(0, 0, 0);
+    margin-bottom: 100px;
+    font-size: 26px;
+    font-family: 'Bebas Neue', cursive;
   }
   .rotated {
     transform: rotate(270deg);
     bottom: 45px;
     left: -20px;
     font-size: 18px;
+  }
+  .rotated.october {
+    bottom: 60px;
+    left: -35px;
   }
   #first {
     background: url(../../assets/reference1.jpg);
@@ -82,6 +88,12 @@ export default {
     background: url(../../assets/reference1_color.jpg);
     background-size: cover;
   }
+  #first:hover .centered {
+    display: block;
+  }
+  #first:hover .rotated {
+    display: none;
+  }
   #second {
     background: url(../../assets/reference-slike/min/banja/banja1-min.jpg);
     height: 420px;
@@ -90,6 +102,12 @@ export default {
   #second:hover {
     background: url(../../assets/reference-slike/min/banja/banja1_color-min.jpg);
     background-size: cover;
+  }
+  #second:hover .centered {
+    display: block;
+  }
+  #second:hover .rotated {
+    display: none;
   }
   @media (max-width: 991px) {
     .reference {
