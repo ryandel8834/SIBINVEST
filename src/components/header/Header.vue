@@ -77,7 +77,14 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
-    toggleNavbar();
+    if (this.$route.path === "/reference-vranje" || this.$route.path === "/reference-banja" || this.$route.path ==="/progress-zitoradja" || this.$route.path ==="/progress-svrljig") {
+      let header = document.querySelector(".navbar");
+      header.classList.add("sticky-header");
+      this.logoName = "logo1.jpg";
+    } else {
+      header.classList.remove("sticky-header");
+      this.logoName = "";
+    }
   },
 };
 </script>
