@@ -34,7 +34,7 @@
                   v-model="name"
                   v-bind:class="{
                   'form-control': true,
-                  'is-invalid': !validName(name) && nameBlured
+                  'is-invalid': !validName(name) && nameBlured && removeInvalidName
                 }"
                 ></b-form-input>
                 <div
@@ -53,7 +53,7 @@
                   v-model="email"
                   v-bind:class="{
                   'form-control': true,
-                  'is-invalid': !validEmail(email) && emailBlured
+                  'is-invalid': !validEmail(email) && emailBlured &&  removeInvalidEmail
                 }"
                   v-on:blur="emailBlured = true"
                 ></b-form-input>
@@ -75,7 +75,7 @@
                   name="user_message"
                   v-bind:class="{
                   'form-control': true,
-                  'is-invalid': !validMessage(text) && textBlured
+                    'is-invalid': !validMessage(text) && textBlured && removeInvalidText
                 }"
                   v-on:blur="textBlured = true"
                 ></b-textarea>
@@ -121,7 +121,10 @@ export default {
       elementVisible: true,
       isValidName: false,
       isValidText: false,
-      isValidEmail: false
+      isValidEmail: false,
+      removeInvalidName: false,
+      removeInvalidEmail: false,
+      removeInvalidText: false
     };
   },
   methods: {
@@ -129,18 +132,31 @@ export default {
       this.nameBlured = true;
       if (this.validName(this.name)) {
         this.isValidName = true;
+        this.removeInvalidName = false;
+      } else {
+        this.isValidName = false;
+        this.removeInvalidName = true;
       }
     },
     validateEmail: function() {
       this.emailBlured = true;
       if (this.validEmail(this.email)) {
         this.isValidEmail = true;
+        this.removeInvalidEmail = false;
+
+      } else {
+        this.isValidEmail = false;
+        this.removeInvalidEmail = true;
       }
     },
     validateText: function() {
       this.textBlured = true;
       if (this.validMessage(this.text)) {
         this.isValidText = true;
+        this.removeInvalidText = false;
+      } else {
+        this.isValidText = false;
+        this.removeInvalidText = true;
       }
     },
     validEmail: function(email) {
@@ -163,14 +179,6 @@ export default {
     },
     submitName: function() {
       this.validateName();
-      // if (this.valid) {
-      //   //THIS IS WHERE YOU SUBMIT DATA TO SERVER
-      //   this.submitted = true;
-      //   this.sendEmail();
-      //   setTimeout(() => {
-      //     this.submitted = false;
-      //   }, 4000);
-      // }
     },
     submitEmail: function() {
       this.validateEmail();
@@ -178,39 +186,45 @@ export default {
     submitMessage: function() {
       this.validateText();
     },
-    removeInvalid() {
-      this.submitted = false;
-      this.name = "";
-      this.email = "";
-      this.text = "";
-      this.elementVisible = false;
-      let element = document.querySelectorAll("is-invalid");
-      element.ClassList.remove("is-invalid");
-    },
-    checkIsValid: function() {
+    checkIsValid() {
       console.log(this.isValidEmail);
-      if (this.isValidName && this.isValidEmail && this.isValidText) {
+        this.validateName();
+        this.validateEmail();
+        this.validateText();
+      if (this.isValidText && this.isValidEmail && this.isValidName) {
         //THIS IS WHERE YOU SUBMIT DATA TO SERVER
         this.submitted = true;
-        setTimeout(() => this.removeInvalid(), 500);
+        this.sendEmail();
+        this.removeInvalidName = false;
+        this.removeInvalidText = false;
+        this.removeInvalidEmail = false;
+        setTimeout(() => {
+          this.submitted = false;
+          this.name="";
+          this.email="";
+          this.text="";
+          this.isValidName = false;
+          this.isValidEmail = false;
+          this.isValidText = false;
+        }, 4000);
       }
     },
     sendEmail: e => {
-      // emailjs
-      //   .sendForm(
-      //     "gmail",
-      //     "sibinvestdoo",
-      //     e.target,
-      //     "user_3UfiOi0iiKLucStEtqT7h"
-      //   )
-      //   .then(
-      //     result => {
-      //       console.log("SUCCESS!");
-      //     },
-      //     error => {
-      //       console.log("FAILED...", error);
-      //     }
-      //   );
+      emailjs
+        .sendForm(
+          "gmail",
+          "sibinvestdoo",
+          e.target,
+          "user_3UfiOi0iiKLucStEtqT7h"
+        )
+        .then(
+          result => {
+            console.log("SUCCESS!");
+          },
+          error => {
+            console.log("FAILED...", error);
+          }
+        );
     }
   }
 };
@@ -274,23 +288,4 @@ div p {
 .alert h5 {
   margin-bottom: 0rem;
 }
-/* .form-group {
-  position: relative;
-}
-.warning-msg {
-  position: absolute;
-  color: red;
-}
-#name-missing {
-  top: -25px;
-}
-#email-missing {
-  top: 5px;
-}
-#email-incorrect {
-  top: 5px;
-}
-#message-missing {
-  top: -23px;
-} */
 </style>

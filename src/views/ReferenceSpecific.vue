@@ -1,176 +1,176 @@
 <template>
  <div>
    <app-header-b></app-header-b>
-    <b-container class="px-0" id="reference-specific">
-    <b-row class="ref-info-row mb-3">
-      <b-col cols="5" class="px-0 mt-5 pl-4">
-        <h1 class="mb-3 mt-4">{{ referenceData[0].category }}</h1>
-        <div>
-          <p class="ref-desc">{{ referenceData[0].desc }}</p>
-        </div>
-        <div>
-          <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData[0].endDate }}</p>
-          <p class="ref-desc mb-0">Investitor: {{ referenceData[0].investor }}</p>
-          <p class="ref-desc">Neto površina: {{ referenceData[0].area }}</p>
-        </div>
-      </b-col>
-      <b-col cols="7">
-        <app-banner :pageTitle="referenceData[0].name"></app-banner>
-      </b-col>
-    </b-row>
-    <b-row class="p-0 m-0">
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="one">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="two">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="three">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="four">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="five">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="six">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-    </b-row>
-    <b-row class="p-0 m-0 mb-5">
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="seven">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="eight">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="nine">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="ten">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="eleven">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="twelve">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-    </b-row>
-    <h1 class="mb-3 mt-25">FAZA IZGRADNJE</h1>
-    <b-row class="p-0 m-0">
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="thirteen">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="fourteen">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="fifteen">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="sixteen">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="seventeen">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="eighteen">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-    </b-row>
-    <b-row class="p-0 m-0">
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="nineteen">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="twenty">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="twentyone">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="twentytwo">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-      <b-col cols="4" class="p-0 d-flex">
-        <div class="ref-img" id="twentythree">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="twentyfour">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </b-col>
-    </b-row>
+    <b-container class="px-0" id="reference-specific" fluid>
+     <app-banner :pageTitle="referenceData[0].name"></app-banner>
+      <b-container>
+        <b-row class="ref-info-row mb-3">
+          <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
+            <h1 class="mb-3 mt-4">{{ referenceData[0].category }}</h1>
+            <div>
+              <p class="ref-desc">{{ referenceData[0].desc }}</p>
+            </div>
+            <div>
+              <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData[0].endDate }}</p>
+              <p class="ref-desc mb-0">Investitor: {{ referenceData[0].investor }}</p>
+              <p class="ref-desc">Neto površina: {{ referenceData[0].area }}</p>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row class="p-0 m-0">
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="one">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="two">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="three">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="four">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="five">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="six">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row class="p-0 m-0 mb-5">
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="seven">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="eight">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="nine">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="ten">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="eleven">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="twelve">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+        <h1 class="mb-3 mt-25">FAZA IZGRADNJE</h1>
+        <b-row class="p-0 m-0">
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="thirteen">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="fourteen">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="fifteen">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="sixteen">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="seventeen">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="eighteen">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row class="p-0 m-0">
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="nineteen">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="twenty">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="twentyone">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="twentytwo">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="twentythree">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="twentyfour">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
   </b-container>
  </div>
 </template>

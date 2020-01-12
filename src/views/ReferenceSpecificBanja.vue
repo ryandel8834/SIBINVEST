@@ -1,9 +1,11 @@
 <template>
   <div>
     <app-header-b></app-header-b>
-    <b-container class="px-0" id="reference-specific">
-    <b-row class="ref-info-row mb-3">
-      <b-col cols="5" class="px-0 mt-5 pl-4">
+    <b-container class="px-0" id="reference-specific" fluid>
+    <app-banner :pageTitle="referenceData.name"></app-banner>
+    <b-container>
+        <b-row class="ref-info-row mb-3">
+      <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
         <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
         <div>
           <p class="ref-desc">{{ referenceData.desc }}</p>
@@ -13,9 +15,6 @@
           <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
           <p class="ref-desc">Neto površina: {{ referenceData.area }}</p>
         </div>
-      </b-col>
-      <b-col cols="7">
-        <app-banner :pageTitle="referenceData.name"></app-banner>
       </b-col>
     </b-row>
     <div class="d-flex">
@@ -86,6 +85,7 @@
       <img src="../assets/reference-slike/min/banja/banja10_color-min.jpg" alt="">
       <template slot="next"><span class="next"><i class="arrow-right"><font-awesome-icon :icon="['fas', 'chevron-right']"/></i></span></template>
     </carousel>-->
+    </b-container>
     <div class="backdrop"></div>
   </b-container>
   </div>
