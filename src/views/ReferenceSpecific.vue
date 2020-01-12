@@ -1,5 +1,7 @@
 <template>
-  <b-container class="px-0" id="reference-specific">
+ <div>
+   <app-header-b></app-header-b>
+    <b-container class="px-0" id="reference-specific">
     <b-row class="ref-info-row mb-3">
       <b-col cols="5" class="px-0 mt-5 pl-4">
         <h1 class="mb-3 mt-4">{{ referenceData[0].category }}</h1>
@@ -170,6 +172,7 @@
       </b-col>
     </b-row>
   </b-container>
+ </div>
 </template>
 
 <script>

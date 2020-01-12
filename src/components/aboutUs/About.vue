@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-0">
+  <div class="container-fluid p-0">
     <div class="about-us" id="about-us">
       <h1 style="color:white">O NAMA</h1>
       <div class="about-us-card">
@@ -29,12 +29,13 @@ h1 {
   position: absolute;
   bottom: 60px;
   padding-top: 80px;
+  margin-left: 12.5%; 
+  width: 87.5%;
 }
 .about-us-card {
   height: auto;
   background: rgb(109, 110, 111, .6);
   padding: 1%;
-  width: 200%;
 }
 .about-us-card p {
   color: white;

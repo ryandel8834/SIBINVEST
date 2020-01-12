@@ -1,4 +1,6 @@
 <template>
+<div>
+  <app-header-b></app-header-b>
   <b-container class="px-0" id="reference-specific" fluid>
     <app-banner :pageTitle="referenceData.name"></app-banner>
     <b-container class="px-0">
@@ -139,6 +141,7 @@
       <div class="backdrop"></div>
     </b-container>
   </b-container>
+</div>
 </template>
 
 <script>

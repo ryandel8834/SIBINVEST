@@ -1,5 +1,6 @@
 <template>
   <div>
+    <app-header></app-header>
     <b-container class="px-0">
       <div class="ribbon d-flex align-items-end">
         <img src="../assets/logo.png" alt="">

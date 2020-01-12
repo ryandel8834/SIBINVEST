@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import Header from "./components/header/header.vue";
+import HeaderB from "./components/header/header-b.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -12,6 +13,7 @@ import "./plugins/bootstrap-vue";
 import "./styles/index.css";
 
 Vue.component("app-header", Header);
+Vue.component("app-header-b", HeaderB);
 Vue.component("carousel", carousel);
 
 library.add(faUserSecret);
