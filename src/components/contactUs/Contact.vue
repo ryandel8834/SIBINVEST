@@ -190,6 +190,12 @@ export default {
         this.submitted = true;
         setTimeout(() => {
           this.submitted = false;
+          this.name = "";
+          this.email = "";
+          this.text = "";
+          this.elementVisible = false;
+          let element = document.getElementsByClassName("form-control");
+          element.classList.remove("form-control is-invalid");
         }, 4000);
       }
     },
