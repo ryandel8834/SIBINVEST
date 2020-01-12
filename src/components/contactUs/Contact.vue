@@ -4,7 +4,9 @@
       <b-col class="contact-information" lg="6" sm="12">
         <div>
           <h1 style="color: black;">KONTAKTIRAJTE NAS</h1>
-          <p><b class="bebas">SIB INVEST DOO</b>, Niš</p>
+          <p>
+            <b class="bebas">SIB INVEST DOO</b>, Niš
+          </p>
           <p>Privredno društvo za građevinske radove</p>
         </div>
         <div class="mt-2 mb-2">
@@ -38,9 +40,7 @@
                 class="invalid-feedback pt-2 pl-1"
                 style="max-height:0px; color:red;"
                 v-show="elementVisible"
-              >
-                Molimo Vas unesite Vase ime
-              </div>
+              >Molimo Vas unesite Vase ime</div>
             </b-form-group>
             <b-form-group>
               <b-form-input
@@ -55,15 +55,12 @@
                   'is-invalid': !validEmail(email) && emailBlured
                 }"
                 v-on:blur="emailBlured = true"
-              >
-              </b-form-input>
+              ></b-form-input>
               <div
                 class="invalid-feedback pt-2 pl-1"
                 style="max-height:0px; color:red;"
                 v-show="elementVisible"
-              >
-                Molimo Vas unesite ispravnu email adresu
-              </div>
+              >Molimo Vas unesite ispravnu email adresu</div>
             </b-form-group>
             <b-form-group>
               <b-textarea
@@ -85,17 +82,14 @@
                 class="invalid-feedback pt-2 pl-1"
                 style="max-height:0px; color:red;"
                 v-show="elementVisible"
-              >
-                Molimo Vas unesite poruku
-              </div>
+              >Molimo Vas unesite poruku</div>
             </b-form-group>
             <b-form-group>
               <b-button
                 @click="checkIsValid"
                 type="submit"
                 class="btn mt-3 float-right send-form pl-4 pr-4"
-                >pošalji</b-button
-              >
+              >pošalji</b-button>
             </b-form-group>
           </div>
           <div v-else class="alert alert-success" role="alert">
@@ -185,19 +179,31 @@ export default {
     checkIsValid: function() {
       console.log(this.isValidEmail);
       if (this.isValidName && this.isValidEmail && this.isValidText) {
-        console.log(this.isValidName);
         //THIS IS WHERE YOU SUBMIT DATA TO SERVER
         this.submitted = true;
+        this.returnPromise()
+          .then(() => {
+            console.log(data);
+            let element = document.querySelectorAll(".form-control");
+            console.log(element);
+            element.classList.remove("is-invalid");
+            console.log(element);
+          })
+          .catch(err => console.log(err));
+      }
+    },
+    returnPromise() {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
           this.submitted = false;
           this.name = "";
           this.email = "";
           this.text = "";
           this.elementVisible = false;
-          let element = document.querySelector(".form-control");
-          element.classList.remove("form-control is-invalid");
+          let element = document.querySelectorAll(".form-control");
+          console.log(element);
         }, 4000);
-      }
+      });
     },
     sendEmail: e => {
       emailjs

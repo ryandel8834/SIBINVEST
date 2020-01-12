@@ -54,16 +54,7 @@ h1 {
   background-size: cover;
   cursor: pointer;
 }
-#three {
-  background: url("../../assets/reference-slike/min/vranje/vranje8-min.jpg");
-  background-size: cover;
-  height: 300px;
-}
-#three:hover {
-  background: url("../../assets/reference-slike/min/vranje/vranje8_color-min.jpg");
-  background-size: cover;
-  cursor: pointer;
-}
+
 /* Media query */
 @media (max-width: 991px) {
   .durring-section {
