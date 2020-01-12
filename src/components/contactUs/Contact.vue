@@ -178,20 +178,21 @@ export default {
     submitMessage: function() {
       this.validateText();
     },
+    removeInvalid() {
+      this.submitted = false;
+      this.name = "";
+      this.email = "";
+      this.text = "";
+      this.elementVisible = false;
+      let element = document.querySelectorAll("is-invalid");
+      element.ClassList.remove("is-invalid");
+    },
     checkIsValid: function() {
       console.log(this.isValidEmail);
       if (this.isValidName && this.isValidEmail && this.isValidText) {
         //THIS IS WHERE YOU SUBMIT DATA TO SERVER
         this.submitted = true;
-        setTimeout(() => {
-          this.submitted = false;
-          this.name = "";
-          this.email = "";
-          this.text = "";
-          this.elementVisible = false;
-          let element = document.querySelectorAll(".form-control");
-          console.log(element);
-        }, 1000);
+        setTimeout(() => this.removeInvalid(), 500);
       }
     },
     sendEmail: e => {
