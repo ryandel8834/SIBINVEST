@@ -2,20 +2,20 @@
   <b-container class="px-0" id="reference-specific">
     <b-row class="ref-info-row mb-3">
       <b-col cols="5" class="px-0 mt-5 pl-4">
-        <h1 class="mb-3 mt-4">{{ this.referenceData[3].category }}</h1>
+        <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
         <div>
-          <p class="ref-desc">{{ this.referenceData[3].desc }}</p>
+          <p class="ref-desc">{{ referenceData.desc }}</p>
         </div>
         <div>
-          <p class="ref-desc mb-0">Završetak gradnje: {{ this.referenceData[3].endDate }}</p>
-          <p class="ref-desc mb-0">Investitor: {{ this.referenceData[3].investor }}</p>
+          <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
+          <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
           <p
             class="ref-desc"
-          >Bruto površina izgrađenih objekata na parceli: {{ this.referenceData[3].area }}</p>
+          >Bruto površina izgrađenih objekata na parceli: {{ referenceData.area }}</p>
         </div>
       </b-col>
       <b-col cols="7">
-        <app-banner :pageTitle="this.referenceData[3].name"></app-banner>
+        <app-banner :pageTitle="referenceData.name"></app-banner>
       </b-col>
     </b-row>
     <div class="d-flex">
@@ -119,23 +119,26 @@ export default {
     getReferences() {
       Referencer.getReferencesData()
         .then(data => {
-          this.referenceData = data.map(reference => {
-            return Object.assign(
-              {},
-              {
-                category: reference.projectCategory,
-                name: reference.projectName,
-                desc: reference.projectDescription,
-                endDate: reference.completionDate,
-                investor: reference.projectInvestor,
-                area: reference.netoArea,
-                picSet: reference.projectPicSet,
-                picColorSet: reference.projectPicColorSet
-              }
-            );
-          });
+          let dataObject = JSON.stringify(data[3]);
+          let parseObj = JSON.parse(dataObject);
+
+          this.referenceData = {
+            category: parseObj.projectCategory,
+            name: parseObj.projectName,
+            desc: parseObj.projectDescription,
+            endDate: parseObj.completionDate,
+            investor: parseObj.projectInvestor,
+            area: parseObj.netoArea
+          };
+
+          console.log(this.referenceData);
         })
         .catch(e => console.log(e));
+    },
+    openImg(event) {
+      let elementTarget = event.currentTarget.id;
+      let selectedElement = document.getElementById(elementTarget);
+      selectedElement.classList.add("focused");
     }
   },
   created() {

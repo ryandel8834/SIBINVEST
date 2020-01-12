@@ -19,71 +19,71 @@
         <b-col cols="7"></b-col>
       </b-row>
       <div class="d-flex">
-        <div class="ref-img" id="one" @click="openImg" ref="target">
+        <div class="ref-img" id="one" @click="openImg($event)">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="two" @click="openImg" ref="target">
+        <div class="ref-img" id="two" @click="openImg($event)">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="three">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="three" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="four">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="four" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
       </div>
       <div class="d-flex">
-        <div class="ref-img" id="five">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="five" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="six">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="six" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="seven">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="seven" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="eight">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="eight" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="nine">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="nine" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
       </div>
       <div class="d-flex">
-        <div class="ref-img" id="ten">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="ten" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="eleven">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="eleven" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="twelve">
-          <div class="magnifier-wrapper" @click="openImg" ref="target">
+        <div class="ref-img" id="twelve" @click="openImg($event)">
+          <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
         </div>
-        <div class="ref-img" id="thirteen" @click="openImg" ref="target">
+        <div class="ref-img" id="thirteen" @click="openImg($event)">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
@@ -92,31 +92,31 @@
       <div class="d-flex">
         <div class="left-div">
           <div class="d-flex">
-            <div class="ref-img" id="fourteen" @click="openImg" ref="target">
+            <div class="ref-img" id="fourteen" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="fifteen" @click="openImg" ref="target">
+            <div class="ref-img" id="fifteen" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
           </div>
           <div class="d-flex">
-            <div class="ref-img" id="sixteen" @click="openImg" ref="target">
+            <div class="ref-img" id="sixteen" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="seventeen" @click="openImg" ref="target">
+            <div class="ref-img" id="seventeen" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
           </div>
         </div>
-        <div class="ref-img" id="eighteen" @click="openImg" ref="target">
+        <div class="ref-img" id="eighteen" @click="openImg($event)">
           <div class="magnifier-wrapper">
             <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
@@ -176,10 +176,16 @@ export default {
         })
         .catch(e => console.log(e));
     },
-    openImg() {
-      let element = document.querySelectorAll(".ref-img");
-      let elementId = this.$refs.target.id;
-      console.log(elementId);
+    openImg(event) {
+      let elementTarget = event.currentTarget.id;
+      let selectedElement = document.getElementById(elementTarget);
+      selectedElement.classList.add("focused");
+
+      // console.log(elementTarget);
+      // let imageArray = [];
+      // for (let i = 0; i < elementList.length; i++) {
+      //   imageArray.push(elementList[i].id);
+      // }
     }
   },
   created() {

@@ -2,78 +2,72 @@
   <b-container class="px-0" id="reference-specific">
     <b-row class="ref-info-row mb-3">
       <b-col cols="5" class="px-0 mt-5 pl-4">
-        <h1 class="mb-3 mt-4">{{ referenceData[1].category }}</h1>
+        <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
         <div>
-          <p class="ref-desc">
-            {{ referenceData[1].desc }}
-          </p>
+          <p class="ref-desc">{{ referenceData.desc }}</p>
         </div>
         <div>
-          <p class="ref-desc mb-0">
-            Završetak gradnje: {{ referenceData[1].endDate }}
-          </p>
-          <p class="ref-desc mb-0">
-            Investitor: {{ referenceData[1].investor }}
-          </p>
-          <p class="ref-desc">Neto površina: {{ referenceData[1].area }}</p>
+          <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
+          <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
+          <p class="ref-desc">Neto površina: {{ referenceData.area }}</p>
         </div>
       </b-col>
       <b-col cols="7">
-        <app-banner :pageTitle="referenceData[1].name"></app-banner>
+        <app-banner :pageTitle="referenceData.name"></app-banner>
       </b-col>
     </b-row>
     <div class="d-flex">
       <div class="ref-img" id="one">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
       <div class="ref-img" id="two">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
       <div class="ref-img" id="three">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
       <div class="ref-img" id="four">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
       <div class="ref-img" id="five">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
     </div>
     <div class="d-flex">
       <div class="ref-img" id="six">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
       <div class="ref-img" id="seven">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
       <div class="ref-img" id="eight">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
       <div class="ref-img" id="nine">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
       <div class="ref-img" id="ten">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
+        <div class="magnifier-wrapper">
+          <img src="../assets/magnifier.png" class="magnifier" alt />
+        </div>
       </div>
     </div>
     <!-- <carousel :items="1" loop="false">
@@ -89,7 +83,7 @@
       <img src="../assets/reference-slike/min/banja/banja9_color-min.jpg" alt="">
       <img src="../assets/reference-slike/min/banja/banja10_color-min.jpg" alt="">
       <template slot="next"><span class="next"><i class="arrow-right"><font-awesome-icon :icon="['fas', 'chevron-right']"/></i></span></template>
-    </carousel> -->
+    </carousel>-->
     <div class="backdrop"></div>
   </b-container>
 </template>
@@ -111,23 +105,24 @@ export default {
     getReferences() {
       Referencer.getReferencesData()
         .then(data => {
-          this.referenceData = data.map(reference => {
-            return Object.assign(
-              {},
-              {
-                category: reference.projectCategory,
-                name: reference.projectName,
-                desc: reference.projectDescription,
-                endDate: reference.completionDate,
-                investor: reference.projectInvestor,
-                area: reference.netoArea,
-                picSet: reference.projectPicSet,
-                picColorSet: reference.projectPicColorSet
-              }
-            );
-          });
+          let dataObject = JSON.stringify(data[1]);
+          let parseObj = JSON.parse(dataObject);
+
+          this.referenceData = {
+            category: parseObj.projectCategory,
+            name: parseObj.projectName,
+            desc: parseObj.projectDescription,
+            endDate: parseObj.completionDate,
+            investor: parseObj.projectInvestor,
+            area: parseObj.netoArea
+          };
         })
         .catch(e => console.log(e));
+    },
+    openImg(event) {
+      let elementTarget = event.currentTarget.id;
+      let selectedElement = document.getElementById(elementTarget);
+      selectedElement.classList.add("focused");
     }
   },
   created() {
@@ -255,7 +250,7 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
 }
 </style>
