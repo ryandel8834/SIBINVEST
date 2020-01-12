@@ -19,7 +19,7 @@
       <b-navbar-nav class="ml-auto" hidden-xs>
         <b-nav-item text="Lang" right> <router-link to="/"> početna</router-link> </b-nav-item>
         <b-nav-item text="Lang" right href="#about-us">o nama</b-nav-item>
-        <b-nav-item text="Lang" right href="#references" v-on:click="toggleNavbar"> reference </b-nav-item>
+        <b-nav-item text="Lang" right href="#references"> reference </b-nav-item>
         <b-nav-item text="Lang" right href="#projects-in-progress">projekti u toku</b-nav-item>
         <b-nav-item text="Lang" right href="#contact-us"> kontakt </b-nav-item>
         <b-nav-item text="Lang" right><i class="nav-icon"><font-awesome-icon :icon="['fas', 'search']"/></i></b-nav-item>
