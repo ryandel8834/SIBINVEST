@@ -32,4 +32,11 @@ h2 {
   left: 7px;
   letter-spacing: 1px;
 }
+@media (max-width: 991px) {
+  .banner {
+    margin-left: 0;
+    width: 100%;
+    top: 15vh;
+  }
+}
 </style>

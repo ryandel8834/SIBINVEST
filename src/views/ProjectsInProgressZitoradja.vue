@@ -3,7 +3,7 @@
     <app-banner :pageTitle="referenceData.name"></app-banner>
     <b-container class="px-0">
       <b-row class="ref-info-row mb-3">
-        <b-col cols="5" class="px-0 mt-5 pl-4">
+        <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
           <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
           <div>
             <p class="ref-desc">{{ referenceData.desc }}</p>

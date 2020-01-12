@@ -1,6 +1,6 @@
 <template>
  <b-container class="p-0">
-  <b-navbar class="navbar p-0" toggleable="lg" type="dark" fixed="top" @scroll="handleScroll">
+  <b-navbar class="navbar py-3 p-lg-0" toggleable="lg" type="dark" fixed="top" @scroll="handleScroll">
     <b-container class="px-0">
       <b-navbar-brand
         href="/"
@@ -15,15 +15,23 @@
         }"
       ></b-navbar-brand>
 
+      <b-navbar-toggle target="nav-collapse"><i class="nav-icon"><font-awesome-icon :icon="['fas', 'bars']"/></i></b-navbar-toggle>
+
       <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto" hidden-xs>
-        <b-nav-item text="Lang" right> <router-link to="/"> početna</router-link> </b-nav-item>
-        <b-nav-item text="Lang" right href="#about-us">o nama</b-nav-item>
-        <b-nav-item text="Lang" right href="#references"> reference </b-nav-item>
-        <b-nav-item text="Lang" right href="#projects-in-progress">projekti u toku</b-nav-item>
-        <b-nav-item text="Lang" right href="#contact-us"> kontakt </b-nav-item>
-        <b-nav-item text="Lang" right><i class="nav-icon"><font-awesome-icon :icon="['fas', 'search']"/></i></b-nav-item>
-      </b-navbar-nav>
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item text="Lang" right> <router-link to="/"> početna</router-link> </b-nav-item>
+            <b-nav-item text="Lang" right href="#about-us">o nama</b-nav-item>
+            <b-nav-item text="Lang" right href="#references"> reference </b-nav-item>
+            <b-nav-item text="Lang" right href="#projects-in-progress">projekti u toku</b-nav-item>
+            <b-nav-item text="Lang" right href="#contact-us"> kontakt </b-nav-item>
+            <b-nav-form class="d-lg-none d-block">
+              <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+              <b-button size="sm" class="my-2 my-sm-0 search-btn" type="submit"><i class="nav-icon"><font-awesome-icon :icon="['fas', 'search']"/></i></b-button>
+            </b-nav-form>
+            <b-nav-item right><i class="nav-icon d-none d-lg-block"><font-awesome-icon :icon="['fas', 'search']"/></i></b-nav-item>
+          </b-navbar-nav>
+      </b-collapse>
     </b-container>
   </b-navbar>
  </b-container>
@@ -120,10 +128,31 @@ export default {
 }
 .nav-icon {
   font-size: 16px;
+  color: white;   
+}
+.navbar.sticky-header .nav-icon {
+  color: black;
+}
+.search-btn {
+  background: transparent!important;
+  border: none !important;
+  color: black!important;
+}
+.navbar-toggler:focus {
+  outline: none; 
+}
+.navbar-toggler .nav-icon {
+  font-size: 26px;
 }
 /* Media query */
 @media (max-width: 991px) {
-
-
+  .navbar {
+    height: auto!important;
+  }
+}
+@media (max-width: 576px) {
+  .form-control {
+    width: auto!important;
+  }
 }
 </style>
