@@ -194,7 +194,7 @@ export default {
           this.email = "";
           this.text = "";
           this.elementVisible = false;
-          let element = document.getElementsByClassName("form-control");
+          let element = document.querySelector(".form-control");
           element.classList.remove("form-control is-invalid");
         }, 4000);
       }

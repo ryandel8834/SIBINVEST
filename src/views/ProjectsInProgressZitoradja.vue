@@ -1,132 +1,128 @@
 <template>
-  <b-container class="px-0" id="reference-specific">
-    <b-row class="ref-info-row mb-3">
-      <b-col cols="5" class="px-0 mt-5 pl-4">
-        <h1 class="mb-3 mt-4">{{ referenceData[2].category }}</h1>
-        <div>
-          <p class="ref-desc">
-            {{ referenceData[2].desc }}
-          </p>
+  <b-container class="px-0" id="reference-specific" fluid>
+    <app-banner :pageTitle="referenceData.name"></app-banner>
+    <b-container class="px-0">
+      <b-row class="ref-info-row mb-3">
+        <b-col cols="5" class="px-0 mt-5 pl-4">
+          <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
+          <div>
+            <p class="ref-desc">{{ referenceData.desc }}</p>
+          </div>
+          <div>
+            <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
+            <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
+            <p
+              class="ref-desc"
+            >Bruto površina izgrađenih objekata na parceli: {{ referenceData.area }}</p>
+          </div>
+        </b-col>
+        <b-col cols="7"></b-col>
+      </b-row>
+      <div class="d-flex">
+        <div class="ref-img" id="one" @click="openImg" ref="target">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
         </div>
-        <div>
-          <p class="ref-desc mb-0">
-            Završetak gradnje: {{ referenceData[2].endDate }}
-          </p>
-          <p class="ref-desc mb-0">
-            Investitor: {{ referenceData[2].investor }}
-          </p>
-          <p class="ref-desc">Bruto površina izgrađenih objekata na parceli: {{ referenceData[2].area }}</p>
+        <div class="ref-img" id="two" @click="openImg" ref="target">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
         </div>
-      </b-col>
-      <b-col cols="7">
-        <app-banner :pageTitle="referenceData[2].name"></app-banner>
-      </b-col>
-    </b-row>
-    <div class="d-flex">
-      <div class="ref-img" id="one">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+        <div class="ref-img" id="three">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
-      </div>
-      <div class="ref-img" id="two">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
+        </div>
+        <div class="ref-img" id="four">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
           </div>
-      </div>
-      <div class="ref-img" id="three">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-      </div>
-      <div class="ref-img" id="four">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-      </div>
-    </div>
-    <div class="d-flex">
-      <div class="ref-img" id="five">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-      </div>
-      <div class="ref-img" id="six">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-      </div>
-      <div class="ref-img" id="seven">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-      </div>
-      <div class="ref-img" id="eight">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-      </div>
-      <div class="ref-img" id="nine">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-      </div>
-    </div>
-    <div class="d-flex">
-      <div class="ref-img" id="ten">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt="" />
-          </div>
-      </div>
-      <div class="ref-img" id="eleven">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt="" />
         </div>
       </div>
-      <div class="ref-img" id="twelve">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt="" />
+      <div class="d-flex">
+        <div class="ref-img" id="five">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
+        </div>
+        <div class="ref-img" id="six">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
+        </div>
+        <div class="ref-img" id="seven">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
+        </div>
+        <div class="ref-img" id="eight">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
+        </div>
+        <div class="ref-img" id="nine">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
         </div>
       </div>
-      <div class="ref-img" id="thirteen">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt="" />
+      <div class="d-flex">
+        <div class="ref-img" id="ten">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
+        </div>
+        <div class="ref-img" id="eleven">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
+        </div>
+        <div class="ref-img" id="twelve">
+          <div class="magnifier-wrapper" @click="openImg" ref="target">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
+        </div>
+        <div class="ref-img" id="thirteen" @click="openImg" ref="target">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="d-flex">
-      <div class="left-div">
-        <div class="d-flex">
-          <div class="ref-img" id="fourteen">
-            <div class="magnifier-wrapper">
-              <img src="../assets/magnifier.png" class="magnifier" alt="" />
+      <div class="d-flex">
+        <div class="left-div">
+          <div class="d-flex">
+            <div class="ref-img" id="fourteen" @click="openImg" ref="target">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="fifteen" @click="openImg" ref="target">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
             </div>
           </div>
-          <div class="ref-img" id="fifteen">
-            <div class="magnifier-wrapper">
-              <img src="../assets/magnifier.png" class="magnifier" alt="" />
+          <div class="d-flex">
+            <div class="ref-img" id="sixteen" @click="openImg" ref="target">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="d-flex">
-          <div class="ref-img" id="sixteen">
-            <div class="magnifier-wrapper">
-              <img src="../assets/magnifier.png" class="magnifier" alt="" />
-            </div>
-          </div>
-          <div class="ref-img" id="seventeen">
-            <div class="magnifier-wrapper">
-              <img src="../assets/magnifier.png" class="magnifier" alt="" />
+            <div class="ref-img" id="seventeen" @click="openImg" ref="target">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="ref-img" id="eighteen">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt="" />
+        <div class="ref-img" id="eighteen" @click="openImg" ref="target">
+          <div class="magnifier-wrapper">
+            <img src="../assets/magnifier.png" class="magnifier" alt />
+          </div>
         </div>
       </div>
-    </div>
-    <!-- <carousel :items="1" loop="false">
+      <!-- <carousel :items="1" loop="false">
       <template slot="prev"><span class="prev"><i class="arrow-left"><font-awesome-icon :icon="['fas', 'chevron-left']"/></i></span></template>
       <img src="../assets/reference-slike/min/banja/banja1_color-min.jpg" alt="">
       <img src="../assets/reference-slike/min/banja/banja2_color-min.jpg" alt="">
@@ -139,19 +135,22 @@
       <img src="../assets/reference-slike/min/banja/banja9_color-min.jpg" alt="">
       <img src="../assets/reference-slike/min/banja/banja10_color-min.jpg" alt="">
       <template slot="next"><span class="next"><i class="arrow-right"><font-awesome-icon :icon="['fas', 'chevron-right']"/></i></span></template>
-    </carousel> -->
-    <div class="backdrop"></div>
+      </carousel>-->
+      <div class="backdrop"></div>
+    </b-container>
   </b-container>
 </template>
 
 <script>
 import Referencer from "../services/referencer";
 import Banner from "../components/Banner";
+import referencer from "../services/referencer";
 
 export default {
   data() {
     return {
-      referenceData: []
+      referenceData: {},
+      target: null
     };
   },
   components: {
@@ -161,23 +160,26 @@ export default {
     getReferences() {
       Referencer.getReferencesData()
         .then(data => {
-          this.referenceData = data.map(reference => {
-            return Object.assign(
-              {},
-              {
-                category: reference.projectCategory,
-                name: reference.projectName,
-                desc: reference.projectDescription,
-                endDate: reference.completionDate,
-                investor: reference.projectInvestor,
-                area: reference.netoArea,
-                picSet: reference.projectPicSet,
-                picColorSet: reference.projectPicColorSet
-              }
-            );
-          });
+          let dataObject = JSON.stringify(data[2]);
+          let parseObj = JSON.parse(dataObject);
+
+          this.referenceData = {
+            category: parseObj.projectCategory,
+            name: parseObj.projectName,
+            desc: parseObj.projectDescription,
+            endDate: parseObj.completionDate,
+            investor: parseObj.projectInvestor,
+            area: parseObj.netoArea
+          };
+
+          console.log(this.referenceData);
         })
         .catch(e => console.log(e));
+    },
+    openImg() {
+      let element = document.querySelectorAll(".ref-img");
+      let elementId = this.$refs.target.id;
+      console.log(elementId);
     }
   },
   created() {
@@ -214,7 +216,6 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.3s;
 }
 .ref-img {
   width: 25%;
@@ -224,7 +225,7 @@ h1 {
   background-position: center !important;
   cursor: pointer;
   position: relative;
-  transition: .4s;
+  transition: 0.4s;
 }
 .arrow-left {
   color: black;
@@ -365,7 +366,7 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
 }
 .left-div {
@@ -377,7 +378,7 @@ h1 {
   top: 50%;
   left: 50%;
   z-index: 99999;
-  background-size: contain!important;
+  background-size: contain !important;
   width: 97% !important;
   height: 90% !important;
   transform: translate(-50%, -50%);
