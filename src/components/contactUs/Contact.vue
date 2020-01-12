@@ -1,105 +1,107 @@
 <template>
-  <b-container class="pt-5 pl-0 pr-0" id="contact-us">
-    <b-row>
-      <b-col class="contact-information" lg="6" sm="12">
-        <div>
-          <h1 style="color: black;">KONTAKTIRAJTE NAS</h1>
-          <p>
-            <b class="bebas">SIB INVEST DOO</b>, Niš
-          </p>
-          <p>Privredno društvo za građevinske radove</p>
-        </div>
-        <div class="mt-2 mb-2">
-          <p>Stojana Novakovića 17a, lok.1</p>
-          <p>Telefon: +381 64 8 227 200</p>
-        </div>
-        <div>
-          <p>PIB: 105470608</p>
-          <p>MB: 20393742</p>
-          <p>Tekući račun: 145-24361-30 Expo banka</p>
-          <p>sibinvestdoo@gmail.com</p>
-        </div>
-      </b-col>
-      <b-col class="contact-information" lg="6" sm="12">
-        <b-form @submit.prevent="sendEmail">
-          <div v-if="!submitted">
-            <b-form-group>
-              <b-form-input
-                @blur="submitName"
-                id="name"
-                placeholder="Ime"
-                style="color: black;"
-                name="user_name"
-                v-model="name"
-                v-bind:class="{
+  <div id="contact-us">
+    <b-container class="pt-5 pl-0 pr-0">
+      <b-row>
+        <b-col class="contact-information" lg="6" sm="12">
+          <div>
+            <h1 style="color: black;">KONTAKTIRAJTE NAS</h1>
+            <p>
+              <b class="bebas">SIB INVEST DOO</b>, Niš
+            </p>
+            <p>Privredno društvo za građevinske radove</p>
+          </div>
+          <div class="mt-2 mb-2">
+            <p>Stojana Novakovića 17a, lok.1</p>
+            <p>Telefon: +381 64 8 227 200</p>
+          </div>
+          <div>
+            <p>PIB: 105470608</p>
+            <p>MB: 20393742</p>
+            <p>Tekući račun: 145-24361-30 Expo banka</p>
+            <p>sibinvestdoo@gmail.com</p>
+          </div>
+        </b-col>
+        <b-col class="contact-information" lg="6" sm="12">
+          <b-form @submit.prevent="sendEmail">
+            <div v-if="!submitted">
+              <b-form-group>
+                <b-form-input
+                  @blur="submitName"
+                  id="name"
+                  placeholder="Ime"
+                  style="color: black;"
+                  name="user_name"
+                  v-model="name"
+                  v-bind:class="{
                   'form-control': true,
                   'is-invalid': !validName(name) && nameBlured
                 }"
-              ></b-form-input>
-              <div
-                class="invalid-feedback pt-2 pl-1"
-                style="max-height:0px; color:red;"
-                v-show="elementVisible"
-              >Molimo Vas unesite Vase ime</div>
-            </b-form-group>
-            <b-form-group>
-              <b-form-input
-                @blur="submitEmail"
-                id="email"
-                placeholder="Email"
-                style="color: black;"
-                name="user_email"
-                v-model="email"
-                v-bind:class="{
+                ></b-form-input>
+                <div
+                  class="invalid-feedback pt-2 pl-1"
+                  style="max-height:0px; color:red;"
+                  v-show="elementVisible"
+                >Molimo Vas unesite Vase ime</div>
+              </b-form-group>
+              <b-form-group>
+                <b-form-input
+                  @blur="submitEmail"
+                  id="email"
+                  placeholder="Email"
+                  style="color: black;"
+                  name="user_email"
+                  v-model="email"
+                  v-bind:class="{
                   'form-control': true,
                   'is-invalid': !validEmail(email) && emailBlured
                 }"
-                v-on:blur="emailBlured = true"
-              ></b-form-input>
-              <div
-                class="invalid-feedback pt-2 pl-1"
-                style="max-height:0px; color:red;"
-                v-show="elementVisible"
-              >Molimo Vas unesite ispravnu email adresu</div>
-            </b-form-group>
-            <b-form-group>
-              <b-textarea
-                @blur="submitMessage"
-                v-model="text"
-                style="color: black;"
-                rows="6"
-                id="contact-us-txt-area"
-                class="form-control"
-                placeholder="Vasa poruka"
-                name="user_message"
-                v-bind:class="{
+                  v-on:blur="emailBlured = true"
+                ></b-form-input>
+                <div
+                  class="invalid-feedback pt-2 pl-1"
+                  style="max-height:0px; color:red;"
+                  v-show="elementVisible"
+                >Molimo Vas unesite ispravnu email adresu</div>
+              </b-form-group>
+              <b-form-group>
+                <b-textarea
+                  @blur="submitMessage"
+                  v-model="text"
+                  style="color: black;"
+                  rows="6"
+                  id="contact-us-txt-area"
+                  class="form-control"
+                  placeholder="Vasa poruka"
+                  name="user_message"
+                  v-bind:class="{
                   'form-control': true,
                   'is-invalid': !validMessage(text) && textBlured
                 }"
-                v-on:blur="textBlured = true"
-              ></b-textarea>
-              <div
-                class="invalid-feedback pt-2 pl-1"
-                style="max-height:0px; color:red;"
-                v-show="elementVisible"
-              >Molimo Vas unesite poruku</div>
-            </b-form-group>
-            <b-form-group>
-              <b-button
-                @click="checkIsValid"
-                type="submit"
-                class="btn mt-3 float-right send-form pl-4 pr-4"
-              >pošalji</b-button>
-            </b-form-group>
-          </div>
-          <div v-else class="alert alert-success" role="alert">
-            <h5>Hvala vam</h5>
-            <p>Vasa poruka je poslata, ubrzo ce Vas neko kontaktirati</p>
-          </div>
-        </b-form>
-      </b-col>
-    </b-row>
-  </b-container>
+                  v-on:blur="textBlured = true"
+                ></b-textarea>
+                <div
+                  class="invalid-feedback pt-2 pl-1"
+                  style="max-height:0px; color:red;"
+                  v-show="elementVisible"
+                >Molimo Vas unesite poruku</div>
+              </b-form-group>
+              <b-form-group>
+                <b-button
+                  @click="checkIsValid"
+                  type="submit"
+                  class="btn mt-3 float-right send-form pl-4 pr-4"
+                >pošalji</b-button>
+              </b-form-group>
+            </div>
+            <div v-else class="alert alert-success" role="alert">
+              <h5>Hvala vam</h5>
+              <p>Vasa poruka je poslata, ubrzo ce Vas neko kontaktirati</p>
+            </div>
+          </b-form>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
@@ -181,19 +183,6 @@ export default {
       if (this.isValidName && this.isValidEmail && this.isValidText) {
         //THIS IS WHERE YOU SUBMIT DATA TO SERVER
         this.submitted = true;
-        this.returnPromise()
-          .then(() => {
-            console.log(data);
-            let element = document.querySelectorAll(".form-control");
-            console.log(element);
-            element.classList.remove("is-invalid");
-            console.log(element);
-          })
-          .catch(err => console.log(err));
-      }
-    },
-    returnPromise() {
-      return new Promise((resolve, reject) => {
         setTimeout(() => {
           this.submitted = false;
           this.name = "";
@@ -202,25 +191,25 @@ export default {
           this.elementVisible = false;
           let element = document.querySelectorAll(".form-control");
           console.log(element);
-        }, 4000);
-      });
+        }, 1000);
+      }
     },
     sendEmail: e => {
-      emailjs
-        .sendForm(
-          "gmail",
-          "sibinvestdoo",
-          e.target,
-          "user_3UfiOi0iiKLucStEtqT7h"
-        )
-        .then(
-          result => {
-            console.log("SUCCESS!");
-          },
-          error => {
-            console.log("FAILED...", error);
-          }
-        );
+      // emailjs
+      //   .sendForm(
+      //     "gmail",
+      //     "sibinvestdoo",
+      //     e.target,
+      //     "user_3UfiOi0iiKLucStEtqT7h"
+      //   )
+      //   .then(
+      //     result => {
+      //       console.log("SUCCESS!");
+      //     },
+      //     error => {
+      //       console.log("FAILED...", error);
+      //     }
+      //   );
     }
   }
 };

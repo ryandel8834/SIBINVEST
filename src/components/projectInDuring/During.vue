@@ -1,19 +1,21 @@
 <template>
-  <b-container class="durring-section px-0" id="projects-in-progress">
-    <h1 style="color: black;">PROJEKTI U TOKU</h1>
-    <b-row class="justify-content-center px-0">
-      <b-col lg="6" sm="12">
-        <router-link to="/progress-svrljig">
-          <div id="one"></div>
-        </router-link>
-      </b-col>
-      <b-col lg="6" sm="12">
-        <router-link to="/progress-zitoradja">
-          <div id="two"></div>
-        </router-link>
-      </b-col>
-    </b-row>
-  </b-container>
+  <div id="projects-in-progress">
+    <b-container class="durring-section px-0">
+      <h1 style="color: black;">PROJEKTI U TOKU</h1>
+      <b-row class="justify-content-center px-0">
+        <b-col lg="6" sm="12">
+          <router-link to="/progress-svrljig">
+            <div id="one"></div>
+          </router-link>
+        </b-col>
+        <b-col lg="6" sm="12">
+          <router-link to="/progress-zitoradja">
+            <div id="two"></div>
+          </router-link>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>

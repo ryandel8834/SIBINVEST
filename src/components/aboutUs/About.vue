@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid p-0">
-    <div class="about-us" id="about-us">
+  <div class="container p-0">
+    <div class="about-us">
       <h1 style="color:white">O NAMA</h1>
       <div class="about-us-card">
         <b-container class="pl-0 pr-3 ml-0">
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    export default {};
+export default {};
 </script>
 
 <style scoped>
@@ -29,13 +29,12 @@ h1 {
   position: absolute;
   bottom: 60px;
   padding-top: 80px;
-  margin-left: 12.5%; 
-  width: 87.5%;
+  width: 100%;
 }
 .about-us-card {
   height: auto;
-  background: rgb(109, 110, 111, .6);
-  padding: 1%;
+  background: rgb(109, 110, 111, 0.6);
+  padding: 15px;
 }
 .about-us-card p {
   color: white;
