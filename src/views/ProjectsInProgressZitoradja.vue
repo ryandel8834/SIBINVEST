@@ -1,130 +1,130 @@
 <template>
-<div>
-  <app-header-b></app-header-b>
-  <b-container class="px-0" id="reference-specific" fluid>
-    <app-banner :pageTitle="referenceData.name"></app-banner>
-    <b-container class="px-0">
-      <b-row class="ref-info-row mb-3">
-        <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
-          <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
-          <div>
-            <p class="ref-desc">{{ referenceData.desc }}</p>
-          </div>
-          <div>
-            <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
-            <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
-            <p
-              class="ref-desc"
-            >Bruto površina izgrađenih objekata na parceli: {{ referenceData.area }}</p>
-          </div>
-        </b-col>
-        <b-col cols="7"></b-col>
-      </b-row>
-      <div class="d-flex">
-        <div class="ref-img" id="one" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="two" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="three" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="four" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </div>
-      <div class="d-flex">
-        <div class="ref-img" id="five" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="six" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="seven" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="eight" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="nine" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </div>
-      <div class="d-flex">
-        <div class="ref-img" id="ten" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="eleven" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="twelve" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-        <div class="ref-img" id="thirteen" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
-          </div>
-        </div>
-      </div>
-      <div class="d-flex">
-        <div class="left-div">
-          <div class="d-flex">
-            <div class="ref-img" id="fourteen" @click="openImg($event)">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
+  <div>
+    <app-header-b></app-header-b>
+    <b-container class="px-0" id="reference-specific" fluid>
+      <app-banner :pageTitle="referenceData.name"></app-banner>
+      <b-container class="px-0">
+        <b-row class="ref-info-row mb-3">
+          <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
+            <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
+            <div>
+              <p class="ref-desc">{{ referenceData.desc }}</p>
             </div>
-            <div class="ref-img" id="fifteen" @click="openImg($event)">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
+            <div>
+              <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
+              <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
+              <p
+                class="ref-desc"
+              >Bruto površina izgrađenih objekata na parceli: {{ referenceData.area }}</p>
+            </div>
+          </b-col>
+          <b-col cols="7"></b-col>
+        </b-row>
+        <div class="d-flex">
+          <div class="ref-img" id="one" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
           </div>
-          <div class="d-flex">
-            <div class="ref-img" id="sixteen" @click="openImg($event)">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
+          <div class="ref-img" id="two" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
-            <div class="ref-img" id="seventeen" @click="openImg($event)">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
+          </div>
+          <div class="ref-img" id="three" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="four" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
           </div>
         </div>
-        <div class="ref-img" id="eighteen" @click="openImg($event)">
-          <div class="magnifier-wrapper">
-            <img src="../assets/magnifier.png" class="magnifier" alt />
+        <div class="d-flex">
+          <div class="ref-img" id="five" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="six" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="seven" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="eight" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="nine" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
           </div>
         </div>
-      </div>
-      <!-- <carousel :items="1" loop="false">
+        <div class="d-flex">
+          <div class="ref-img" id="ten" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="eleven" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="twelve" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="thirteen" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="left-div">
+            <div class="d-flex">
+              <div class="ref-img" id="fourteen" @click="openImg($event)">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+              <div class="ref-img" id="fifteen" @click="openImg($event)">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="ref-img" id="sixteen" @click="openImg($event)">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+              <div class="ref-img" id="seventeen" @click="openImg($event)">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ref-img" id="eighteen" @click="openImg($event)">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+        </div>
+        <!-- <carousel :items="1" loop="false">
       <template slot="prev"><span class="prev"><i class="arrow-left"><font-awesome-icon :icon="['fas', 'chevron-left']"/></i></span></template>
       <img src="../assets/reference-slike/min/banja/banja1_color-min.jpg" alt="">
       <img src="../assets/reference-slike/min/banja/banja2_color-min.jpg" alt="">
@@ -137,11 +137,11 @@
       <img src="../assets/reference-slike/min/banja/banja9_color-min.jpg" alt="">
       <img src="../assets/reference-slike/min/banja/banja10_color-min.jpg" alt="">
       <template slot="next"><span class="next"><i class="arrow-right"><font-awesome-icon :icon="['fas', 'chevron-right']"/></i></span></template>
-      </carousel>-->
-      <div class="backdrop"></div>
+        </carousel>-->
+        <div class="backdrop"></div>
+      </b-container>
     </b-container>
-  </b-container>
-</div>
+  </div>
 </template>
 
 <script>
@@ -183,8 +183,7 @@ export default {
       let elementTarget = event.currentTarget.id;
       let selectedElement = document.getElementById(elementTarget);
       selectedElement.classList.add("focused");
-      let bodyWrapper = document.getElementById("body-wrapper");
-      bodyWrapper.style.overflow = "hidden";
+
       // console.log(elementTarget);
       // let imageArray = [];
       // for (let i = 0; i < elementList.length; i++) {

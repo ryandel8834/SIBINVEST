@@ -8,13 +8,16 @@ import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import carousel from "vue-owl-carousel2";
+import Autocomplete from "@trevoreyre/autocomplete-vue";
 
+import "@trevoreyre/autocomplete-vue/dist/style.css";
 import "./plugins/bootstrap-vue";
 import "./styles/index.css";
 
 Vue.component("app-header", Header);
 Vue.component("app-header-b", HeaderB);
 Vue.component("carousel", carousel);
+Vue.use(Autocomplete);
 
 library.add(faUserSecret);
 library.add(fas);

@@ -1,59 +1,115 @@
 <template>
- <b-container class="p-0">
-  <b-navbar class="navbar py-3 p-lg-0" toggleable="lg" type="dark" fixed="top" 
-  id="navbar-id"
-        v-bind:class="{ 'search-bar-active': isSearchShown }"
-   @scroll="handleScroll">
-    <b-container class="px-0 nav-border">
-      <b-navbar-brand
-        href="/"
-        alt="SibInvest Logo"
-        :style="{
-          backgroundImage: `url(${logoImage})`,
-          height: '30px',
-          width: '220px',
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
-        }"
-      ></b-navbar-brand>
+  <b-container class="p-0">
+    <b-navbar
+      class="navbar py-3 p-lg-0"
+      toggleable="lg"
+      type="dark"
+      fixed="top"
+      id="navbar-id"
+      v-bind:class="{ 'search-bar-active': isSearchShown }"
+      @scroll="handleScroll"
+    >
+      <b-container class="px-0 nav-border">
+        <b-navbar-brand
+          href="/"
+          alt="SibInvest Logo"
+          :style="{
+            backgroundImage: `url(${logoImage})`,
+            height: '30px',
+            width: '220px',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center'
+          }"
+        ></b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"><i class="nav-icon"><font-awesome-icon :icon="['fas', 'bars']"/></i></b-navbar-toggle>
+        <b-navbar-toggle target="nav-collapse">
+          <i class="nav-icon">
+            <font-awesome-icon :icon="['fas', 'bars']" />
+          </i>
+        </b-navbar-toggle>
 
-      <!-- Right aligned nav items -->
+        <!-- Right aligned nav items -->
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
-            <b-nav-item text="Lang" right> <router-link to="/"> početna</router-link> </b-nav-item>
+            <b-nav-item text="Lang" right>
+              <router-link to="/">početna</router-link>
+            </b-nav-item>
             <b-nav-item text="Lang" right href="#about-us">o nama</b-nav-item>
-            <b-nav-item text="Lang" right href="#references"> reference </b-nav-item>
-            <b-nav-item text="Lang" right href="#projects-in-progress">projekti u toku</b-nav-item>
-            <b-nav-item text="Lang" right href="#contact-us"> kontakt </b-nav-item>
+            <b-nav-item text="Lang" right href="#references"
+              >reference</b-nav-item
+            >
+            <b-nav-item text="Lang" right href="#projects-in-progress"
+              >projekti u toku</b-nav-item
+            >
+            <b-nav-item text="Lang" right href="#contact-us"
+              >kontakt</b-nav-item
+            >
             <b-nav-form class="d-lg-none d-block">
-              <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-              <b-button size="sm" class="my-2 my-sm-0 search-btn" type="submit"><i class="nav-icon"><font-awesome-icon :icon="['fas', 'search']"/></i></b-button>
+              <b-form-input
+                size="sm"
+                class="mr-sm-2"
+                placeholder="Search"
+              ></b-form-input>
+              <b-button size="sm" class="my-2 my-sm-0 search-btn" type="submit">
+                <i class="nav-icon">
+                  <font-awesome-icon :icon="['fas', 'search']" />
+                </i>
+              </b-button>
             </b-nav-form>
-            <b-nav-item right @click="showSearch"><i class="nav-icon d-none d-lg-block"><font-awesome-icon :icon="['fas', 'search']"/></i></b-nav-item>
+            <b-nav-item right @click="showSearch">
+              <i class="nav-icon d-none d-lg-block">
+                <font-awesome-icon :icon="['fas', 'search']" />
+              </i>
+            </b-nav-item>
           </b-navbar-nav>
-      </b-collapse>
-            <b-form-input size="sm" class="mr-sm-2 d-none" 
-              v-bind:class="{
-                  'search-bar': isSearchShown
-              }"
-             placeholder="Search"></b-form-input>
-    </b-container>
-  </b-navbar>
- </b-container>
+        </b-collapse>
+        <!-- <b-form-input
+          size="sm"
+          class="mr-sm-2 d-none"
+          v-model="search"
+          v-bind:class="{
+            'search-bar': isSearchShown
+          }"
+          placeholder="Search"
+        ></b-form-input> -->
+        <autocomplete
+          @submit="goToSpecificPage"
+          size="sm"
+          class="mr-sm-2 d-none"
+          v-bind:class="{
+            'search-bar': isSearchShown
+          }"
+          :search="search"
+          placeholder="Pretrazi"
+          :get-result-value="getResultValue"
+        ></autocomplete>
+      </b-container>
+    </b-navbar>
+  </b-container>
 </template>
 
 <script>
+import Referencer from "../../services/referencer";
+import Mocks from "../../mocks.js";
+
 export default {
   data() {
     return {
       isNav: false,
       logoName: "",
-      isSearchShown: false
+      isSearchShown: false,
+      routes: [],
+      paths: []
     };
   },
+  // filterReference() {
+  //   this.routes = Mocks.searchRoutes;
+  //   console.log(this.routes);
+  //   return this.routes.filter(reference => {
+  //     return this.routes.match(this.search);
+  //   });
+  // },
   computed: {
     logoImage() {
       if (!this.logoName) {
@@ -63,12 +119,26 @@ export default {
     }
   },
   methods: {
+    getReferences() {
+      Referencer.getReferencesName()
+        .then(data => {
+          let dataObject = JSON.stringify(data);
+          let parseObj = JSON.parse(dataObject);
+
+          this.routes = {
+            name: parseObj.name,
+            path: parseObj.path
+          };
+          console.log(this.routes);
+        })
+        .catch(e => console.log(e));
+    },
     handleScroll(event) {
       let header = document.querySelector(".navbar");
       let scrollHeight = Number;
       if (window.innerWidth >= 768) {
-        scrollHeight = ((window.innerHeight * 60) / 100) - 70;
-        if(window.scrollY > scrollHeight) {
+        scrollHeight = (window.innerHeight * 60) / 100 - 70;
+        if (window.scrollY > scrollHeight) {
           header.classList.add("sticky-header");
           this.logoName = "logo1.jpg";
         } else if (window.scrollY < scrollHeight) {
@@ -76,32 +146,47 @@ export default {
           this.logoName = "";
         }
       } else if (window.innerWidth >= 576) {
-          scrollHeight = ((window.innerHeight * 30) / 100)-70;
-          if(window.scrollY > scrollHeight) {
-            header.classList.add("sticky-header");
-            this.logoName = "logo1.jpg";
-          } else if (window.scrollY < scrollHeight) {
-            header.classList.remove("sticky-header");
-            this.logoName = "";
-          }
-      } else {
+        scrollHeight = (window.innerHeight * 30) / 100 - 70;
+        if (window.scrollY > scrollHeight) {
           header.classList.add("sticky-header");
           this.logoName = "logo1.jpg";
+        } else if (window.scrollY < scrollHeight) {
+          header.classList.remove("sticky-header");
+          this.logoName = "";
+        }
+      } else {
+        header.classList.add("sticky-header");
+        this.logoName = "logo1.jpg";
       }
     },
     showSearch() {
       if (this.isSearchShown == false) {
         this.isSearchShown = true;
         let headerSearch = document.getElementById("navbar-id");
-        headerSearch.classList.add('search-bar-active');
+        headerSearch.classList.add("search-bar-active");
         this.handleScroll();
-      }
-      else  {
+      } else {
         this.isSearchShown = false;
         let headerSearch = document.getElementById("navbar-id");
-        headerSearch.classList.remove('search-bar-active');
+        headerSearch.classList.remove("search-bar-active");
         this.handleScroll();
       }
+    },
+    search(input) {
+      this.routes = Mocks.searchRoutes;
+      if (input.length < 3) {
+        return [];
+      }
+      return this.routes.filter(route => {
+        return route.name.toLowerCase().startsWith(input.toLowerCase());
+      });
+    },
+    getResultValue(result) {
+      return result.name;
+    },
+    goToSpecificPage(result) {
+      console.log(result.name, result.path);
+      window.open(`http://localhost:8080${result.path}`, "_self");
     }
   },
 
@@ -109,7 +194,12 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
-    if (this.$route.path === "/reference-vranje" || this.$route.path === "/reference-banja" || this.$route.path ==="/progress-zitoradja" || this.$route.path ==="/progress-svrljig") {
+    if (
+      this.$route.path === "/reference-vranje" ||
+      this.$route.path === "/reference-banja" ||
+      this.$route.path === "/progress-zitoradja" ||
+      this.$route.path === "/progress-svrljig"
+    ) {
       let header = document.querySelector(".navbar");
       header.classList.add("sticky-header");
       this.logoName = "logo1.jpg";
@@ -122,10 +212,18 @@ export default {
       header.classList.add("sticky-header");
       this.logoName = "logo1.jpg";
     }
+  },
+  created() {
+    this.getReferences();
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
-    if (this.$route.path === "/reference-vranje" || this.$route.path === "/reference-banja" || this.$route.path ==="/progress-zitoradja" || this.$route.path ==="/progress-svrljig") {
+    if (
+      this.$route.path === "/reference-vranje" ||
+      this.$route.path === "/reference-banja" ||
+      this.$route.path === "/progress-zitoradja" ||
+      this.$route.path === "/progress-svrljig"
+    ) {
       let header = document.querySelector(".navbar");
       header.classList.add("sticky-header");
       this.logoName = "logo1.jpg";
@@ -138,7 +236,7 @@ export default {
       header.classList.add("sticky-header");
       this.logoName = "logo1.jpg";
     }
-  },
+  }
 };
 </script>
 
@@ -173,7 +271,7 @@ export default {
 }
 .nav-icon {
   font-size: 16px;
-  color: white;   
+  color: white;
 }
 .navbar.sticky-header .nav-icon {
   color: black;
@@ -185,10 +283,10 @@ export default {
   position: relative;
 }
 .navbar.search-bar-active {
-  height: 90px;
+  /* height: 90px; */
 }
 .search-bar {
-  display: block!important;
+  display: block !important;
   max-width: 200px;
   max-height: 25px;
   position: absolute;
@@ -196,25 +294,32 @@ export default {
   right: 0;
 }
 .search-btn {
-  background: transparent!important;
+  background: transparent !important;
   border: none !important;
-  color: black!important;
+  color: black !important;
 }
 .navbar-toggler:focus {
-  outline: none; 
+  outline: none;
 }
 .navbar-toggler .nav-icon {
   font-size: 26px;
 }
+.searchWrapper {
+  height: 300px;
+  position: absolute;
+  right: 0;
+  top: 80px;
+  background: white;
+}
 /* Media query */
 @media (max-width: 991px) {
   .navbar {
-    height: auto!important;
+    height: auto !important;
   }
 }
 @media (max-width: 576px) {
   .form-control {
-    width: auto!important;
+    width: auto !important;
   }
 }
 </style>

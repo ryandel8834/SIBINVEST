@@ -148,5 +148,11 @@ exports = module.exports = {
         twelve: "vranje12_color-min.jpg"
       }
     }
+  ],
+  searchRoutes: [
+    { name: "zitoradje", path: "/progress-zitoradja" },
+    { name: "svrljig", path: "/progress-svrljig" },
+    { name: "vranje", path: "/reference-vranje" },
+    { name: "banja", path: "/reference-banja" }
   ]
 };
