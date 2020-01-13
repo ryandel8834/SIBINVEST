@@ -1,7 +1,7 @@
 <template>
   <div id="projects-in-progress">
-    <b-container class="durring-section px-0">
-      <h1 style="color: black;">PROJEKTI U TOKU</h1>
+    <b-container class="durring-section px-4 px-sm-0">
+      <h1 style="color: black;" class="pt-4 pt-lg-0 mb-4 mb-lg-2">PROJEKTI U TOKU</h1>
       <b-row class="justify-content-center px-0">
         <b-col lg="6" sm="12">
           <router-link to="/progress-svrljig">
@@ -11,7 +11,7 @@
             </div>
           </router-link>
         </b-col>
-        <b-col lg="6" sm="12">
+        <b-col lg="6" sm="12" class="pt-5 pt-lg-0">
           <router-link to="/progress-zitoradja">
             <div id="two" class="project-wrapper">
               <span class="centered" id="zitoradje">Kupališni Kompleks Zitoradja</span>

@@ -18,4 +18,14 @@ export default {};
   color: white;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .page-footer {
+    margin-top: 30px;
+  }
+}
+@media (max-width:992px) {
+  .page-footer {
+    margin-top: 60px;
+  }
+}
 </style>

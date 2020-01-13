@@ -183,7 +183,8 @@ export default {
       let elementTarget = event.currentTarget.id;
       let selectedElement = document.getElementById(elementTarget);
       selectedElement.classList.add("focused");
-
+      let bodyWrapper = document.getElementById("body-wrapper");
+      bodyWrapper.style.overflow = "hidden";
       // console.log(elementTarget);
       // let imageArray = [];
       // for (let i = 0; i < elementList.length; i++) {

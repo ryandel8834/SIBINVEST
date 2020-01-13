@@ -1,7 +1,7 @@
 <template>
   <div id="contact-us">
-    <b-container class="pt-5 pl-0 pr-0">
-      <b-row>
+    <b-container class="pt-0 pt-md-5 pl-0 pr-0 px-4 px-sm-0">
+      <b-row class="px-0 pt-0">
         <b-col class="contact-information" lg="6" sm="12">
           <div>
             <h1 style="color: black;">KONTAKTIRAJTE NAS</h1>
@@ -186,6 +186,23 @@ export default {
     submitMessage: function() {
       this.validateText();
     },
+    sendEmail: (e) => {
+    emailjs
+      .sendForm(
+        "gmail",
+        "sibinvestdoo",
+        e.target,
+        "user_3UfiOi0iiKLucStEtqT7h"
+      )
+      .then(
+        result => {
+          console.log("SUCCESS!");
+        },
+        error => {
+          console.log("FAILED...", error);
+        }
+      );
+    },
     checkIsValid() {
       console.log(this.isValidEmail);
         this.validateName();
@@ -194,7 +211,7 @@ export default {
       if (this.isValidText && this.isValidEmail && this.isValidName) {
         //THIS IS WHERE YOU SUBMIT DATA TO SERVER
         this.submitted = true;
-        this.sendEmail();
+        // this.sendEmail();
         this.removeInvalidName = false;
         this.removeInvalidText = false;
         this.removeInvalidEmail = false;
@@ -208,23 +225,6 @@ export default {
           this.isValidText = false;
         }, 4000);
       }
-    },
-    sendEmail: e => {
-      emailjs
-        .sendForm(
-          "gmail",
-          "sibinvestdoo",
-          e.target,
-          "user_3UfiOi0iiKLucStEtqT7h"
-        )
-        .then(
-          result => {
-            console.log("SUCCESS!");
-          },
-          error => {
-            console.log("FAILED...", error);
-          }
-        );
     }
   }
 };

@@ -1,7 +1,10 @@
 <template>
  <b-container class="p-0">
-  <b-navbar class="navbar py-3 p-lg-0" toggleable="lg" type="dark" fixed="top" @scroll="handleScroll">
-    <b-container class="px-0">
+  <b-navbar class="navbar py-3 p-lg-0" toggleable="lg" type="dark" fixed="top" 
+  id="navbar-id"
+        v-bind:class="{ 'search-bar-active': isSearchShown }"
+   @scroll="handleScroll">
+    <b-container class="px-0 nav-border">
       <b-navbar-brand
         href="/"
         alt="SibInvest Logo"
@@ -29,9 +32,14 @@
               <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
               <b-button size="sm" class="my-2 my-sm-0 search-btn" type="submit"><i class="nav-icon"><font-awesome-icon :icon="['fas', 'search']"/></i></b-button>
             </b-nav-form>
-            <b-nav-item right><i class="nav-icon d-none d-lg-block"><font-awesome-icon :icon="['fas', 'search']"/></i></b-nav-item>
+            <b-nav-item right @click="showSearch"><i class="nav-icon d-none d-lg-block"><font-awesome-icon :icon="['fas', 'search']"/></i></b-nav-item>
           </b-navbar-nav>
       </b-collapse>
+            <b-form-input size="sm" class="mr-sm-2 d-none" 
+              v-bind:class="{
+                  'search-bar': isSearchShown
+              }"
+             placeholder="Search"></b-form-input>
     </b-container>
   </b-navbar>
  </b-container>
@@ -43,6 +51,7 @@ export default {
     return {
       isNav: false,
       logoName: "",
+      isSearchShown: false
     };
   },
   computed: {
@@ -55,9 +64,9 @@ export default {
   },
   methods: {
     handleScroll(event) {
-      if (this.$route.path !== "/reference-vranje" && this.$route.path !== "/reference-banja" && this.$route.path !=="/progress-zitoradja" && this.$route.path !=="/progress-svrljig") {
-        let header = document.querySelector(".navbar");
-        let scrollHeight = Number;
+      let header = document.querySelector(".navbar");
+      let scrollHeight = Number;
+      if (window.innerWidth >= 768) {
         scrollHeight = ((window.innerHeight * 60) / 100) - 70;
         if(window.scrollY > scrollHeight) {
           header.classList.add("sticky-header");
@@ -66,8 +75,34 @@ export default {
           header.classList.remove("sticky-header");
           this.logoName = "";
         }
+      } else if (window.innerWidth >= 576) {
+          scrollHeight = ((window.innerHeight * 30) / 100)-70;
+          if(window.scrollY > scrollHeight) {
+            header.classList.add("sticky-header");
+            this.logoName = "logo1.jpg";
+          } else if (window.scrollY < scrollHeight) {
+            header.classList.remove("sticky-header");
+            this.logoName = "";
+          }
+      } else {
+          header.classList.add("sticky-header");
+          this.logoName = "logo1.jpg";
       }
     },
+    showSearch() {
+      if (this.isSearchShown == false) {
+        this.isSearchShown = true;
+        let headerSearch = document.getElementById("navbar-id");
+        headerSearch.classList.add('search-bar-active');
+        this.handleScroll();
+      }
+      else  {
+        this.isSearchShown = false;
+        let headerSearch = document.getElementById("navbar-id");
+        headerSearch.classList.remove('search-bar-active');
+        this.handleScroll();
+      }
+    }
   },
 
   beforeMount() {
@@ -78,9 +113,14 @@ export default {
       let header = document.querySelector(".navbar");
       header.classList.add("sticky-header");
       this.logoName = "logo1.jpg";
-    } else {
+    } else if (window.innerWidth >= 576) {
+      let header = document.querySelector(".navbar");
       header.classList.remove("sticky-header");
       this.logoName = "";
+    } else {
+      let header = document.querySelector(".navbar");
+      header.classList.add("sticky-header");
+      this.logoName = "logo1.jpg";
     }
   },
   beforeDestroy() {
@@ -89,9 +129,14 @@ export default {
       let header = document.querySelector(".navbar");
       header.classList.add("sticky-header");
       this.logoName = "logo1.jpg";
-    } else {
+    } else if (window.innerWidth >= 576) {
+      let header = document.querySelector(".navbar");
       header.classList.remove("sticky-header");
       this.logoName = "";
+    } else {
+      let header = document.querySelector(".navbar");
+      header.classList.add("sticky-header");
+      this.logoName = "logo1.jpg";
     }
   },
 };
@@ -132,6 +177,23 @@ export default {
 }
 .navbar.sticky-header .nav-icon {
   color: black;
+}
+.navbar ul {
+  position: relative;
+}
+.nav-border {
+  position: relative;
+}
+.navbar.search-bar-active {
+  height: 90px;
+}
+.search-bar {
+  display: block!important;
+  max-width: 200px;
+  max-height: 25px;
+  position: absolute;
+  bottom: -17px;
+  right: 0;
 }
 .search-btn {
   background: transparent!important;

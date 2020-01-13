@@ -1,9 +1,9 @@
 <template>
-  <div class="container p-0">
-    <div class="about-us">
+  <div class="container p-0 px-4 px-sm-0">
+    <div class="about-us d-none d-md-block">
       <h1 style="color:white">O NAMA</h1>
       <div class="about-us-card">
-        <b-container class="pl-0 pr-3 ml-0">
+        <b-container class="pl-0 pr-3 ml-0 px-4 px-sm-0">
           <p class="mb-0">
             Naša kompanija je specijalizovana za izvođenje najrazličitijih radova u oblasti građevinarstva. Sa sedištem u Nišu, beležimo postojanje od 2008. godine,
             dok je prvi objekat- stambena zgrada u ulici Stojana Novakovića u Nišu, izveden 2009. godine.
@@ -41,9 +41,18 @@ h1 {
   line-height: 1.2;
   letter-spacing: 1px;
 }
+.about-us-card-b {
+  height: auto;
+  background: white;
+}
+.about-us-card-b p {
+  color: black;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
 @media (max-width: 991px) {
   .about-us {
-    top: 50%;
+    top: 54%;
   }
 }
 </style>

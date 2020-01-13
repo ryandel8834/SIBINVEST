@@ -21,4 +21,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.container h1 {
+  text-align: left!important;
+}
+</style>

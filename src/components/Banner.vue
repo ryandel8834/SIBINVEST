@@ -36,7 +36,7 @@ h2 {
   .banner {
     margin-left: 0;
     width: 100%;
-    top: 15vh;
+    top: 7vh;
   }
 }
 </style>

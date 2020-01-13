@@ -1,8 +1,8 @@
 <template>
   <div class="reference" id="references">
-    <b-container class="pl-0 pr-0 pt-4">
+    <b-container class="pl-0 pr-0 pt-4 px-4 px-sm-0">
       <h1 style="color:white">REFERENCE</h1>
-      <b-row>
+      <b-row class="pb-5 pb-lg-0">
         <b-col lg="6" md="12" sm="12">
           <router-link to="/reference-vranje">
             <div id="first" class="reference-wrapper">
@@ -11,7 +11,7 @@
             </div>
           </router-link>
         </b-col>
-        <b-col lg="6" md="12" sm="12">
+        <b-col lg="6" md="12" sm="12" class="pt-5 pt-lg-0">
           <router-link to="/reference-banja">
             <div id="second" class="reference-wrapper">
               <span class="centered">Ribarska Banja</span>
