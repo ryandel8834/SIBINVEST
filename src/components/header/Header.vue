@@ -36,21 +36,21 @@
               <router-link to="/">početna</router-link>
             </b-nav-item>
             <b-nav-item text="Lang" right href="#about-us">o nama</b-nav-item>
-            <b-nav-item text="Lang" right href="#references"
-              >reference</b-nav-item
-            >
-            <b-nav-item text="Lang" right href="#projects-in-progress"
-              >projekti u toku</b-nav-item
-            >
-            <b-nav-item text="Lang" right href="#contact-us"
-              >kontakt</b-nav-item
-            >
+            <b-nav-item text="Lang" right href="#references">reference</b-nav-item>
+            <b-nav-item text="Lang" right href="#projects-in-progress">projekti u toku</b-nav-item>
+            <b-nav-item text="Lang" right href="#contact-us">kontakt</b-nav-item>
             <b-nav-form class="d-lg-none d-block">
-              <b-form-input
+              <autocomplete
+                class="d-block d-lg-none"
+                @submit="goToSpecificPage"
                 size="sm"
-                class="mr-sm-2"
-                placeholder="Search"
-              ></b-form-input>
+                v-bind:class="{
+                  'search-bar': isSearchShown
+                }"
+                :search="search"
+                placeholder="Pretrazi"
+                :get-result-value="getResultValue"
+              ></autocomplete>
               <b-button size="sm" class="my-2 my-sm-0 search-btn" type="submit">
                 <i class="nav-icon">
                   <font-awesome-icon :icon="['fas', 'search']" />
@@ -64,15 +64,6 @@
             </b-nav-item>
           </b-navbar-nav>
         </b-collapse>
-        <!-- <b-form-input
-          size="sm"
-          class="mr-sm-2 d-none"
-          v-model="search"
-          v-bind:class="{
-            'search-bar': isSearchShown
-          }"
-          placeholder="Search"
-        ></b-form-input> -->
         <autocomplete
           @submit="goToSpecificPage"
           size="sm"
@@ -189,7 +180,6 @@ export default {
       window.open(`http://localhost:8080${result.path}`, "_self");
     }
   },
-
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
   },
@@ -282,9 +272,6 @@ export default {
 .nav-border {
   position: relative;
 }
-.navbar.search-bar-active {
-  /* height: 90px; */
-}
 .search-bar {
   display: block !important;
   max-width: 200px;
@@ -303,13 +290,6 @@ export default {
 }
 .navbar-toggler .nav-icon {
   font-size: 26px;
-}
-.searchWrapper {
-  height: 300px;
-  position: absolute;
-  right: 0;
-  top: 80px;
-  background: white;
 }
 /* Media query */
 @media (max-width: 991px) {

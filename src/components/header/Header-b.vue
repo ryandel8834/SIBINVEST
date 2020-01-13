@@ -1,11 +1,17 @@
 <template>
- <b-container class="p-0">
-  <b-navbar class="navbar py-3 p-lg-0 sticky-header" toggleable="lg" type="dark" fixed="top">
-    <b-container class="px-0">
-      <b-navbar-brand
-        href="/"
-        alt="SibInvest Logo"
-        :style="{
+  <b-container class="p-0">
+    <b-navbar
+      class="navbar py-3 p-lg-0 sticky-header"
+      id="navbar-b-id"
+      toggleable="lg"
+      type="dark"
+      fixed="top"
+    >
+      <b-container class="px-0 nav-border">
+        <b-navbar-brand
+          href="/"
+          alt="SibInvest Logo"
+          :style="{
           backgroundImage: `url(${logoImage})`,
           height: '30px',
           width: '220px',
@@ -13,36 +19,84 @@
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center'
         }"
-      ></b-navbar-brand>
+        ></b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"><i class="nav-icon"><font-awesome-icon :icon="['fas', 'bars']"/></i></b-navbar-toggle>
+        <b-navbar-toggle target="nav-collapse">
+          <i class="nav-icon">
+            <font-awesome-icon :icon="['fas', 'bars']" />
+          </i>
+        </b-navbar-toggle>
 
-      <!-- Right aligned nav items -->
+        <!-- Right aligned nav items -->
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
-            <b-nav-item text="Lang" right><router-link to="/">početna</router-link></b-nav-item>
-            <b-nav-item text="Lang" right><router-link to="/#about-us">o nama</router-link></b-nav-item>
-            <b-nav-item text="Lang" right><router-link to="/#references">reference</router-link></b-nav-item>
-            <b-nav-item text="Lang" right><router-link to="/#projects-in-progress">projekti u toku</router-link></b-nav-item>
-            <b-nav-item text="Lang" right><router-link to="/#contact-us">kontakt</router-link></b-nav-item>
+            <b-nav-item text="Lang" right>
+              <router-link to="/">početna</router-link>
+            </b-nav-item>
+            <b-nav-item text="Lang" right>
+              <router-link to="/#about-us">o nama</router-link>
+            </b-nav-item>
+            <b-nav-item text="Lang" right>
+              <router-link to="/#references">reference</router-link>
+            </b-nav-item>
+            <b-nav-item text="Lang" right>
+              <router-link to="/#projects-in-progress">projekti u toku</router-link>
+            </b-nav-item>
+            <b-nav-item text="Lang" right>
+              <router-link to="/#contact-us">kontakt</router-link>
+            </b-nav-item>
             <b-nav-form class="d-lg-none d-block">
-              <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-              <b-button size="sm" class="my-2 my-sm-0 search-btn" type="submit"><i class="nav-icon"><font-awesome-icon :icon="['fas', 'search']"/></i></b-button>
+              <autocomplete
+                class="d-block d-lg-none"
+                @submit="goToSpecificPage"
+                size="sm"
+                v-bind:class="{
+                  'search-bar': isSearchShown
+                }"
+                :search="search"
+                placeholder="Pretrazi"
+                :get-result-value="getResultValue"
+              ></autocomplete>
+              <b-button size="sm" class="my-2 my-sm-0 search-btn" type="submit">
+                <i class="nav-icon">
+                  <font-awesome-icon :icon="['fas', 'search']" />
+                </i>
+              </b-button>
             </b-nav-form>
-            <b-nav-item right><i class="nav-icon d-none d-lg-block"><font-awesome-icon :icon="['fas', 'search']"/></i></b-nav-item>
+            <b-nav-item right @click="showSearch">
+              <i class="nav-icon d-none d-lg-block">
+                <font-awesome-icon :icon="['fas', 'search']" />
+              </i>
+            </b-nav-item>
           </b-navbar-nav>
-      </b-collapse>
-    </b-container>
-  </b-navbar>
- </b-container>
+        </b-collapse>
+        <autocomplete
+          @submit="goToSpecificPage"
+          size="sm"
+          class="mr-sm-2 d-none"
+          v-bind:class="{
+            'search-bar': isSearchShown
+          }"
+          :search="search"
+          placeholder="Pretrazi"
+          :get-result-value="getResultValue"
+        ></autocomplete>
+      </b-container>
+    </b-navbar>
+  </b-container>
 </template>
 
 <script>
+import Referencer from "../../services/referencer";
+import Mocks from "../../mocks.js";
 export default {
   data() {
     return {
       isNav: false,
       logoName: "logo1.jpg",
+      isSearchShown: false,
+      routes: [],
+      paths: []
     };
   },
   computed: {
@@ -52,6 +106,52 @@ export default {
       }
       return require(`../../assets/${this.logoName}`);
     }
+  },
+  methods: {
+    getReferences() {
+      Referencer.getReferencesName()
+        .then(data => {
+          let dataObject = JSON.stringify(data);
+          let parseObj = JSON.parse(dataObject);
+
+          this.routes = {
+            name: parseObj.name,
+            path: parseObj.path
+          };
+          console.log(this.routes);
+        })
+        .catch(e => console.log(e));
+    },
+    showSearch() {
+      if (this.isSearchShown == false) {
+        this.isSearchShown = true;
+        let headerSearch = document.getElementById("navbar-b-id");
+        headerSearch.classList.add("search-bar-active");
+      } else {
+        this.isSearchShown = false;
+        let headerSearch = document.getElementById("navbar-b-id");
+        headerSearch.classList.remove("search-bar-active");
+      }
+    },
+    search(input) {
+      this.routes = Mocks.searchRoutes;
+      if (input.length < 3) {
+        return [];
+      }
+      return this.routes.filter(route => {
+        return route.name.toLowerCase().startsWith(input.toLowerCase());
+      });
+    },
+    getResultValue(result) {
+      return result.name;
+    },
+    goToSpecificPage(result) {
+      console.log(result.name, result.path);
+      window.open(`http://localhost:8080${result.path}`, "_self");
+    }
+  },
+  created() {
+    this.getReferences();
   }
 };
 </script>
@@ -87,18 +187,34 @@ export default {
 }
 .nav-icon {
   font-size: 16px;
-  color: white;   
+  color: white;
 }
 .navbar.sticky-header .nav-icon {
   color: black;
 }
 .search-btn {
-  background: transparent!important;
+  background: transparent !important;
   border: none !important;
-  color: black!important;
+  color: black !important;
+}
+.nav-border {
+  position: relative;
+}
+.search-bar {
+  display: block !important;
+  max-width: 200px;
+  max-height: 25px;
+  position: absolute;
+  bottom: -17px;
+  right: 0;
+}
+.search-btn {
+  background: transparent !important;
+  border: none !important;
+  color: black !important;
 }
 .navbar-toggler:focus {
-  outline: none; 
+  outline: none;
 }
 .navbar-toggler .nav-icon {
   font-size: 26px;
@@ -106,12 +222,12 @@ export default {
 /* Media query */
 @media (max-width: 991px) {
   .navbar {
-    height: auto!important;
+    height: auto !important;
   }
 }
 @media (max-width: 576px) {
   .form-control {
-    width: auto!important;
+    width: auto !important;
   }
 }
 </style>
