@@ -1,6 +1,115 @@
 <template>
   <div>
     <app-header-b></app-header-b>
+    <div class="carousel-wrapper">
+      <b-carousel
+        ref="myCarousel"
+        id="carousel-1"
+        v-model="slide"
+        :interval="0"
+        controls
+        indicators
+        :no-animation="isAnimated"
+        background="#ababab"
+        img-width="1024"
+        img-height="480"
+        style="text-shadow: 1px 1px 2px #333;"
+        @sliding-start="onSlideStart"
+      >
+        <!-- Slides with img slot -->
+        <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja1_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja2_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja3_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja4_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja5_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja6_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja7_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja8_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja9_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/banja/banja10_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+      </b-carousel>
+    </div>
     <b-container class="px-0" id="reference-specific" fluid>
       <app-banner :pageTitle="referenceData.name"></app-banner>
       <b-container>
@@ -77,115 +186,6 @@
             </div>
           </div>
         </div>
-        <div class="carousel-wrapper">
-          <b-carousel
-            ref="myCarousel"
-            id="carousel-1"
-            v-model="slide"
-            :interval="0"
-            controls
-            indicators
-            :no-animation="isAnimated"
-            background="#ababab"
-            img-width="1024"
-            img-height="480"
-            style="text-shadow: 1px 1px 2px #333;"
-            @sliding-start="onSlideStart"
-          >
-            <!-- Slides with img slot -->
-            <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja1_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja2_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja3_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja4_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja5_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja6_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja7_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja8_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja9_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-            <b-carousel-slide>
-              <template v-slot:img>
-                <img
-                  class="d-block img-fluid carousel-image"
-                  src="../assets/reference-slike/min/banja/banja10_color-min.jpg"
-                  alt="image slot"
-                />
-              </template>
-            </b-carousel-slide>
-          </b-carousel>
-        </div>
       </b-container>
       <div class="backdrop" id="backdrop"></div>
     </b-container>
@@ -234,8 +234,6 @@ export default {
       this.setSlide(elementId - 1);
       this.isAnimated = true;
 
-      let grid = document.getElementById("picture-grid-wrapper");
-      grid.style.display = "none";
       let carousel = document.getElementById("carousel-1");
       carousel.style.display = "block";
       let overlay = document.getElementById("backdrop");
@@ -310,8 +308,10 @@ h1 {
 #carousel-1 {
   display: none;
   z-index: 99999;
-  position: relative;
-  bottom: 184px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #one-1 {
   background: url("../assets/reference-slike/min/banja/banja1-min.jpg");
