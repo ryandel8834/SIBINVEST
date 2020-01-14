@@ -2,92 +2,193 @@
   <div>
     <app-header-b></app-header-b>
     <b-container class="px-0" id="reference-specific" fluid>
-    <app-banner :pageTitle="referenceData.name"></app-banner>
-    <b-container>
+      <app-banner :pageTitle="referenceData.name"></app-banner>
+      <b-container>
         <b-row class="ref-info-row mb-3">
-      <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
-        <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
-        <div>
-          <p class="ref-desc">{{ referenceData.desc }}</p>
+          <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
+            <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
+            <div>
+              <p class="ref-desc">{{ referenceData.desc }}</p>
+            </div>
+            <div>
+              <p class="ref-desc mb-0">
+                Završetak gradnje: {{ referenceData.endDate }}
+              </p>
+              <p class="ref-desc mb-0">
+                Investitor: {{ referenceData.investor }}
+              </p>
+              <p class="ref-desc">Neto površina: {{ referenceData.area }}</p>
+            </div>
+          </b-col>
+        </b-row>
+        <div id="picture-grid-wrapper">
+          <div class="d-flex">
+            <div class="ref-img" id="one-1" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="two-2" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="three-3" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="four-4" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="five-5" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="ref-img" id="six-6" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="seven-7" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="eight-8" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="nine-9" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="ten-10" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
-          <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
-          <p class="ref-desc">Neto površina: {{ referenceData.area }}</p>
+          <b-carousel
+            ref="myCarousel"
+            id="carousel-1"
+            v-model="slide"
+            :interval="0"
+            controls
+            indicators
+            :no-animation="isAnimated"
+            background="#ababab"
+            img-width="1024"
+            img-height="480"
+            style="text-shadow: 1px 1px 2px #333;"
+            @sliding-start="onSlideStart"
+          >
+            <!-- Slides with img slot -->
+            <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja1_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja2_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja3_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja4_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja5_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja6_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja7_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja8_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja9_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block img-fluid carousel-image"
+                  src="../assets/reference-slike/min/banja/banja10_color-min.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+          </b-carousel>
         </div>
-      </b-col>
-    </b-row>
-    <div class="d-flex">
-      <div class="ref-img" id="one">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="two">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="three">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="four">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="five">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-    </div>
-    <div class="d-flex">
-      <div class="ref-img" id="six">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="seven">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="eight">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="nine">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="ten">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-    </div>
-    <!-- <carousel :items="1" loop="false">
-      <template slot="prev"><span class="prev"><i class="arrow-left"><font-awesome-icon :icon="['fas', 'chevron-left']"/></i></span></template>
-      <img src="../assets/reference-slike/min/banja/banja1_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja2_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja3_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja4_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja5_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja6_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja7_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja8_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja9_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja10_color-min.jpg" alt="">
-      <template slot="next"><span class="next"><i class="arrow-right"><font-awesome-icon :icon="['fas', 'chevron-right']"/></i></span></template>
-    </carousel>-->
+      </b-container>
+      <div class="backdrop"></div>
     </b-container>
-    <div class="backdrop"></div>
-  </b-container>
   </div>
 </template>
 
@@ -98,7 +199,10 @@ import Banner from "../components/Banner";
 export default {
   data() {
     return {
-      referenceData: []
+      referenceData: [],
+      slide: 0,
+      sliding: null,
+      isAnimated: false
     };
   },
   components: {
@@ -124,8 +228,26 @@ export default {
     },
     openImg(event) {
       let elementTarget = event.currentTarget.id;
-      let selectedElement = document.getElementById(elementTarget);
-      selectedElement.classList.add("focused");
+      let elementArr = elementTarget.split("-");
+      let elementId = parseInt(elementArr[1]);
+
+      this.setSlide(elementId - 1);
+      this.isAnimated = true;
+
+      let grid = document.getElementById("picture-grid-wrapper");
+      grid.style.display = "none";
+      let carousel = document.getElementById("carousel-1");
+      carousel.style.display = "block";
+    },
+    onSlideStart(slide) {
+      this.sliding = false;
+      this.isAnimated = false;
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
+    },
+    setSlide(index) {
+      this.$refs.myCarousel.setSlide(index);
     }
   },
   created() {
@@ -177,74 +299,74 @@ h1 {
   color: black;
   font-size: 30px;
 }
-#one {
+#carousel-1 {
+  display: none;
+}
+#one-1 {
   background: url("../assets/reference-slike/min/banja/banja1-min.jpg");
 }
-#one:hover {
+#one-1:hover {
   background: url("../assets/reference-slike/min/banja/banja1_color-min.jpg");
 }
-#two {
+#two-2 {
   background: url("../assets/reference-slike/min/banja/banja2-min.jpg");
 }
-#two:hover {
+#two-2:hover {
   background: url("../assets/reference-slike/min/banja/banja2_color-min.jpg");
 }
-#three {
+#three-3 {
   background: url("../assets/reference-slike/min/banja/banja3-min.jpg");
 }
-#three:hover {
+#three-3:hover {
   background: url("../assets/reference-slike/min/banja/banja3_color-min.jpg");
 }
-#four {
+#four-4 {
   background: url("../assets/reference-slike/min/banja/banja4-min.jpg");
 }
-#four:hover {
+#four-4:hover {
   background: url("../assets/reference-slike/min/banja/banja4_color-min.jpg");
 }
-#five {
+#five-5 {
   background: url("../assets/reference-slike/min/banja/banja5-min.jpg");
 }
-#five:hover {
+#five-5:hover {
   background: url("../assets/reference-slike/min/banja/banja5_color-min.jpg");
 }
-#six {
+#six-6 {
   background: url("../assets/reference-slike/min/banja/banja6-min.jpg");
 }
-#six:hover {
+#six-6:hover {
   background: url("../assets/reference-slike/min/banja/banja6_color-min.jpg");
 }
-#seven {
+#seven-7 {
   background: url("../assets/reference-slike/min/banja/banja7-min.jpg");
 }
-#seven:hover {
+#seven-7:hover {
   background: url("../assets/reference-slike/min/banja/banja7_color-min.jpg");
 }
-#eight {
+#eight-8 {
   background: url("../assets/reference-slike/min/banja/banja8-min.jpg");
 }
-#eight:hover {
+#eight-8:hover {
   background: url("../assets/reference-slike/min/banja/banja8_color-min.jpg");
 }
-#nine {
+#nine-9 {
   background: url("../assets/reference-slike/min/banja/banja9-min.jpg");
 }
-#nine:hover {
+#nine-9:hover {
   background: url("../assets/reference-slike/min/banja/banja9_color-min.jpg");
 }
-#ten {
+#ten-10 {
   background: url("../assets/reference-slike/min/banja/banja10-min.jpg");
 }
-#ten:hover {
+#ten-10:hover {
   background: url("../assets/reference-slike/min/banja/banja10_color-min.jpg");
 }
 .ref-img:hover .magnifier {
   display: block;
 }
-.owl-prev {
-  display: none;
-}
-.owl-next {
-  display: none;
+.carousel-image {
+  z-index: 9999;
 }
 .backdrop {
   display: none;
