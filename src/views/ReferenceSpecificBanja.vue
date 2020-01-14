@@ -77,7 +77,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="carousel-wrapper">
           <b-carousel
             ref="myCarousel"
             id="carousel-1"
@@ -187,7 +187,7 @@
           </b-carousel>
         </div>
       </b-container>
-      <div class="backdrop"></div>
+      <div class="backdrop" id="backdrop"></div>
     </b-container>
   </div>
 </template>
@@ -238,6 +238,10 @@ export default {
       grid.style.display = "none";
       let carousel = document.getElementById("carousel-1");
       carousel.style.display = "block";
+      let overlay = document.getElementById("backdrop");
+      overlay.style.display = "block";
+      let body = document.body;
+      body.style.overflow = "hidden";
     },
     onSlideStart(slide) {
       this.sliding = false;
@@ -299,8 +303,15 @@ h1 {
   color: black;
   font-size: 30px;
 }
+.carousel-wrapper {
+  max-width: 84%;
+  margin: auto;
+}
 #carousel-1 {
   display: none;
+  z-index: 99999;
+  position: relative;
+  bottom: 184px;
 }
 #one-1 {
   background: url("../assets/reference-slike/min/banja/banja1-min.jpg");
