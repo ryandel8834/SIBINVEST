@@ -190,6 +190,7 @@ export default {
 .nav-icon {
   font-size: 16px;
   color: white;
+  margin-top: 3px;
 }
 .navbar.sticky-header .nav-icon {
   color: black;

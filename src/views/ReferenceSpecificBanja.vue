@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header-b></app-header-b>
-    <div class="carousel-wrapper" v-click-outside="outside">
+    <div class="carousel-wrapper" v-esc="escape" v-click-outside="outside">
       <b-carousel
         v-on:keyup.esc="closeModalCarousel"
         ref="myCarousel"
@@ -269,7 +269,18 @@ export default {
         let body = document.body;
         body.style.overflowY = "scroll";
       }
+    },
+    closeCarousel() {
+      let carousel = document.getElementById("carousel-1");
+      carousel.style.display = "none";
+      let overlay = document.getElementById("backdrop");
+      overlay.style.display = "none";
+      let body = document.body;
+      body.style.overflowY = "scroll";
     }
+  },
+  escape(event) {
+    console.log("Esc key pressed.", `Event: ${event}`);
   },
   directives: {
     "click-outside": {
@@ -359,6 +370,7 @@ h1 {
 #carousel-1 {
   display: none;
   z-index: 99999;
+  width: 60%;
   position: fixed;
   top: 50%;
   left: 50%;

@@ -14,6 +14,10 @@ import "@trevoreyre/autocomplete-vue/dist/style.css";
 import "./plugins/bootstrap-vue";
 import "./styles/index.css";
 
+import VueEsc from "vue-esc";
+
+Vue.use(VueEsc);
+
 Vue.component("app-header", Header);
 Vue.component("app-header-b", HeaderB);
 Vue.component("carousel", carousel);

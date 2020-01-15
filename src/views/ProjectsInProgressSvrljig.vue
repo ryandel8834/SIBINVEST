@@ -135,22 +135,22 @@
           </b-col>
         </b-row>
         <div class="d-flex">
-          <div class="ref-img" id="one-1">
+          <div class="ref-img" id="one-1" @click="openImg($event)">
             <div class="magnifier-wrapper">
               <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
           </div>
-          <div class="ref-img" id="two-2">
+          <div class="ref-img" id="two-2" @click="openImg($event)">
             <div class="magnifier-wrapper">
               <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
           </div>
-          <div class="ref-img" id="three-3">
+          <div class="ref-img" id="three-3" @click="openImg($event)">
             <div class="magnifier-wrapper">
               <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
           </div>
-          <div class="ref-img" id="four-4">
+          <div class="ref-img" id="four-4" @click="openImg($event)">
             <div class="magnifier-wrapper">
               <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
@@ -159,19 +159,19 @@
         <div class="d-flex">
           <div class="d-flex flex-column w-50">
             <div class="d-flex">
-              <div class="ref-img" id="five-5">
+              <div class="ref-img" id="five-5" @click="openImg($event)">
                 <div class="magnifier-wrapper">
                   <img src="../assets/magnifier.png" class="magnifier" alt />
                 </div>
               </div>
-              <div class="ref-img" id="six-6">
+              <div class="ref-img" id="six-6" @click="openImg($event)">
                 <div class="magnifier-wrapper">
                   <img src="../assets/magnifier.png" class="magnifier" alt />
                 </div>
               </div>
             </div>
             <div class="d-flex">
-              <div class="ref-img" id="eight-8">
+              <div class="ref-img" id="eight-8" @click="openImg($event)">
                 <div class="magnifier-wrapper">
                   <img src="../assets/magnifier.png" class="magnifier" alt />
                 </div>
@@ -180,19 +180,19 @@
           </div>
           <div class="d-flex flex-column w-50">
             <div class="d-flex">
-              <div class="ref-img" id="seven-7">
+              <div class="ref-img" id="seven-7" @click="openImg($event)">
                 <div class="magnifier-wrapper">
                   <img src="../assets/magnifier.png" class="magnifier" alt />
                 </div>
               </div>
             </div>
             <div class="d-flex">
-              <div class="ref-img" id="nine-9">
+              <div class="ref-img" id="nine-9" @click="openImg($event)">
                 <div class="magnifier-wrapper">
                   <img src="../assets/magnifier.png" class="magnifier" alt />
                 </div>
               </div>
-              <div class="ref-img" id="ten-10">
+              <div class="ref-img" id="ten-10" @click="openImg($event)">
                 <div class="magnifier-wrapper">
                   <img src="../assets/magnifier.png" class="magnifier" alt />
                 </div>
@@ -201,7 +201,7 @@
           </div>
         </div>
       </b-container>
-      <div class="backdrop"></div>
+      <div class="backdrop" id="backdrop"></div>
     </b-container>
   </div>
 </template>
@@ -213,7 +213,11 @@ import Banner from "../components/Banner";
 export default {
   data() {
     return {
-      referenceData: []
+      referenceData: [],
+      slide: 0,
+      sliding: null,
+      isAnimated: false,
+      clickOutside: 0
     };
   },
   components: {
@@ -239,10 +243,79 @@ export default {
         })
         .catch(e => console.log(e));
     },
+    isEven(value) {
+      if (value % 2 == 0) return true;
+      else return false;
+    },
     openImg(event) {
       let elementTarget = event.currentTarget.id;
-      let selectedElement = document.getElementById(elementTarget);
-      selectedElement.classList.add("focused");
+      let elementArr = elementTarget.split("-");
+      let elementId = parseInt(elementArr[1]);
+
+      this.setSlide(elementId - 1);
+      this.isAnimated = true;
+
+      let carousel = document.getElementById("carousel-1");
+      carousel.style.display = "block";
+      let overlay = document.getElementById("backdrop");
+      overlay.style.display = "block";
+      let body = document.body;
+      body.style.overflowY = "hidden";
+    },
+    onSlideStart(slide) {
+      this.sliding = false;
+      this.isAnimated = false;
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
+    },
+    setSlide(index) {
+      this.$refs.myCarousel.setSlide(index);
+    },
+    outside: function(e) {
+      this.clickOutside += 1;
+      if (this.isEven(this.clickOutside) === false) {
+        return false;
+      } else {
+        let carousel = document.getElementById("carousel-1");
+        carousel.style.display = "none";
+        let overlay = document.getElementById("backdrop");
+        overlay.style.display = "none";
+        let body = document.body;
+        body.style.overflowY = "scroll";
+      }
+    }
+  },
+  directives: {
+    "click-outside": {
+      bind: function(el, binding, vNode) {
+        // Provided expression must evaluate to a function.
+        if (typeof binding.value !== "function") {
+          const compName = vNode.context.name;
+          let warn = `[Vue-click-outside:] provided expression '${binding.expression}' is not a function, but has to be`;
+          if (compName) {
+            warn += `Found in component '${compName}'`;
+          }
+          console.warn(warn);
+        }
+        // Define Handler and cache it on the element
+        const bubble = binding.modifiers.bubble;
+        const handler = e => {
+          if (bubble || (!el.contains(e.target) && el !== e.target)) {
+            binding.value(e);
+          }
+        };
+        el.__vueClickOutside__ = handler;
+
+        // add Event Listeners
+        document.addEventListener("click", handler);
+      },
+
+      unbind: function(el, binding) {
+        // Remove Event Listeners
+        document.removeEventListener("click", el.__vueClickOutside__);
+        el.__vueClickOutside__ = null;
+      }
     }
   },
   created() {
@@ -295,72 +368,72 @@ h1 {
   color: black;
   font-size: 30px;
 }
-#one {
+#one-1 {
   background: url("../assets/reference-slike/min/svrljig/svrljig1-min.jpg");
 }
-#one:hover {
+#one-1:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig1_color-min.jpg");
 }
-#two {
+#two-2 {
   background: url("../assets/reference-slike/min/svrljig/svrljig2-min.jpg");
 }
-#two:hover {
+#two-2:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig2_color-min.jpg");
 }
-#three {
+#three-3 {
   background: url("../assets/reference-slike/min/svrljig/svrljig3-min.jpg");
 }
-#three:hover {
+#three-3:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig3_color-min.jpg");
 }
-#four {
+#four-4 {
   background: url("../assets/reference-slike/min/svrljig/svrljig4-min.jpg");
 }
-#four:hover {
+#four-4:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig4_color-min.jpg");
 }
-#five {
+#five-5 {
   background: url("../assets/reference-slike/min/svrljig/svrljig5-min.jpg");
   width: 100%;
 }
-#five:hover {
+#five-5:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig5_color-min.jpg");
 }
-#six {
+#six-6 {
   background: url("../assets/reference-slike/min/svrljig/svrljig6-min.jpg");
   width: 100%;
 }
-#six:hover {
+#six-6:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig6_color-min.jpg");
 }
-#seven {
+#seven-7 {
   background: url("../assets/reference-slike/min/svrljig/svrljig7-min.jpg");
   height: 420px;
   width: 100%;
 }
-#seven:hover {
+#seven-7:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig7_color-min.jpg");
 }
-#eight {
+#eight-8 {
   background: url("../assets/reference-slike/min/svrljig/svrljig8-min.jpg");
   height: 420px;
   width: 100%;
 }
-#eight:hover {
+#eight-8:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig8_color-min.jpg");
 }
-#nine {
+#nine-9 {
   background: url("../assets/reference-slike/min/svrljig/svrljig9-min.jpg");
   width: 100%;
 }
-#nine:hover {
+#nine-9:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig9_color-min.jpg");
 }
-#ten {
+#ten-10 {
   background: url("../assets/reference-slike/min/svrljig/svrljig10-min.jpg");
   width: 100%;
 }
-#ten:hover {
+#ten-10:hover {
   background: url("../assets/reference-slike/min/svrljig/svrljig10_color-min.jpg");
 }
 .ref-img:hover .magnifier {
@@ -385,5 +458,31 @@ h1 {
 .left-div {
   height: 420px;
   width: 50%;
+}
+.carousel-image {
+  z-index: 9999;
+}
+.backdrop {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+.carousel-wrapper {
+  max-width: 84%;
+  margin: auto;
+}
+#carousel-1 {
+  display: none;
+  z-index: 99999;
+  width: 60%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

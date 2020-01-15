@@ -1,6 +1,262 @@
 <template>
   <div>
     <app-header-b></app-header-b>
+    <div class="carousel-wrapper" v-click-outside="outside">
+      <b-carousel
+        v-on:keyup.esc="closeModalCarousel"
+        ref="myCarousel"
+        id="carousel-1"
+        v-model="slide"
+        :interval="0"
+        controls
+        indicators
+        :no-animation="isAnimated"
+        background="#ababab"
+        img-width="1024"
+        img-height="480"
+        style="text-shadow: 1px 1px 2px #333;"
+        @sliding-start="onSlideStart"
+      >
+        <!-- Slides with img slot -->
+        <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje1_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje2_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje3_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje4_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje5_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje6_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje7_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje8_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje9_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+      </b-carousel>
+    </div>
+    <div class="carousel-wrapper" v-click-outside="outsideb">
+      <b-carousel
+        v-on:keyup.esc="closeModalCarousel"
+        ref="myCarouselb"
+        id="carousel-2"
+        v-model="slide"
+        :interval="0"
+        controls
+        indicators
+        :no-animation="isAnimated"
+        background="#ababab"
+        img-width="1024"
+        img-height="480"
+        style="text-shadow: 1px 1px 2px #333;"
+        @sliding-start="onSlideStart"
+      >
+        <!-- Slides with img slot -->
+        <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje1_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje2_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje3_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje4_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje5_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje6_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje7_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje8_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje9_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje10_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje11_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/vranje/u-toku/vranje12_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+      </b-carousel>
+    </div>
     <b-container class="px-0" id="reference-specific" fluid>
       <app-banner :pageTitle="referenceData.name"></app-banner>
       <b-container>
@@ -23,36 +279,36 @@
         </b-row>
         <b-row class="p-0 m-0">
           <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="one">
+            <div class="ref-img" id="one-1" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="two">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
-            </div>
-          </b-col>
-          <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="three">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
-            </div>
-            <div class="ref-img" id="four">
+            <div class="ref-img" id="two-2" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
           </b-col>
           <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="five">
+            <div class="ref-img" id="three-3" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="six">
+            <div class="ref-img" id="four-4" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="five-5" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="six-6" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
@@ -61,36 +317,36 @@
         </b-row>
         <b-row class="p-0 m-0 mb-5">
           <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="seven">
+            <div class="ref-img" id="seven-7" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="eight">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
-            </div>
-          </b-col>
-          <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="nine">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
-            </div>
-            <div class="ref-img" id="ten">
+            <div class="ref-img" id="eight-8" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
           </b-col>
           <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="eleven">
+            <div class="ref-img" id="nine-9" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="twelve">
+            <div class="ref-img" id="ten-10" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="eleven-11" @click="openImg($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="twelve-12" @click="openImg($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
@@ -100,36 +356,36 @@
         <h1 class="mb-3 mt-25">FAZA IZGRADNJE</h1>
         <b-row class="p-0 m-0">
           <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="thirteen">
+            <div class="ref-img" id="thirteen-1" @click="openImgb($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="fourteen">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
-            </div>
-          </b-col>
-          <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="fifteen">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
-            </div>
-            <div class="ref-img" id="sixteen">
+            <div class="ref-img" id="fourteen-2" @click="openImgb($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
           </b-col>
           <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="seventeen">
+            <div class="ref-img" id="fifteen-3" @click="openImgb($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="eighteen">
+            <div class="ref-img" id="sixteen-4" @click="openImgb($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="seventeen-5" @click="openImgb($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="eighteen-6" @click="openImgb($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
@@ -138,36 +394,36 @@
         </b-row>
         <b-row class="p-0 m-0">
           <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="nineteen">
+            <div class="ref-img" id="nineteen-7" @click="openImgb($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="twenty">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
-            </div>
-          </b-col>
-          <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="twentyone">
-              <div class="magnifier-wrapper">
-                <img src="../assets/magnifier.png" class="magnifier" alt />
-              </div>
-            </div>
-            <div class="ref-img" id="twentytwo">
+            <div class="ref-img" id="twenty-8" @click="openImgb($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
           </b-col>
           <b-col cols="4" class="p-0 d-flex">
-            <div class="ref-img" id="twentythree">
+            <div class="ref-img" id="twentyone-9" @click="openImgb($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
             </div>
-            <div class="ref-img" id="twentyfour">
+            <div class="ref-img" id="twentytwo-10" @click="openImgb($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="4" class="p-0 d-flex">
+            <div class="ref-img" id="twentythree-11" @click="openImgb($event)">
+              <div class="magnifier-wrapper">
+                <img src="../assets/magnifier.png" class="magnifier" alt />
+              </div>
+            </div>
+            <div class="ref-img" id="twentyfour-12" @click="openImgb($event)">
               <div class="magnifier-wrapper">
                 <img src="../assets/magnifier.png" class="magnifier" alt />
               </div>
@@ -175,6 +431,7 @@
           </b-col>
         </b-row>
       </b-container>
+      <div class="backdrop" id="backdrop"></div>
     </b-container>
   </div>
 </template>
@@ -186,7 +443,12 @@ import Banner from "../components/Banner";
 export default {
   data() {
     return {
-      referenceData: []
+      referenceData: [],
+      slide: 0,
+      sliding: null,
+      isAnimated: false,
+      clickOutside: 0,
+      clickOutsideb: 0
     };
   },
   components: {
@@ -211,6 +473,111 @@ export default {
           console.log(this.referenceData);
         })
         .catch(e => console.log(e));
+    },
+    isEven(value) {
+      if (value % 2 == 0) return true;
+      else return false;
+    },
+    openImg(event) {
+      let elementTarget = event.currentTarget.id;
+      let elementArr = elementTarget.split("-");
+      let elementId = parseInt(elementArr[1]);
+
+      this.setSlide(elementId - 1);
+      this.isAnimated = true;
+
+      let carousel = document.getElementById("carousel-1");
+      carousel.style.display = "block";
+      let overlay = document.getElementById("backdrop");
+      overlay.style.display = "block";
+      let body = document.body;
+      body.style.overflowY = "hidden";
+    },
+    openImgb(event) {
+      let elementTarget = event.currentTarget.id;
+      let elementArr = elementTarget.split("-");
+      let elementId = parseInt(elementArr[1]);
+
+      this.setSlideb(elementId - 1);
+      this.isAnimated = true;
+
+      let carousel = document.getElementById("carousel-2");
+      carousel.style.display = "block";
+      let overlay = document.getElementById("backdrop");
+      overlay.style.display = "block";
+      let body = document.body;
+      body.style.overflowY = "hidden";
+    },
+    onSlideStart(slide) {
+      this.sliding = false;
+      this.isAnimated = false;
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
+    },
+    setSlide(index) {
+      this.$refs.myCarousel.setSlide(index);
+    },
+    setSlideb(index) {
+      this.$refs.myCarouselb.setSlide(index);
+    },
+    outside: function(e) {
+      this.clickOutside += 1;
+      if (this.isEven(this.clickOutside) === false) {
+        return false;
+      } else {
+        let carousel = document.getElementById("carousel-1");
+        carousel.style.display = "none";
+        let overlay = document.getElementById("backdrop");
+        overlay.style.display = "none";
+        let body = document.body;
+        body.style.overflowY = "scroll";
+      }
+    },
+    outsideb: function(e) {
+      this.clickOutsideb += 1;
+      if (this.isEven(this.clickOutsideb) === false) {
+        return false;
+      } else {
+        let carousel = document.getElementById("carousel-2");
+        carousel.style.display = "none";
+        let overlay = document.getElementById("backdrop");
+        overlay.style.display = "none";
+        let body = document.body;
+        body.style.overflowY = "scroll";
+      }
+    }
+  },
+  directives: {
+    "click-outside": {
+      bind: function(el, binding, vNode) {
+        // Provided expression must evaluate to a function.
+        if (typeof binding.value !== "function") {
+          const compName = vNode.context.name;
+          let warn = `[Vue-click-outside:] provided expression '${binding.expression}' is not a function, but has to be`;
+          if (compName) {
+            warn += `Found in component '${compName}'`;
+          }
+          console.warn(warn);
+        }
+        // Define Handler and cache it on the element
+        const bubble = binding.modifiers.bubble;
+        const handler = e => {
+          if (bubble || (!el.contains(e.target) && el !== e.target)) {
+            binding.value(e);
+          }
+        };
+        el.__vueClickOutside__ = handler;
+
+        // add Event Listeners
+        document.addEventListener("click", handler);
+      },
+
+      unbind: function(el, binding) {
+        // Remove Event Listeners
+        document.removeEventListener("click", el.__vueClickOutside__);
+        el.__vueClickOutside__ = null;
+      }
     }
   },
   created() {
@@ -259,160 +626,160 @@ h1 {
   cursor: pointer;
   position: relative;
 }
-#one {
+#one-1 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje1-min.jpg");
   width: 50%;
 }
-#one:hover {
+#one-1:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje1_color-min.jpg");
 }
-#two {
+#two-2 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje2-min.jpg");
 }
-#two:hover {
+#two-2:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje2_color-min.jpg");
 }
-#three {
+#three-3 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje3-min.jpg");
   width: 50%;
 }
-#three:hover {
+#three-3:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje3_color-min.jpg");
 }
-#four {
+#four-4 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje4-min.jpg");
 }
-#four:hover {
+#four-4:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje4_color-min.jpg");
 }
-#five {
+#five-5 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje5-min.jpg");
   width: 50%;
 }
-#five:hover {
+#five-5:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje5_color-min.jpg");
 }
-#six {
+#six-6 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje6-min.jpg");
 }
-#six:hover {
+#six-6:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje6_color-min.jpg");
 }
-#seven {
+#seven-7 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje7-min.jpg");
   width: 50%;
 }
-#seven:hover {
+#seven-7:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje7_color-min.jpg");
 }
-#eight {
+#eight-8 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje8-min.jpg");
 }
-#eight:hover {
+#eight-8:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje8_color-min.jpg");
 }
-#nine {
+#nine-9 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje9-min.jpg");
   width: 50%;
 }
-#nine:hover {
+#nine-9:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje9_color-min.jpg");
 }
-#ten {
+#ten-10 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje10-min.jpg");
 }
-#ten:hover {
+#ten-10:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg");
 }
-#eleven {
+#eleven-11 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje10-min.jpg");
   width: 50%;
 }
-#eleven:hover {
+#eleven-11:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg");
 }
-#twelve {
+#twelve-12 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje10-min.jpg");
 }
-#twelve:hover {
+#twelve-12:hover {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg");
 }
-#thirteen {
+#thirteen-1 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje1-min.jpg");
   width: 50%;
 }
-#thirteen:hover {
+#thirteen-1:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje1_color-min.jpg");
 }
-#fourteen {
+#fourteen-2 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje2-min.jpg");
 }
-#fourteen:hover {
+#fourteen-2:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje2_color-min.jpg");
 }
-#fifteen {
+#fifteen-3 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje3-min.jpg");
 }
-#fifteen:hover {
+#fifteen-3:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje3_color-min.jpg");
 }
-#sixteen {
+#sixteen-4 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje4-min.jpg");
   width: 50%;
 }
-#sixteen:hover {
+#sixteen-4:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje4_color-min.jpg");
 }
-#seventeen {
+#seventeen-5 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje5-min.jpg");
   width: 50%;
 }
-#seventeen:hover {
+#seventeen-5:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje5_color-min.jpg");
 }
-#eighteen {
+#eighteen-6 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje6-min.jpg");
 }
-#eighteen:hover {
+#eighteen-6:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje6_color-min.jpg");
 }
-#nineteen {
+#nineteen-7 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje7-min.jpg");
   width: 50%;
 }
-#nineteen:hover {
+#nineteen-7:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje7_color-min.jpg");
 }
-#twenty {
+#twenty-8 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje8-min.jpg");
 }
-#twenty:hover {
+#twenty-8:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje8_color-min.jpg");
 }
-#twentyone {
+#twentyone-9 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje9-min.jpg");
 }
-#twentyone:hover {
+#twentyone-9:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje9_color-min.jpg");
 }
-#twentytwo {
+#twentytwo-10 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje10-min.jpg");
   width: 50%;
 }
-#twentytwo:hover {
+#twentytwo-10:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje10_color-min.jpg");
 }
-#twentythree {
+#twentythree-11 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje11-min.jpg");
   width: 50%;
 }
-#twentythree:hover {
+#twentythree-11:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje11_color-min.jpg");
 }
-#twentyfour {
+#twentyfour-12 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje12-min.jpg");
 }
-#twentyfour:hover {
+#twentyfour-12:hover {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje12_color-min.jpg");
 }
 .ref-img:hover .magnifier {
@@ -420,5 +787,46 @@ h1 {
 }
 .mt-25 {
   margin-top: 70px;
+}
+.backdrop {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+.left-div {
+  height: 420px;
+  width: 50%;
+}
+.carousel-image {
+  z-index: 9999;
+}
+.backdrop {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+.carousel-wrapper {
+  max-width: 84%;
+  margin: auto;
+}
+#carousel-1,
+#carousel-2 {
+  display: none;
+  width: 60%;
+  z-index: 99999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

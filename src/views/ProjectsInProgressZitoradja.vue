@@ -638,6 +638,7 @@ h1 {
 }
 #carousel-1 {
   display: none;
+  width: 60%;
   z-index: 99999;
   position: fixed;
   top: 50%;
