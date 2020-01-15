@@ -1,8 +1,9 @@
 <template>
   <div>
     <app-header-b></app-header-b>
-    <div class="carousel-wrapper">
+    <div class="carousel-wrapper" v-click-outside="outside">
       <b-carousel
+        v-on:keyup.esc="closeModalCarousel"
         ref="myCarousel"
         id="carousel-1"
         v-model="slide"
@@ -202,7 +203,8 @@ export default {
       referenceData: [],
       slide: 0,
       sliding: null,
-      isAnimated: false
+      isAnimated: false,
+      clickOutside: 0
     };
   },
   components: {
@@ -239,7 +241,7 @@ export default {
       let overlay = document.getElementById("backdrop");
       overlay.style.display = "block";
       let body = document.body;
-      body.style.overflow = "hidden";
+      body.style.overflowY = "hidden";
     },
     onSlideStart(slide) {
       this.sliding = false;
@@ -250,6 +252,56 @@ export default {
     },
     setSlide(index) {
       this.$refs.myCarousel.setSlide(index);
+    },
+    closeModalCarousel() {
+      let carousel = document.getElementById("carousel-1");
+      carousel.style.display = "none";
+    },
+    outside: function(e) {
+      this.clickOutside += 1;
+      if (this.clickOutside <= 1) {
+        return false;
+      } else {
+        let carousel = document.getElementById("carousel-1");
+        carousel.style.display = "none";
+        let overlay = document.getElementById("backdrop");
+        overlay.style.display = "none";
+        let body = document.body;
+        body.style.overflowY = "scroll";
+      }
+      // console.log("clicked outside!");
+    }
+  },
+  directives: {
+    "click-outside": {
+      bind: function(el, binding, vNode) {
+        // Provided expression must evaluate to a function.
+        if (typeof binding.value !== "function") {
+          const compName = vNode.context.name;
+          let warn = `[Vue-click-outside:] provided expression '${binding.expression}' is not a function, but has to be`;
+          if (compName) {
+            warn += `Found in component '${compName}'`;
+          }
+          console.warn(warn);
+        }
+        // Define Handler and cache it on the element
+        const bubble = binding.modifiers.bubble;
+        const handler = e => {
+          if (bubble || (!el.contains(e.target) && el !== e.target)) {
+            binding.value(e);
+          }
+        };
+        el.__vueClickOutside__ = handler;
+
+        // add Event Listeners
+        document.addEventListener("click", handler);
+      },
+
+      unbind: function(el, binding) {
+        // Remove Event Listeners
+        document.removeEventListener("click", el.__vueClickOutside__);
+        el.__vueClickOutside__ = null;
+      }
     }
   },
   created() {
@@ -308,7 +360,7 @@ h1 {
 #carousel-1 {
   display: none;
   z-index: 99999;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
