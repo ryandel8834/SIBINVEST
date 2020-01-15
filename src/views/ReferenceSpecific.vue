@@ -113,7 +113,7 @@
           <template v-slot:img>
             <img
               class="d-block img-fluid carousel-image"
-              src="../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje11_color-min.jpg"
               alt="image slot"
             />
           </template>
@@ -122,7 +122,7 @@
           <template v-slot:img>
             <img
               class="d-block img-fluid carousel-image"
-              src="../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg"
+              src="../assets/reference-slike/min/vranje/gotovo/avranje12_color-min.jpg"
               alt="image slot"
             />
           </template>
@@ -692,17 +692,17 @@ h1 {
   background: url("../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg");
 }
 #eleven-11 {
-  background: url("../assets/reference-slike/min/vranje/gotovo/avranje10-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/gotovo/avranje11-min.jpg");
   width: 50%;
 }
 #eleven-11:hover {
-  background: url("../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/gotovo/avranje11_color-min.jpg");
 }
 #twelve-12 {
-  background: url("../assets/reference-slike/min/vranje/gotovo/avranje10-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/gotovo/avranje12-min.jpg");
 }
 #twelve-12:hover {
-  background: url("../assets/reference-slike/min/vranje/gotovo/avranje10_color-min.jpg");
+  background: url("../assets/reference-slike/min/vranje/gotovo/avranje12_color-min.jpg");
 }
 #thirteen-1 {
   background: url("../assets/reference-slike/min/vranje/u-toku/vranje1-min.jpg");
