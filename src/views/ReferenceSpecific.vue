@@ -1,19 +1,23 @@
 <template>
- <div>
-   <app-header-b></app-header-b>
+  <div>
+    <app-header-b></app-header-b>
     <b-container class="px-0" id="reference-specific" fluid>
-     <app-banner :pageTitle="referenceData[0].name"></app-banner>
+      <app-banner :pageTitle="referenceData.name"></app-banner>
       <b-container>
         <b-row class="ref-info-row mb-3">
           <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
-            <h1 class="mb-3 mt-4">{{ referenceData[0].category }}</h1>
+            <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
             <div>
-              <p class="ref-desc">{{ referenceData[0].desc }}</p>
+              <p class="ref-desc">{{ referenceData.desc }}</p>
             </div>
             <div>
-              <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData[0].endDate }}</p>
-              <p class="ref-desc mb-0">Investitor: {{ referenceData[0].investor }}</p>
-              <p class="ref-desc">Neto površina: {{ referenceData[0].area }}</p>
+              <p class="ref-desc mb-0">
+                Završetak gradnje: {{ referenceData.endDate }}
+              </p>
+              <p class="ref-desc mb-0">
+                Investitor: {{ referenceData.investor }}
+              </p>
+              <p class="ref-desc">Neto površina: {{ referenceData.area }}</p>
             </div>
           </b-col>
         </b-row>
@@ -171,8 +175,8 @@
           </b-col>
         </b-row>
       </b-container>
-  </b-container>
- </div>
+    </b-container>
+  </div>
 </template>
 
 <script>
@@ -192,21 +196,19 @@ export default {
     getReferences() {
       Referencer.getReferencesData()
         .then(data => {
-          this.referenceData = data.map(reference => {
-            return Object.assign(
-              {},
-              {
-                category: reference.projectCategory,
-                name: reference.projectName,
-                desc: reference.projectDescription,
-                endDate: reference.completionDate,
-                investor: reference.projectInvestor,
-                area: reference.netoArea,
-                picSet: reference.projectPicSet,
-                picColorSet: reference.projectPicColorSet
-              }
-            );
-          });
+          let dataObject = JSON.stringify(data[0]);
+          let parseObj = JSON.parse(dataObject);
+
+          this.referenceData = {
+            category: parseObj.projectCategory,
+            name: parseObj.projectName,
+            desc: parseObj.projectDescription,
+            endDate: parseObj.completionDate,
+            investor: parseObj.projectInvestor,
+            area: parseObj.netoArea
+          };
+
+          console.log(this.referenceData);
         })
         .catch(e => console.log(e));
     }
