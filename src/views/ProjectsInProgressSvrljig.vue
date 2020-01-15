@@ -1,107 +1,208 @@
 <template>
   <div>
     <app-header-b></app-header-b>
+    <div class="carousel-wrapper" v-click-outside="outside">
+      <b-carousel
+        v-on:keyup.esc="closeModalCarousel"
+        ref="myCarousel"
+        id="carousel-1"
+        v-model="slide"
+        :interval="0"
+        controls
+        indicators
+        :no-animation="isAnimated"
+        background="#ababab"
+        img-width="1024"
+        img-height="480"
+        style="text-shadow: 1px 1px 2px #333;"
+        @sliding-start="onSlideStart"
+      >
+        <!-- Slides with img slot -->
+        <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig1_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig2_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig3_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig4_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig5_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig6_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig7_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig8_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig9_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid carousel-image"
+              src="../assets/reference-slike/min/svrljig/svrljig10_color-min.jpg"
+              alt="image slot"
+            />
+          </template>
+        </b-carousel-slide>
+      </b-carousel>
+    </div>
     <b-container class="px-0" id="reference-specific" fluid>
       <app-banner :pageTitle="referenceData.name"></app-banner>
       <b-container>
-         <b-row class="ref-info-row mb-3">
-      <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
-        <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
-        <div>
-          <p class="ref-desc">{{ referenceData.desc }}</p>
-        </div>
-        <div>
-          <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
-          <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
-          <p
-            class="ref-desc"
-          >Bruto površina izgrađenih objekata na parceli: {{ referenceData.area }}</p>
-        </div>
-      </b-col>
-    </b-row>
-    <div class="d-flex">
-      <div class="ref-img" id="one">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="two">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="three">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-      <div class="ref-img" id="four">
-        <div class="magnifier-wrapper">
-          <img src="../assets/magnifier.png" class="magnifier" alt />
-        </div>
-      </div>
-    </div>
-    <div class="d-flex">
-      <div class="d-flex flex-column w-50">
+        <b-row class="ref-info-row mb-3">
+          <b-col cols="12" lg="5" class="px-0 mt-5 pl-4">
+            <h1 class="mb-3 mt-4">{{ referenceData.category }}</h1>
+            <div>
+              <p class="ref-desc">{{ referenceData.desc }}</p>
+            </div>
+            <div>
+              <p class="ref-desc mb-0">
+                Završetak gradnje: {{ referenceData.endDate }}
+              </p>
+              <p class="ref-desc mb-0">
+                Investitor: {{ referenceData.investor }}
+              </p>
+              <p class="ref-desc">
+                Bruto površina izgrađenih objekata na parceli:
+                {{ referenceData.area }}
+              </p>
+            </div>
+          </b-col>
+        </b-row>
         <div class="d-flex">
-          <div class="ref-img" id="five">
+          <div class="ref-img" id="one-1">
             <div class="magnifier-wrapper">
               <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
           </div>
-          <div class="ref-img" id="six">
+          <div class="ref-img" id="two-2">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="three-3">
+            <div class="magnifier-wrapper">
+              <img src="../assets/magnifier.png" class="magnifier" alt />
+            </div>
+          </div>
+          <div class="ref-img" id="four-4">
             <div class="magnifier-wrapper">
               <img src="../assets/magnifier.png" class="magnifier" alt />
             </div>
           </div>
         </div>
         <div class="d-flex">
-          <div class="ref-img" id="eight">
-            <div class="magnifier-wrapper">
-              <img src="../assets/magnifier.png" class="magnifier" alt />
+          <div class="d-flex flex-column w-50">
+            <div class="d-flex">
+              <div class="ref-img" id="five-5">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+              <div class="ref-img" id="six-6">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="ref-img" id="eight-8">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-column w-50">
+            <div class="d-flex">
+              <div class="ref-img" id="seven-7">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="ref-img" id="nine-9">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
+              <div class="ref-img" id="ten-10">
+                <div class="magnifier-wrapper">
+                  <img src="../assets/magnifier.png" class="magnifier" alt />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="d-flex flex-column w-50">
-        <div class="d-flex">
-          <div class="ref-img" id="seven">
-            <div class="magnifier-wrapper">
-              <img src="../assets/magnifier.png" class="magnifier" alt />
-            </div>
-          </div>
-        </div>
-        <div class="d-flex">
-          <div class="ref-img" id="nine">
-            <div class="magnifier-wrapper">
-              <img src="../assets/magnifier.png" class="magnifier" alt />
-            </div>
-          </div>
-          <div class="ref-img" id="ten">
-            <div class="magnifier-wrapper">
-              <img src="../assets/magnifier.png" class="magnifier" alt />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <carousel :items="1" loop="false">
-      <template slot="prev"><span class="prev"><i class="arrow-left"><font-awesome-icon :icon="['fas', 'chevron-left']"/></i></span></template>
-      <img src="../assets/reference-slike/min/banja/banja1_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja2_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja3_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja4_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja5_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja6_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja7_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja8_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja9_color-min.jpg" alt="">
-      <img src="../assets/reference-slike/min/banja/banja10_color-min.jpg" alt="">
-      <template slot="next"><span class="next"><i class="arrow-right"><font-awesome-icon :icon="['fas', 'chevron-right']"/></i></span></template>
-    </carousel>-->
       </b-container>
-    <div class="backdrop"></div>
-  </b-container>
+      <div class="backdrop"></div>
+    </b-container>
   </div>
 </template>
 

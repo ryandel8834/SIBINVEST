@@ -228,6 +228,10 @@ export default {
         })
         .catch(e => console.log(e));
     },
+    isEven(value) {
+      if (value % 2 == 0) return true;
+      else return false;
+    },
     openImg(event) {
       let elementTarget = event.currentTarget.id;
       let elementArr = elementTarget.split("-");
@@ -253,13 +257,9 @@ export default {
     setSlide(index) {
       this.$refs.myCarousel.setSlide(index);
     },
-    closeModalCarousel() {
-      let carousel = document.getElementById("carousel-1");
-      carousel.style.display = "none";
-    },
     outside: function(e) {
       this.clickOutside += 1;
-      if (this.clickOutside <= 1) {
+      if (this.isEven(this.clickOutside) === false) {
         return false;
       } else {
         let carousel = document.getElementById("carousel-1");
@@ -269,7 +269,6 @@ export default {
         let body = document.body;
         body.style.overflowY = "scroll";
       }
-      // console.log("clicked outside!");
     }
   },
   directives: {

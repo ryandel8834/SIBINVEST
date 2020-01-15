@@ -12,13 +12,13 @@
           href="/"
           alt="SibInvest Logo"
           :style="{
-          backgroundImage: `url(${logoImage})`,
-          height: '30px',
-          width: '220px',
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
-        }"
+            backgroundImage: `url(${logoImage})`,
+            height: '30px',
+            width: '220px',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center'
+          }"
         ></b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse">
@@ -40,7 +40,9 @@
               <router-link to="/#references">reference</router-link>
             </b-nav-item>
             <b-nav-item text="Lang" right>
-              <router-link to="/#projects-in-progress">projekti u toku</router-link>
+              <router-link to="/#projects-in-progress"
+                >projekti u toku</router-link
+              >
             </b-nav-item>
             <b-nav-item text="Lang" right>
               <router-link to="/#contact-us">kontakt</router-link>
