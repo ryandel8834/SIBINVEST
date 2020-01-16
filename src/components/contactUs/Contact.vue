@@ -5,7 +5,9 @@
         <b-col class="contact-information" lg="6" sm="12">
           <div>
             <h1 style="color: black;">KONTAKTIRAJTE NAS</h1>
-            <p><b class="bebas">SIB INVEST DOO</b>, Niš</p>
+            <p>
+              <b class="bebas">SIB INVEST DOO</b>, Niš
+            </p>
             <p>Privredno društvo za građevinske radove</p>
           </div>
           <div class="mt-2 mb-2">
@@ -40,9 +42,7 @@
                   class="invalid-feedback pt-2 pl-1"
                   style="max-height:0px; color:red;"
                   v-show="elementVisible"
-                >
-                  Molimo Vas unesite Vase ime
-                </div>
+                >Molimo Vas unesite Vase ime</div>
               </b-form-group>
               <b-form-group>
                 <b-form-input
@@ -63,9 +63,7 @@
                   class="invalid-feedback pt-2 pl-1"
                   style="max-height:0px; color:red;"
                   v-show="elementVisible"
-                >
-                  Molimo Vas unesite ispravnu email adresu
-                </div>
+                >Molimo Vas unesite ispravnu email adresu</div>
               </b-form-group>
               <b-form-group>
                 <b-textarea
@@ -88,21 +86,10 @@
                   class="invalid-feedback pt-2 pl-1"
                   style="max-height:0px; color:red;"
                   v-show="elementVisible"
-                >
-                  Molimo Vas unesite poruku
-                </div>
+                >Molimo Vas unesite poruku</div>
               </b-form-group>
               <b-form-group>
-<<<<<<< HEAD
                 <b-button type="submit" class="btn mt-3 float-right send-form pl-4 pr-4">pošalji</b-button>
-=======
-                <b-button
-                  @click="checkIsValid"
-                  type="submit"
-                  class="btn mt-3 float-right send-form pl-4 pr-4"
-                  >pošalji</b-button
-                >
->>>>>>> 26a4cace2fbdc61c1a94489483ba8f6d0f685cc4
               </b-form-group>
             </div>
             <div v-else class="alert alert-success" role="alert">
@@ -198,38 +185,8 @@ export default {
     submitMessage: function() {
       this.validateText();
     },
-<<<<<<< HEAD
     sendEmail(e) {
       this.checkIsValid(e);
-=======
-    sendEmail: e => {
-      console.log(this.name, this.email, this.text);
-      if (
-        (this.validName(this.name) === true &&
-          this.validMessage(this.text) === true) ||
-        this.validEmail(this.email) === true
-      ) {
-        console.log("proslo");
-        return false;
-      } else {
-        console.log("nije proslo");
-        // emailjs
-        //   .sendForm(
-        //     "gmail",
-        //     "sibinvestdoo",
-        //     e.target,
-        //     "user_3UfiOi0iiKLucStEtqT7h"
-        //   )
-        //   .then(
-        //     result => {
-        //       console.log("SUCCESS!");
-        //     },
-        //     error => {
-        //       console.log("FAILED...", error);
-        //     }
-        //   );
-      }
->>>>>>> 26a4cace2fbdc61c1a94489483ba8f6d0f685cc4
     },
     checkIsValid(event) {
       console.log(this.isValidEmail);
