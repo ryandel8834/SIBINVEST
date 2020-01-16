@@ -64,10 +64,7 @@
         <autocomplete
           @submit="goToSpecificPage"
           size="sm"
-          class="mr-sm-2 search-bar"
-          v-bind:class="{
-            'search-bar': isSearchShown
-          }"
+          class="mr-sm-2 search-bar d-none d-lg-block"
           :search="search"
           placeholder
           :get-result-value="getResultValue"
@@ -235,7 +232,7 @@ export default {
 .navbar.sticky-header {
   height: 80px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background-color: #fff !important;
   color: #000;
   border-bottom: 1px solid #000;
 }
@@ -258,7 +255,7 @@ export default {
   position: relative;
 }
 .search-bar {
-  display: block !important;
+  display: block;
   max-width: 200px;
   max-height: 25px;
   position: absolute;
@@ -280,6 +277,7 @@ export default {
 @media (max-width: 991px) {
   .navbar {
     height: auto !important;
+    background-color: rgb(87, 88, 90);
   }
 }
 @media (max-width: 576px) {

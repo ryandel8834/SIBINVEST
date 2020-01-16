@@ -50,9 +50,6 @@
                 class="d-block d-lg-none"
                 @submit="goToSpecificPage"
                 size="sm"
-                v-bind:class="{
-                  'search-bar': isSearchShown
-                }"
                 :search="search"
                 placeholder="Pretrazi"
                 :get-result-value="getResultValue"
@@ -73,7 +70,7 @@
         <autocomplete
           @submit="goToSpecificPage"
           size="sm"
-          class="mr-sm-2 search-bar"
+          class="mr-sm-2 search-bar d-none d-lg-block"
           :search="search"
           placeholder="Pretrazi"
           :get-result-value="getResultValue"
@@ -188,7 +185,7 @@ export default {
   position: relative;
 }
 .search-bar {
-  display: block !important;
+  display: block;
   max-width: 200px;
   max-height: 25px;
   position: absolute;
@@ -210,6 +207,7 @@ export default {
 @media (max-width: 991px) {
   .navbar {
     height: auto !important;
+    background-color: rgb(87, 88, 90);
   }
 }
 @media (max-width: 576px) {
