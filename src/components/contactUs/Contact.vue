@@ -86,11 +86,7 @@
                 >Molimo Vas unesite poruku</div>
               </b-form-group>
               <b-form-group>
-                <b-button
-                  @click="checkIsValid"
-                  type="submit"
-                  class="btn mt-3 float-right send-form pl-4 pr-4"
-                >pošalji</b-button>
+                <b-button type="submit" class="btn mt-3 float-right send-form pl-4 pr-4">pošalji</b-button>
               </b-form-group>
             </div>
             <div v-else class="alert alert-success" role="alert">
@@ -115,6 +111,7 @@ export default {
       text: "",
       textBlured: false,
       email: "",
+      targetEl: {},
       emailBlured: false,
       valid: false,
       submitted: false,
@@ -143,7 +140,6 @@ export default {
       if (this.validEmail(this.email)) {
         this.isValidEmail = true;
         this.removeInvalidEmail = false;
-
       } else {
         this.isValidEmail = false;
         this.removeInvalidEmail = true;
@@ -186,40 +182,40 @@ export default {
     submitMessage: function() {
       this.validateText();
     },
-    sendEmail: (e) => {
-    emailjs
-      .sendForm(
-        "gmail",
-        "sibinvestdoo",
-        e.target,
-        "user_3UfiOi0iiKLucStEtqT7h"
-      )
-      .then(
-        result => {
-          console.log("SUCCESS!");
-        },
-        error => {
-          console.log("FAILED...", error);
-        }
-      );
+    sendEmail(e) {
+      this.checkIsValid(e);
     },
-    checkIsValid() {
+    checkIsValid(event) {
       console.log(this.isValidEmail);
-        this.validateName();
-        this.validateEmail();
-        this.validateText();
+      this.validateName();
+      this.validateEmail();
+      this.validateText();
       if (this.isValidText && this.isValidEmail && this.isValidName) {
         //THIS IS WHERE YOU SUBMIT DATA TO SERVER
+        emailjs
+          .sendForm(
+            "gmail",
+            "sibinvestdoo",
+            event.target,
+            "user_3UfiOi0iiKLucStEtqT7h"
+          )
+          .then(
+            result => {
+              console.log("SUCCESS!");
+            },
+            error => {
+              console.log("FAILED...", error);
+            }
+          );
         this.submitted = true;
-        // this.sendEmail();
         this.removeInvalidName = false;
         this.removeInvalidText = false;
         this.removeInvalidEmail = false;
         setTimeout(() => {
           this.submitted = false;
-          this.name="";
-          this.email="";
-          this.text="";
+          this.name = "";
+          this.email = "";
+          this.text = "";
           this.isValidName = false;
           this.isValidEmail = false;
           this.isValidText = false;

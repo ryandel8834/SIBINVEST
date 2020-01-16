@@ -36,15 +36,9 @@
               <router-link to="/">početna</router-link>
             </b-nav-item>
             <b-nav-item text="Lang" right href="#about-us">o nama</b-nav-item>
-            <b-nav-item text="Lang" right href="#references"
-              >reference</b-nav-item
-            >
-            <b-nav-item text="Lang" right href="#projects-in-progress"
-              >projekti u toku</b-nav-item
-            >
-            <b-nav-item text="Lang" right href="#contact-us"
-              >kontakt</b-nav-item
-            >
+            <b-nav-item text="Lang" right href="#references">reference</b-nav-item>
+            <b-nav-item text="Lang" right href="#projects-in-progress">projekti u toku</b-nav-item>
+            <b-nav-item text="Lang" right href="#contact-us">kontakt</b-nav-item>
             <b-nav-form class="d-lg-none d-block">
               <autocomplete
                 class="d-block d-lg-none"
@@ -161,12 +155,10 @@ export default {
         this.isSearchShown = true;
         let headerSearch = document.getElementById("navbar-id");
         headerSearch.classList.add("search-bar-active");
-        this.handleScroll();
       } else {
         this.isSearchShown = false;
         let headerSearch = document.getElementById("navbar-id");
         headerSearch.classList.remove("search-bar-active");
-        this.handleScroll();
       }
     },
     search(input) {

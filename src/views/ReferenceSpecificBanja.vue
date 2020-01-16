@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header-b></app-header-b>
-    <div class="carousel-wrapper" v-esc="escape" v-click-outside="outside">
+    <div class="carousel-wrapper" v-click-outside="outside">
       <b-carousel
         v-on:keyup.esc="closeModalCarousel"
         ref="myCarousel"
@@ -121,12 +121,8 @@
               <p class="ref-desc">{{ referenceData.desc }}</p>
             </div>
             <div>
-              <p class="ref-desc mb-0">
-                Završetak gradnje: {{ referenceData.endDate }}
-              </p>
-              <p class="ref-desc mb-0">
-                Investitor: {{ referenceData.investor }}
-              </p>
+              <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
+              <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
               <p class="ref-desc">Neto površina: {{ referenceData.area }}</p>
             </div>
           </b-col>
@@ -278,9 +274,6 @@ export default {
       let body = document.body;
       body.style.overflowY = "scroll";
     }
-  },
-  escape(event) {
-    console.log("Esc key pressed.", `Event: ${event}`);
   },
   directives: {
     "click-outside": {

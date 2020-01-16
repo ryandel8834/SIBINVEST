@@ -267,12 +267,8 @@
               <p class="ref-desc">{{ referenceData.desc }}</p>
             </div>
             <div>
-              <p class="ref-desc mb-0">
-                Završetak gradnje: {{ referenceData.endDate }}
-              </p>
-              <p class="ref-desc mb-0">
-                Investitor: {{ referenceData.investor }}
-              </p>
+              <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
+              <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
               <p class="ref-desc">Neto površina: {{ referenceData.area }}</p>
             </div>
           </b-col>
@@ -803,16 +799,6 @@ h1 {
   width: 50%;
 }
 .carousel-image {
-  z-index: 9999;
-}
-.backdrop {
-  display: none;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
 }
 .carousel-wrapper {
