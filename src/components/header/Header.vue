@@ -44,9 +44,6 @@
                 class="d-block d-lg-none"
                 @submit="goToSpecificPage"
                 size="sm"
-                v-bind:class="{
-                  'search-bar': isSearchShown
-                }"
                 :search="search"
                 placeholder="Pretrazi"
                 :get-result-value="getResultValue"
@@ -57,7 +54,7 @@
                 </i>
               </b-button>
             </b-nav-form>
-            <b-nav-item right @click="showSearch">
+            <b-nav-item right>
               <i class="nav-icon d-none d-lg-block">
                 <font-awesome-icon :icon="['fas', 'search']" />
               </i>
@@ -67,12 +64,12 @@
         <autocomplete
           @submit="goToSpecificPage"
           size="sm"
-          class="mr-sm-2 d-none"
+          class="mr-sm-2 search-bar"
           v-bind:class="{
             'search-bar': isSearchShown
           }"
           :search="search"
-          placeholder="Pretrazi"
+          placeholder
           :get-result-value="getResultValue"
         ></autocomplete>
       </b-container>
@@ -148,17 +145,6 @@ export default {
       } else {
         header.classList.add("sticky-header");
         this.logoName = "logo1.jpg";
-      }
-    },
-    showSearch() {
-      if (this.isSearchShown == false) {
-        this.isSearchShown = true;
-        let headerSearch = document.getElementById("navbar-id");
-        headerSearch.classList.add("search-bar-active");
-      } else {
-        this.isSearchShown = false;
-        let headerSearch = document.getElementById("navbar-id");
-        headerSearch.classList.remove("search-bar-active");
       }
     },
     search(input) {
@@ -247,7 +233,7 @@ export default {
   text-decoration: none;
 }
 .navbar.sticky-header {
-  height: 70px;
+  height: 80px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   color: #000;
@@ -276,7 +262,7 @@ export default {
   max-width: 200px;
   max-height: 25px;
   position: absolute;
-  bottom: -17px;
+  bottom: -13px;
   right: 0;
 }
 .search-btn {

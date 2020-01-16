@@ -10,19 +10,19 @@
       <app-about-us></app-about-us>
       <b-container id="about-us" fluid></b-container>
     </div>
-      <div class="about-us container py-5 my-4 d-block d-md-none px-4 px-sm-none" id="about-us-b">
-        <h1 style="color: black;" class="m-0 mb-3">O NAMA</h1> 
-        <div data-v-5565ab09="" class="about-us-card-b">
-          <div data-v-5565ab09="" class="pl-0 pr-3 ml-0 container">
-            <p data-v-5565ab09="" class="mb-0">
-              Naša kompanija je specijalizovana za izvođenje najrazličitijih radova u oblasti građevinarstva. Sa sedištem u Nišu, beležimo postojanje od 2008. godine,
-              dok je prvi objekat- stambena zgrada u ulici Stojana Novakovića u Nišu, izveden 2009. godine.
-              Ono čime se ponosimo su efkasnost, kvalitet gradnje, iskustvo i poslovan uspeh na čitavoj teritoriji južne i jugoistočne Srbije.
-              Takođe nas odlikuje posvećenost i istrajnost, kao i dobri odnosi sa klijentima i saradnicima
-            </p>
-          </div>
+    <div class="about-us container py-5 my-4 d-block d-md-none px-4 px-sm-none" id="about-us-b">
+      <h1 style="color: black;" class="m-0 mb-3">O NAMA</h1>
+      <div data-v-5565ab09 class="about-us-card-b">
+        <div data-v-5565ab09 class="pl-0 pr-3 ml-0 container">
+          <p data-v-5565ab09 class="mb-0">
+            Naša kompanija je specijalizovana za izvođenje najrazličitijih radova u oblasti građevinarstva. Sa sedištem u Nišu, beležimo postojanje od 2008. godine,
+            dok je prvi objekat- stambena zgrada u ulici Stojana Novakovića u Nišu, izveden 2009. godine.
+            Ono čime se ponosimo su efkasnost, kvalitet gradnje, iskustvo i poslovan uspeh na čitavoj teritoriji južne i jugoistočne Srbije.
+            Takođe nas odlikuje posvećenost i istrajnost, kao i dobri odnosi sa klijentima i saradnicima
+          </p>
         </div>
       </div>
+    </div>
     <app-reference-section></app-reference-section>
     <app-project-during></app-project-during>
     <app-contact-us></app-contact-us>
@@ -56,6 +56,7 @@ export default {
   background: url("../assets/homesection.jpg") no-repeat;
   height: 100vh;
   background-size: cover;
+  background-position: 0 -98px;
 }
 #about-us {
   position: absolute;
@@ -87,5 +88,9 @@ export default {
     margin-left: 15px;
   }
 }
-
+@media (max-width: 1200px) {
+  .home-section {
+    background-position: 0;
+  }
+}
 </style>
