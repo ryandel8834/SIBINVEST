@@ -7,11 +7,8 @@
       </div>
     </b-container>
     <div class="home-section">
-      <div
-        style="position: absolute; top: 500px; display: flex; width:100%; height: 20px;"
-        id="aboutUsConainer"
-      ></div>
-      <b-container id="about-us"></b-container>
+      <app-about-us></app-about-us>
+      <b-container id="about-us" fluid></b-container>
     </div>
     <div class="about-us container py-5 my-4 d-block d-md-none px-4 px-sm-none" id="about-us-b">
       <h1 style="color: black;" class="m-0 mb-3">O NAMA</h1>
@@ -42,32 +39,8 @@ export default {
   name: "app",
   data() {
     return {
-      msg: "some msg",
-      pageWidth: Number,
-      bootstrapWidth: Number,
-      height: 0,
-      leftAndRight: 0
+      msg: "some msg"
     };
-  },
-  beforeMount() {
-    let boostrapContainer = document.querySelector("#aboutUsConainer");
-    let boostrapContainerWidth = document.querySelector("#about-us")
-      .offsetWidth;
-    // get values
-    this.bootstrapWidth = boostrapContainerWidth;
-    this.pageWidth = window.innerWidth;
-    this.leftAndRight = (this.pageWidth - this.bootstrapWidth) / 2;
-
-    let template = this.getTemplate();
-    console.log(template);
-    boostrapContainer.innerHTML = template;
-  },
-  methods: {
-    getTemplate: function() {
-      return `<div style="width: ${this.leftAndRight}px; background: white; heigth:20px;"></div>
-      <div style="width: 100%; background: white; heigth:20px;"></div>
-      <div style="width: ${this.leftAndRight}px; background: white; heigth:20px;"></div>`;
-    }
   },
   components: {
     "app-reference-section": Reference,
