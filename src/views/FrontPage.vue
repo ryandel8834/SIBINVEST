@@ -7,9 +7,9 @@
       </div>
     </b-container>
     <div class="home-section">
-      <app-about-us></app-about-us>
       <b-container id="about-us" fluid></b-container>
     </div>
+    <app-about-us id="aboutUsContainer"></app-about-us>
     <div class="about-us container py-5 my-4 d-block d-md-none px-4 px-sm-none" id="about-us-b">
       <h1 style="color: black;" class="m-0 mb-3">O NAMA</h1>
       <div data-v-5565ab09 class="about-us-card-b">
@@ -39,8 +39,31 @@ export default {
   name: "app",
   data() {
     return {
-      msg: "some msg"
+      msg: "some msg",
+      pageWidth: 0,
+      aboutUsDiv: 0,
+      divToAdd: 0
     };
+  },
+  created() {
+    window.addEventListener("DOMContentLoad", this.handleResize);
+    this.handleResize();
+  },
+  mounted() {
+    this.aboutUsDiv = document.querySelector(".container").offsetWidth;
+    this.divToAdd = (this.pageWidth - this.aboutUsDiv) / 2;
+    console.log(this.pageWidth, this.aboutUsDiv, this.divToAdd);
+    let fullContainerWidth = this.aboutUsDiv + this.divToAdd;
+    console.log(fullContainerWidth);
+
+    // Get element and set width property
+    let aboutUsDiv = document.querySelector(".about-us");
+    aboutUsDiv.style.width = `${fullContainerWidth}px`;
+  },
+  methods: {
+    handleResize() {
+      this.pageWidth = window.innerWidth;
+    }
   },
   components: {
     "app-reference-section": Reference,
@@ -88,7 +111,7 @@ export default {
     margin-left: 15px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1500px) {
   .home-section {
     background-position: 0;
   }

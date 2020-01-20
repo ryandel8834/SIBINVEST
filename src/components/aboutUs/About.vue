@@ -29,7 +29,7 @@ h1 {
   position: absolute;
   bottom: 60px;
   padding-top: 80px;
-  width: 100%;
+  /* width: 100%; */
 }
 .about-us-card {
   height: auto;
