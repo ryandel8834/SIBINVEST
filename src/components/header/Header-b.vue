@@ -130,7 +130,7 @@ export default {
     },
     goToSpecificPage(result) {
       console.log(result.name, result.path);
-      window.open(`http://localhost:8080${result.path}`, "_self");
+      window.open(`http://sibinvestdoo.com${result.path}`, "_self");
     }
   },
   created() {
@@ -189,7 +189,7 @@ export default {
   max-width: 200px;
   max-height: 25px;
   position: absolute;
-  bottom: -13px;
+  bottom: 0px;
   right: 0;
 }
 .search-btn {
@@ -199,6 +199,9 @@ export default {
 }
 .navbar-toggler:focus {
   outline: none;
+}
+#nav-collapse {
+  padding-bottom: 15px;
 }
 .navbar-toggler .nav-icon {
   font-size: 26px;

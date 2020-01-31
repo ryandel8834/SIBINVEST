@@ -150,9 +150,9 @@ exports = module.exports = {
     }
   ],
   searchRoutes: [
-    { name: "zitoradje", path: "/progress-zitoradja" },
-    { name: "svrljig", path: "/progress-svrljig" },
-    { name: "vranje", path: "/reference-vranje" },
-    { name: "banja", path: "/reference-banja" }
+    { name: "Zitoradje (Kupališni kompleks)", path: "/progress-zitoradja" },
+    { name: "Svrljig (Predškolsko 'Poletarac')", path: "/progress-svrljig" },
+    { name: "Vranje (Narodno Pozorište)", path: "/reference-vranje" },
+    { name: "Banja (Sportski Centar)", path: "/reference-banja" }
   ]
 };

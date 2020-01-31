@@ -158,7 +158,7 @@ export default {
     },
     goToSpecificPage(result) {
       console.log(result.name, result.path);
-      window.open(`http://localhost:8080${result.path}`, "_self");
+      window.open(`http://sibinvestdoo.com${result.path}`, "_self");
     }
   },
   beforeMount() {
@@ -229,6 +229,9 @@ export default {
 .navbar-dark .navbar-nav .nav-link a:hover {
   text-decoration: none;
 }
+#nav-collapse {
+  padding-bottom: 15px;
+}
 .navbar.sticky-header {
   height: 80px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -259,7 +262,7 @@ export default {
   max-width: 200px;
   max-height: 25px;
   position: absolute;
-  bottom: -13px;
+  bottom: 0px;
   right: 0;
 }
 .search-btn {

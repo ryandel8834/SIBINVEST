@@ -121,12 +121,8 @@
               <p class="ref-desc">{{ referenceData.desc }}</p>
             </div>
             <div>
-              <p class="ref-desc mb-0">
-                Završetak gradnje: {{ referenceData.endDate }}
-              </p>
-              <p class="ref-desc mb-0">
-                Investitor: {{ referenceData.investor }}
-              </p>
+              <p class="ref-desc mb-0">Završetak gradnje: {{ referenceData.endDate }}</p>
+              <p class="ref-desc mb-0">Investitor: {{ referenceData.investor }}</p>
               <p class="ref-desc">
                 Bruto površina izgrađenih objekata na parceli:
                 {{ referenceData.area }}
@@ -251,7 +247,7 @@ export default {
       let elementTarget = event.currentTarget.id;
       let elementArr = elementTarget.split("-");
       let elementId = parseInt(elementArr[1]);
-
+      console.log(event);
       this.setSlide(elementId - 1);
       this.isAnimated = true;
 
